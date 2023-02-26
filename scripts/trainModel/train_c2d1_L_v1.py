@@ -22,27 +22,27 @@ model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.0000005)
               metrics=['categorical_crossentropy'])
 
 model.summary()
+lastSavedLoss = 9999
 
-for x in range(10000):
-    for y in range(30):
+for x in range(100000):
+    datasetCsv = pd.read_csv(
+        "http://localhost:3500/datasetReader/" + datasetReaderId + "/dataset?format=csv", header=None)
 
-        datasetCsv = pd.read_csv(
-            "http://localhost:3500/datasetReader/" + datasetReaderId + "/dataset?format=csv", header=None)
-        print("loaded dataset.", y)
+    dataset_features = datasetCsv.copy()
+    dataset_labels = dataset_features.pop(896)
 
-        dataset_features = datasetCsv.copy()
-        dataset_labels = dataset_features.pop(896)
+    dataset_features = np.array(dataset_features)
+    dataset_labels = to_categorical(dataset_labels, num_classes=1837)
 
-        dataset_features = np.array(dataset_features)
-        dataset_labels = to_categorical(dataset_labels, num_classes=1837)
+    datasetTensor = tf.data.Dataset.from_tensor_slices((tf.reshape(tf.constant(
+        dataset_features), [-1, 8, 8, 14]), dataset_labels))
 
-        datasetTensor = tf.data.Dataset.from_tensor_slices((tf.reshape(tf.constant(
-            dataset_features), [-1, 8, 8, 14]), dataset_labels))
+    datasetTensor = datasetTensor.shuffle(
+        SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE)
 
-        datasetTensor = datasetTensor.shuffle(
-            SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE)
+    fitResult = model.fit(datasetTensor, epochs=1).history["loss"][0]
 
-        fitResult = model.fit(datasetTensor, epochs=1)
-
-    model.save('./models/c2d1_L_v1/'+str(fitResult.history["loss"][0]))
-    print('* * * * * * model saved.', fitResult.history["loss"][0])
+    if fitResult < lastSavedLoss:
+        model.save('./models/c2d1_L_v1/' + str(fitResult))
+        lastSavedLoss = fitResult
+        print('* * * * * * model saved.', fitResult)

@@ -5,13 +5,13 @@ from keras.layers import Dense, Conv2D, LeakyReLU, Flatten, Concatenate
 
 input = Input(shape=(8, 8, 14))
 
-conv3a = Conv2D(128, kernel_size=3, padding='same', use_bias=False)(input)
+conv3a = Conv2D(64, kernel_size=3, padding='same', use_bias=False)(input)
 d3a = LeakyReLU()(conv3a)
 
 conv3b = Conv2D(128, kernel_size=3, padding='same', use_bias=False)(d3a)
 d3b = LeakyReLU()(conv3b)
 
-conv8a = Conv2D(128, kernel_size=8, padding='same', use_bias=False)(input)
+conv8a = Conv2D(64, kernel_size=8, padding='same', use_bias=False)(input)
 d8a = LeakyReLU()(conv8a)
 
 conv8b = Conv2D(128, kernel_size=8, padding='same', use_bias=False)(d8a)
