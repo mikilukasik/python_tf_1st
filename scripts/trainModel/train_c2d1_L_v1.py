@@ -6,10 +6,11 @@ import numpy as np
 import gzip
 import pandas as pd
 import shutil
+from collections import deque
 
 with tf.device('/cpu:0'):
 
-    BATCH_SIZE = 32
+    BATCH_SIZE = 64
     SHUFFLE_BUFFER_SIZE = 100
 
     datasetReaderId = json.loads(
@@ -23,7 +24,14 @@ with tf.device('/cpu:0'):
                   metrics=['categorical_crossentropy'])
 
     model.summary()
-    lastSavedLoss = 9999
+    lastSavedAvg = 9999
+    avgQ = deque(maxlen=10)
+
+    def get_avg():
+        if len(avgQ) == 0:
+            return 0
+        else:
+            return sum(avgQ)/len(avgQ)
 
     for x in range(100000):
         datasetCsv = pd.read_csv(
@@ -41,14 +49,16 @@ with tf.device('/cpu:0'):
         datasetTensor = datasetTensor.shuffle(
             SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE)
 
-        fitResult = model.fit(datasetTensor, epochs=1).history["loss"][0]
+        avgQ.append(model.fit(datasetTensor, epochs=1).history["loss"][0])
+        avg = get_avg()
+        print('avg:', avg)
 
-        if fitResult < lastSavedLoss:
-            model.save('./models/c2d1_L_v1/' + str(fitResult))
-            print('* * * * * * model saved.', fitResult)
+        if avg < lastSavedAvg:
+            model.save('./models/c2d1_L_v1/' + str(avg))
+            print('* * * * * * model saved.', avg)
 
-            if lastSavedLoss < 9999:
-                shutil.rmtree(r'./models/c2d1_L_v1/' + str(lastSavedLoss))
-                print('deleted old:', lastSavedLoss)
+            if lastSavedAvg < 9999:
+                shutil.rmtree(r'./models/c2d1_L_v1/' + str(lastSavedAvg))
+                print('deleted old:', lastSavedAvg)
 
-            lastSavedLoss = fitResult
+            lastSavedAvg = avg
