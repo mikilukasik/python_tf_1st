@@ -18,10 +18,10 @@ with tf.device('/cpu:0'):
         urlopen("http://localhost:3500/datasetReader").read())["id"]
     print("datasetReaderId", datasetReaderId)
 
-    model = tf.keras.models.load_model('./models/c3d3_S_v1/5.347415208816528')
+    model = tf.keras.models.load_model('./models/c3d3_S_v1/2.5869994163513184')
     # model = tf.keras.models.load_model('./models/blanks/c3d3_S_v1')
 
-    model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.00001), loss='categorical_crossentropy',
+    model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.000003), loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
 
     model.summary()
@@ -56,7 +56,7 @@ with tf.device('/cpu:0'):
 
         if avg < lastSavedAvg:
             model.save('./models/c3d3_S_v1/' + str(avg))
-            print('* * * * * * model saved.', avg)
+            print('model saved.    * * * * * * ', avg, ' * * * * * * ')
 
             if lastSavedAvg < 9999:
                 shutil.rmtree(r'./models/c3d3_S_v1/' + str(lastSavedAvg))
