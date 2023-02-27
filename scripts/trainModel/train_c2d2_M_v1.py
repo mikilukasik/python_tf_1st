@@ -5,6 +5,9 @@ import json
 import numpy as np
 import gzip
 import pandas as pd
+import shutil
+from collections import deque
+
 
 # with tf.device('/cpu:0'):
 
@@ -15,13 +18,23 @@ datasetReaderId = json.loads(
     urlopen("http://localhost:3500/datasetReader").read())["id"]
 print("datasetReaderId", datasetReaderId)
 
-model = tf.keras.models.load_model('./models/blanks/c2d2_M_v1')
+model = tf.keras.models.load_model('./models/c2d2_M_v1/2.1668477058410645')
+# model = tf.keras.models.load_model('./models/blanks/c2d2_M_v1')
 
-model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.001), loss='categorical_crossentropy',
+model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.00003), loss='categorical_crossentropy',
               metrics=['categorical_crossentropy'])
 
 model.summary()
-lastSavedLoss = 9999
+lastSavedAvg = 9999
+avgQ = deque(maxlen=10)
+
+
+def get_avg():
+    if len(avgQ) == 0:
+        return 0
+    else:
+        return sum(avgQ)/len(avgQ)
+
 
 for x in range(100000):
     datasetCsv = pd.read_csv(
@@ -39,9 +52,16 @@ for x in range(100000):
     datasetTensor = datasetTensor.shuffle(
         SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE)
 
-    fitResult = model.fit(datasetTensor, epochs=1).history["loss"][0]
+    avgQ.append(model.fit(datasetTensor, epochs=1).history["loss"][0])
+    avg = get_avg()
+    print('avg:', avg)
 
-    if fitResult < lastSavedLoss:
-        model.save('./models/c2d2_M_v1/' + str(fitResult))
-        lastSavedLoss = fitResult
-        print('* * * * * * model saved.', fitResult)
+    if avg < lastSavedAvg:
+        model.save('./models/c2d2_M_v1/' + str(avg))
+        print('* * * * * * model saved.', avg)
+
+        if lastSavedAvg < 9999:
+            shutil.rmtree(r'./models/c2d2_M_v1/' + str(lastSavedAvg))
+            print('deleted old:', lastSavedAvg)
+
+        lastSavedAvg = avg
