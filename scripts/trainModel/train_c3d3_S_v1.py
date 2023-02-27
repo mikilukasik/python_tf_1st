@@ -7,32 +7,41 @@ import gzip
 import pandas as pd
 import shutil
 from collections import deque
-
+import random
+# import keyboard
 
 with tf.device('/cpu:0'):
 
-    BATCH_SIZE = 32
+    BATCH_SIZE = 128
     SHUFFLE_BUFFER_SIZE = 100
 
     datasetReaderId = json.loads(
         urlopen("http://localhost:3500/datasetReader").read())["id"]
     print("datasetReaderId", datasetReaderId)
 
-    model = tf.keras.models.load_model('./models/c3d3_S_v1/2.5869994163513184')
+    model = tf.keras.models.load_model('./models/c3d3_S_v1/2.4398773908615112')
     # model = tf.keras.models.load_model('./models/blanks/c3d3_S_v1')
 
-    model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.000003), loss='categorical_crossentropy',
+    model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.000001), loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
 
     model.summary()
     lastSavedAvg = 9999
     avgQ = deque(maxlen=10)
 
+    # def saveModel():
+    #     print('It works! You typed save and triggered this function.')
+
+    # keyboard.add_hotkey('s, a, v, e', saveModel)
+    # keyboard.wait()
+
     def get_avg():
         if len(avgQ) == 0:
             return 0
         else:
             return sum(avgQ)/len(avgQ)
+
+    iterations_with_no_improvement = 0
 
     for x in range(100000):
         datasetCsv = pd.read_csv(
@@ -63,3 +72,11 @@ with tf.device('/cpu:0'):
                 print('deleted old:', lastSavedAvg)
 
             lastSavedAvg = avg
+            iterations_with_no_improvement = 0
+
+        else:
+            iterations_with_no_improvement += 1
+
+            if (iterations_with_no_improvement > 30 and random.randint(0, 20) == 20):
+                model.save('./models/c3d3_S_v1/x_' + str(avg))
+                print('extra model saved.    * * * * * * ', avg, ' * * * * * * ')
