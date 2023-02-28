@@ -19,29 +19,83 @@ with tf.device('/cpu:0'):
         urlopen("http://localhost:3500/datasetReader").read())["id"]
     print("datasetReaderId", datasetReaderId)
 
-    model = tf.keras.models.load_model('./models/c3d3_S_v1/2.4398773908615112')
+    model = tf.keras.models.load_model(
+        './models/c3d3_S_v1/250_2.42795224571228')
     # model = tf.keras.models.load_model('./models/blanks/c3d3_S_v1')
 
     model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.000001), loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
 
     model.summary()
-    lastSavedAvg = 9999
-    avgQ = deque(maxlen=10)
+    lastSavedAvg10 = 9999
+    avgQ10 = deque(maxlen=10)
+    lastSavedAvg50 = 9999
+    avgQ50 = deque(maxlen=50)
+    lastSavedAvg250 = 9999
+    avgQ250 = deque(maxlen=250)
 
-    # def saveModel():
-    #     print('It works! You typed save and triggered this function.')
+    iterations_with_no_improvement = 0
 
-    # keyboard.add_hotkey('s, a, v, e', saveModel)
-    # keyboard.wait()
-
-    def get_avg():
+    def get_avg(avgQ):
         if len(avgQ) == 0:
             return 0
         else:
             return sum(avgQ)/len(avgQ)
 
-    iterations_with_no_improvement = 0
+    def saveModel(model, avg, lastSavedAvg, qName):
+        model.save('./models/c3d3_S_v1/' + qName + '_' + str(avg))
+        print('model saved.    * * * * * * * * * * * * * * * * * * * * * * * *')
+        print('                * * * * * * ', qName, avg, ' * * * * * * ')
+        print('                * * * * * * * * * * * * * * * * * * * * * * * *')
+
+        if lastSavedAvg < 9999:
+            shutil.rmtree(r'./models/c3d3_S_v1/' +
+                          qName + '_' + str(lastSavedAvg))
+            print('deleted old:', qName, lastSavedAvg)
+
+    def appendToAvg(val):
+        avgQ10.append(val)
+        avgQ50.append(val)
+        avgQ250.append(val)
+
+    def saveIfShould(model, val):
+        global iterations_with_no_improvement
+        global lastSavedAvg10
+        global lastSavedAvg50
+        global lastSavedAvg250
+
+        appendToAvg(val)
+
+        iterations_with_no_improvement += 1
+
+        if len(avgQ10) < 6:
+            return
+
+        avg10 = get_avg(avgQ10)
+        avg50 = get_avg(avgQ50)
+        avg250 = get_avg(avgQ250)
+
+        print('avg (10, 50, 250)', avg10, avg50, avg250)
+
+        if avg10 < lastSavedAvg10:
+            saveModel(model, avg10, lastSavedAvg10, '10')
+            lastSavedAvg10 = avg10
+            iterations_with_no_improvement = 0
+
+        if avg50 < lastSavedAvg50:
+            saveModel(model, avg50, lastSavedAvg50, '50')
+            lastSavedAvg50 = avg50
+            iterations_with_no_improvement = 0
+
+        if avg250 < lastSavedAvg250:
+            saveModel(model, avg250, lastSavedAvg250, '250')
+            lastSavedAvg250 = avg250
+            iterations_with_no_improvement = 0
+
+        if (iterations_with_no_improvement > 50):
+            model.save('./models/c3d3_S_v1/X_' + str(avg50))
+            print('extra model saved.   * * * * * * ', avg50, ' * * * * * * ')
+            iterations_with_no_improvement = 0
 
     for x in range(100000):
         datasetCsv = pd.read_csv(
@@ -59,24 +113,19 @@ with tf.device('/cpu:0'):
         datasetTensor = datasetTensor.shuffle(
             SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE)
 
-        avgQ.append(model.fit(datasetTensor, epochs=1).history["loss"][0])
-        avg = get_avg()
-        print('avg:', avg)
+        val = model.fit(datasetTensor, epochs=1).history["loss"][0]
+        # avg = get_avg()
+        # print('avg:', avg)
 
-        if avg < lastSavedAvg:
-            model.save('./models/c3d3_S_v1/' + str(avg))
-            print('model saved.    * * * * * * ', avg, ' * * * * * * ')
+        saveIfShould(model, val)
 
-            if lastSavedAvg < 9999:
-                shutil.rmtree(r'./models/c3d3_S_v1/' + str(lastSavedAvg))
-                print('deleted old:', lastSavedAvg)
+        # if avg < lastSavedAvg10:
+        # model.save('./models/c3d3_S_v1/' + str(avg))
+        # print('model saved.    * * * * * * ', avg, ' * * * * * * ')
 
-            lastSavedAvg = avg
-            iterations_with_no_improvement = 0
+        # if lastSavedAvg10 < 9999:
+        #     shutil.rmtree(r'./models/c3d3_S_v1/' + str(lastSavedAvg10))
+        #     print('deleted old:', lastSavedAvg10)
 
-        else:
-            iterations_with_no_improvement += 1
-
-            if (iterations_with_no_improvement > 30 and random.randint(0, 20) == 20):
-                model.save('./models/c3d3_S_v1/x_' + str(avg))
-                print('extra model saved.    * * * * * * ', avg, ' * * * * * * ')
+        # lastSavedAvg10 = avg
+        # iterations_with_no_improvement = 0

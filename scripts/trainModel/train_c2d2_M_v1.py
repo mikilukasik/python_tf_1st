@@ -19,7 +19,7 @@ datasetReaderId = json.loads(
     urlopen("http://localhost:3500/datasetReader").read())["id"]
 print("datasetReaderId", datasetReaderId)
 
-model = tf.keras.models.load_model('./models/c2d2_M_v1/1.914201831817627')
+model = tf.keras.models.load_model('./models/c2d2_M_v1/50_1.9137229418754578')
 # model = tf.keras.models.load_model('./models/blanks/c2d2_M_v1')
 
 model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.000003), loss='categorical_crossentropy',
@@ -80,7 +80,7 @@ def saveIfShould(model, val):
     print('avg (10, 50, 250)', avg10, avg50, avg250)
 
     if avg10 < lastSavedAvg10:
-        saveModel(model, 10, lastSavedAvg10, '10')
+        saveModel(model, avg10, lastSavedAvg10, '10')
         lastSavedAvg10 = avg10
         iterations_with_no_improvement = 0
 
@@ -95,8 +95,8 @@ def saveIfShould(model, val):
         iterations_with_no_improvement = 0
 
     if (iterations_with_no_improvement > 50):
-        model.save('./models/c2d2_M_v1/X_' + str(avg))
-        print('extra model saved.   * * * * * * ', avg, ' * * * * * * ')
+        model.save('./models/c2d2_M_v1/X_' + str(avg50))
+        print('extra model saved.   * * * * * * ', avg50, ' * * * * * * ')
         iterations_with_no_improvement = 0
 
 
