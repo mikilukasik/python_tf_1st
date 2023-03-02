@@ -7,8 +7,8 @@ from save_model import save_model
 
 def create_chess_model(model_name: str,
                        input_shape: Tuple[int, int, int] = (8, 8, 14),
-                       conv_blocks: List[Tuple[int, Tuple[int, int], Tuple[int, ...]]] = [
-                           (4, (3, 3), (64, 128, 256, 512))],
+                       conv_blocks: List[Tuple[Tuple[int, int], Tuple[int, ...]]] = [
+                           ((3, 3), (64, 128, 256, 512))],
                        activation: str = 'relu',
                        dense_units: Tuple[int, int] = (1024, 512),
                        output_units: int = 1837) -> Model:
@@ -20,7 +20,6 @@ def create_chess_model(model_name: str,
     - input_shape: Tuple of 3 integers representing the shape of input data. Default is (8,8,14).
     - conv_blocks: List of tuples, where each tuple represents a convolutional block. 
       The tuple contains:
-      - The number of convolutional layers in the block.
       - The size of the convolutional kernel.
       - The number of filters for each convolutional layer.
     - activation: String representing the activation function to use. Default is 'relu'.
@@ -36,7 +35,8 @@ def create_chess_model(model_name: str,
     # Convolutional layers
     prev_outputs = []
     for i, block in enumerate(conv_blocks):
-        num_layers, kernel_size, filters = block
+        kernel_size, filters = block
+        num_layers = len(filters)
         prev_output = input
         for j in range(num_layers):
             x = Conv2D(filters[j], kernel_size, padding='same',
