@@ -5,7 +5,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 # Load the trained model
-model = load_model('./models/save/c2d2_M_v1/250_1.8597624192237854')
+model = load_model('./models/save/champion')
 
 
 @app.route('/predict', methods=['GET'])

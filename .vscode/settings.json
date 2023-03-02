@@ -1,0 +1,8 @@
+{
+  "python.analysis.sortImports.path": [
+    "${stdlib}",
+    "${thirdParty}",
+    "${local}"
+  ],
+  "python.analysis.autoImportCompletions": false
+}
