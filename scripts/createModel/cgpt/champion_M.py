@@ -1,18 +1,17 @@
 from save_model import save_model
 from create_chess_model import create_chess_model
 
-MODEL_NAME = '4r-filters_64_128_256_512-dense_1024_512-out1837'
-# This filename representation includes the default values for the filters, dense_units, and output_units parameters in the function definition. It replaces the square brackets with underscores and separates the values with underscores as well, making it a good format for a filename. It also includes a prefix of "4r-" to indicate that this is a saved 4-block residual model. Finally, it uses an abbreviated form of "dense_units" and "output_units" to save space.
+MODEL_NAME = '2b-filters_64_128_256_512-dense_4096_2048-out1837'
+# 2b- to indicate that it is a model with 2 convolutional blocks, followed by the filters and dense units, and the number of output units.
 
-model_name = 'my_model'
 input_shape = (8, 8, 14)
-conv_blocks = [(4, (3, 3), (64, 128, 256, 512)),
-               (3, (8, 8), (64, 128, 256))]
+conv_blocks = [((3, 3), (64, 128, 256, 512)),
+               ((8, 8), (64, 128, 256, 512))]
 activation = 'relu'
-dense_units = (1024, 512)
+dense_units = (4096, 2048)
 output_units = 1837
 
-model = create_chess_model(model_name=model_name,
+model = create_chess_model(model_name=MODEL_NAME,
                            input_shape=input_shape,
                            conv_blocks=conv_blocks,
                            activation=activation,
