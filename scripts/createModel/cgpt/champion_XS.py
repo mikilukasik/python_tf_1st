@@ -1,15 +1,12 @@
 from save_model import save_model
 from create_chess_model import create_chess_model
 
-MODEL_NAME = 'champion_M'
-# MODEL_NAME = '2b-filters_64_128_256_512-dense_4096_2048-out1837'
-# 2b- to indicate that it is a model with 2 convolutional blocks, followed by the filters and dense units, and the number of output units.
+MODEL_NAME = 'champion_XS'
 
 input_shape = (8, 8, 14)
-conv_blocks = [((3, 3), (64, 128, 256, 512)),
-               ((8, 8), (64, 128, 256))]
+conv_blocks = [((3, 3), (16, 32, 64))]
 activation = 'relu'
-dense_units = (2048, 2048)
+dense_units = (512, 256)
 output_units = 1837
 
 model = create_chess_model(model_name=MODEL_NAME,
