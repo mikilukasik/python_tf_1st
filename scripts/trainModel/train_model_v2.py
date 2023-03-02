@@ -7,31 +7,43 @@ import gzip
 import pandas as pd
 import shutil
 from collections import deque
-import random
 from keras.models import model_from_json
 
-# import keyboard
+def save_model(model, filename):
+     
+      model_json = model.to_json()
+      with open(filename, "w") as json_file:
+          json_file.write(model_json)
+      model.save_weights(filename[:-5] + '_weights.h5')
 
-# with tf.device('/cpu:0'):
+      print('Model saved as JSON:', filename)
+
+def saveModel(model, avg):
+    save_model(model, model_dest+'/' + str(avg))
+    print('model saved.    * * * * * * * * * * * * * * * * * * * * * * * *')
+    print('                * * * * * * * ', avg, ' * * * * * * * ')
+    print('                * * * * * * * * * * * * * * * * * * * * * * * *')
+
+    if lastSavedAvg < 9999:
+        shutil.rmtree(r'' + model_dest + '/' + str(lastSavedAvg))
+        print('deleted old:', lastSavedAvg)
+
+
 
 iterations_with_no_improvement = 0
 lastSavedAvg = 9999
 
 avgQ10 = deque(maxlen=10)
-# lastSavedAvg50 = 9999
 avgQ50 = deque(maxlen=50)
-# lastSavedAvg250 = 9999
 avgQ250 = deque(maxlen=250)
 
 
 def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, from_json=False):
     if from_json:
 
-        # Load the JSON file
         with open(model_source + '/model.json', 'r') as f:
             model_json = f.read()
 
-        # Create the model from the JSON
         model = model_from_json(model_json)
     else:
         model = tf.keras.models.load_model(model_source)
@@ -42,14 +54,11 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, 
         urlopen("http://localhost:3500/datasetReader").read())["id"]
     print("datasetReaderId", datasetReaderId)
 
-    # model = tf.keras.models.load_model('./models/c2d2_cG_v1/50_1.9137229418754578')
-    # model = tf.keras.models.load_model('./models/blanks/c2d2_cG_v1')
 
     model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate), loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
 
     model.summary()
-    # lastSavedAvg10 = 9999
 
     def get_avg(avgQ):
         if len(avgQ) == 0:
@@ -57,36 +66,7 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, 
         else:
             return sum(avgQ)/len(avgQ)
 
-    def save_model(model, filename):
-        """
-        Saves a Keras model to disk in JSON format, including the model architecture and weights.
-
-        Parameters:
-        - model: A Keras model object to be saved.
-        - filename: A string representing the name of the file to save the model to.
-
-        Returns:
-        - None.
-        """
-        # Save the model architecture and weights as JSON
-        model_json = model.to_json()
-        with open(filename, "w") as json_file:
-            json_file.write(model_json)
-        # Save the model weights
-        model.save_weights(filename[:-5] + '_weights.h5')
-
-        print('Model saved as JSON:', filename)
-
-    def saveModel(model, avg):
-        save_model(model, model_dest+'/' + str(avg))
-        print('model saved.    * * * * * * * * * * * * * * * * * * * * * * * *')
-        print('                * * * * * * * ', avg, ' * * * * * * * ')
-        print('                * * * * * * * * * * * * * * * * * * * * * * * *')
-
-        if lastSavedAvg < 9999:
-            shutil.rmtree(r'' + model_dest + '/' + str(lastSavedAvg))
-            print('deleted old:', lastSavedAvg)
-
+   
     def appendToAvg(val):
         avgQ10.append(val)
         avgQ50.append(val)
@@ -96,9 +76,7 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, 
 
         global iterations_with_no_improvement
         global lastSavedAvg
-        # global lastSavedAvg10
-        # global lastSavedAvg50
-        # global lastSavedAvg250
+       
 
         appendToAvg(val)
 
@@ -124,14 +102,6 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, 
             iterations_with_no_improvement = 0
             lastSavedAvg = avg
 
-        # if avg10 < lastSavedAvg10:
-        #     lastSavedAvg10 = avg10
-
-        # if avg50 < lastSavedAvg50:
-        #     lastSavedAvg50 = avg50
-
-        # if avg250 < lastSavedAvg250:
-        #     lastSavedAvg250 = avg250
 
         if (iterations_with_no_improvement > 50):
             model.save('./models/c2d2_cG_v1/X_' + str(avg50))
@@ -155,18 +125,8 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, 
             SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE)
 
         val = model.fit(datasetTensor, epochs=1).history["loss"][0]
-        # avg = get_avg()
-        # print('avg:', avg)
+       
 
         saveIfShould(model, val)
 
-        # if avg < lastSavedAvg10:
-        # model.save('./models/c2d2_cG_v1/' + str(avg))
-        # print('model saved.    * * * * * * ', avg, ' * * * * * * ')
-
-        # if lastSavedAvg10 < 9999:
-        #     shutil.rmtree(r'./models/c2d2_cG_v1/' + str(lastSavedAvg10))
-        #     print('deleted old:', lastSavedAvg10)
-
-        # lastSavedAvg10 = avg
-        # iterations_with_no_improvement = 0
+      
