@@ -68,6 +68,6 @@ def create_chess_model(model_name: str,
     model = Model(inputs=input, outputs=output)
     model.summary()
 
-    save_model(model, f'./models/{model_name}')
+    save_model(model, f'./models/{model_name}/_blank')
 
     return model

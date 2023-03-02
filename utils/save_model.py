@@ -4,23 +4,35 @@ import json
 from PIL import Image, ImageDraw, ImageFont
 
 
-def save_model(model, filename, metadata={}):
+def save_model(model, folder, metadata={}):
+    """
+    Saves a Keras model to disk, including the model architecture, a summary of the model, a PNG visualization of the model with informative labels, and metadata.
+
+    Parameters:
+    - model: A Keras model object to be saved.
+    - folder: A string representing the name of the directory to save the model files to.
+    - metadata: A dictionary containing any additional metadata to be saved with the model.
+
+    Returns:
+    - None.
+    """
+
     # Create directory for the model files
-    os.makedirs(filename, exist_ok=True)
+    os.makedirs(folder, exist_ok=True)
 
     # Save the model architecture as a JSON file
-    with open(os.path.join(filename, 'model.json'), 'w') as f:
+    with open(os.path.join(folder, 'model.json'), 'w') as f:
         f.write(model.to_json())
 
     # Save a summary of the model
-    with open(os.path.join(filename, 'summary.txt'), 'w') as f:
+    with open(os.path.join(folder, 'summary.txt'), 'w') as f:
         model.summary(print_fn=lambda x: f.write(x + '\n'))
 
     # Create a PNG visualization of the model with informative labels
     plot_model(model, to_file=os.path.join(
-        filename, 'model.png'), show_shapes=True)
+        folder, 'model.png'), show_shapes=True)
 
-    img = Image.open(os.path.join(filename, 'model.png'))
+    img = Image.open(os.path.join(folder, 'model.png'))
 
     draw = ImageDraw.Draw(img)
 
@@ -40,10 +52,10 @@ def save_model(model, filename, metadata={}):
         # Draw a label for the layer
         x = layer.output_shape[1] // 2
         y = layer.output_shape[2] // 2
-        draw.text((x, y), label, font=font, fill=(255, 255, 255))
+        draw.text((x, y), label, fill=(255, 255, 255))
 
-    img.save(os.path.join(filename, 'model.png'))
+    img.save(os.path.join(folder, 'model.png'))
 
     # Save metadata
-    with open(os.path.join(filename, 'metadata.json'), 'w') as f:
+    with open(os.path.join(folder, 'metadata.json'), 'w') as f:
         json.dump(metadata, f)
