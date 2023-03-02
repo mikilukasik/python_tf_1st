@@ -8,6 +8,8 @@ import pandas as pd
 import shutil
 from collections import deque
 import random
+from keras.models import model_from_json
+
 # import keyboard
 
 # with tf.device('/cpu:0'):
@@ -22,8 +24,17 @@ avgQ50 = deque(maxlen=50)
 avgQ250 = deque(maxlen=250)
 
 
-def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
-    model = tf.keras.models.load_model(model_source)
+def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, from_json=False):
+    if from_json:
+
+        # Load the JSON file
+        with open(model_source + '/model.json', 'r') as f:
+            model_json = f.read()
+
+        # Create the model from the JSON
+        model = model_from_json(model_json)
+    else:
+        model = tf.keras.models.load_model(model_source)
 
     BATCH_SIZE = 256
     SHUFFLE_BUFFER_SIZE = 100
