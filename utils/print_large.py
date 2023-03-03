@@ -22,6 +22,7 @@ def print_large(*args, indent=30):
     for arg in args:
         arg_str = str(arg)
         arg_padding = ' ' * ((box_width - len(arg_str)) // 2 - 1)
-        print(f'{left_padding}*{arg_padding}{arg_str}{arg_padding}*')
+        print(
+            f'{left_padding}*{arg_padding}{arg_str}{arg_padding}{" " if len(arg_str) % 2 != 0 else ""}*')
     # Print the bottom border
     print(f'{left_padding}{top_bottom_border}')
