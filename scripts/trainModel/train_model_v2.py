@@ -13,28 +13,27 @@ import os
 SHUFFLE_BUFFER_SIZE = 100
 
 
-def save_model(model, foldername):
+iterations_with_no_improvement = 0
+lastSavedAvg = 9999
+
+
+def save_model(model, avg, model_dest, is_temp=False):
+    foldername = os.path.join(model_dest, str(
+        avg) + '_temp' if is_temp else '')
     os.makedirs(foldername, exist_ok=True)
     model.save_weights(os.path.join(foldername, 'weights.h5'))
     with open(os.path.join(foldername, 'model.json'), 'w') as json_file:
         json_file.write(model.to_json())
 
-    print('Model saved in folder:', foldername)
-
-
-def saveModel(model, avg, model_dest):
-    save_model(model, model_dest + '/' + str(avg))
     print('model saved.    * * * * * * * * * * * * * * * * * * * * * * * *')
     print('                * * * * * * * ', avg, ' * * * * * * * ')
     print('                * * * * * * * * * * * * * * * * * * * * * * * *')
 
-    if lastSavedAvg < 9999:
-        shutil.rmtree(r'' + model_dest + '/' + str(lastSavedAvg))
-        print('deleted old:', lastSavedAvg)
+    if lastSavedAvg < 9999 and not is_temp:
+        old_foldername = os.path.join(model_dest, str(lastSavedAvg))
+        shutil.rmtree(old_foldername)
+        print('deleted old:', old_foldername)
 
-
-iterations_with_no_improvement = 0
-lastSavedAvg = 9999
 
 avgQ10 = deque(maxlen=10)
 avgQ50 = deque(maxlen=50)
@@ -66,8 +65,8 @@ def saveIfShould(model, val, model_dest):
         saveIfShould.counter = 0  # Initialize the counter
     saveIfShould.counter = (saveIfShould.counter + 1) % 5
 
-    if saveIfShould.counter > 0 or len(avgQ10) < 6:
-        return
+    # if saveIfShould.counter > 0 or len(avgQ10) < 6:
+    #     return
 
     avg10 = get_avg(avgQ10)
     avg50 = get_avg(avgQ50)
@@ -78,13 +77,12 @@ def saveIfShould(model, val, model_dest):
     print('(avg, 10, 50, 250)', avg, avg10, avg50, avg250)
 
     if avg < lastSavedAvg:
-        saveModel(model, avg, model_dest=model_dest)
+        save_model(model, avg, model_dest=model_dest)
         iterations_with_no_improvement = 0
         lastSavedAvg = avg
 
     if (iterations_with_no_improvement > 50):
-        model.save('./models/c2d2_cG_v1/X_' + str(avg50))
-        print('extra model saved.   * * * * * * ', avg50, ' * * * * * * ')
+        save_model(model, avg, model_dest, True)
         iterations_with_no_improvement = 0
 
 
@@ -93,7 +91,8 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, 
         with open(model_source + '/model.json', 'r') as f:
             model_json = f.read()
 
-        model = model_from_json(model_json)
+            model = model_from_json(model_json)
+            model.load_weights(model_source + '/weights.h5')
     else:
         model = tf.keras.models.load_model(model_source)
 
