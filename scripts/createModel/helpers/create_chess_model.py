@@ -4,8 +4,9 @@ from keras.layers import GlobalAveragePooling2D, BatchNormalization, Dropout, So
 from .attention_block import attention_block
 
 
-def create_chess_model(input_shape=(8, 8, 14), num_filters=[32, 64, 128], num_residual_blocks=3,
-                       residual_filters=128, inter_channel=64, num_dense_layers=2, dense_units=[512, 256],
+def create_chess_model(input_shape=(8, 8, 14), num_filters=[32, 64, 128],
+                       residual_filters=[128, 128, 128], inter_channel=64,
+                       num_dense_layers=2, dense_units=[512, 256],
                        dropout_rate=0.2, num_output_units=1837):
     '''
     Create a Keras model for predicting the next move in a chess game using a dataset of chess positions.
@@ -13,8 +14,7 @@ def create_chess_model(input_shape=(8, 8, 14), num_filters=[32, 64, 128], num_re
     Parameters:
     input_shape (tuple): The shape of the input chess position. Default is (8, 8, 14).
     num_filters (list): The number of filters for each convolutional layer. Default is [32, 64, 128].
-    num_residual_blocks (int): The number of residual blocks to be used. Default is 3.
-    residual_filters (int): The number of filters for each residual block. Default is 128.
+    residual_filters (list): The number of filters for each residual block. Default is [128, 128, 128].
     inter_channel (int): The number of filters for the attention block. Default is 64.
     num_dense_layers (int): The number of dense layers to be used. Default is 2.
     dense_units (list): The number of units for each dense layer. Default is [512, 256].
@@ -24,6 +24,9 @@ def create_chess_model(input_shape=(8, 8, 14), num_filters=[32, 64, 128], num_re
     Returns:
     A Keras model for predicting the next move in a chess game.
     '''
+
+    # Infer the number of residual blocks from the length of residual_filters
+    num_residual_blocks = len(residual_filters)
 
     # Define input layer
     inputs = Input(shape=input_shape)
@@ -37,9 +40,9 @@ def create_chess_model(input_shape=(8, 8, 14), num_filters=[32, 64, 128], num_re
     # Define residual blocks with attention
     for i in range(num_residual_blocks):
         residual = x
-        x = Conv2D(filters=residual_filters, kernel_size=(
+        x = Conv2D(filters=residual_filters[i], kernel_size=(
             3, 3), activation='relu', padding='same')(x)
-        x = Conv2D(filters=residual_filters, kernel_size=(
+        x = Conv2D(filters=residual_filters[i], kernel_size=(
             3, 3), activation='relu', padding='same')(x)
         x = attention_block(residual, x, inter_channel)
         x = Add()([x, residual])
