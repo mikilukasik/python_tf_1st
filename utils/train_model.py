@@ -8,21 +8,16 @@ from urllib.request import urlopen
 from keras.utils import to_categorical
 import tensorflow as tf
 import os
-from utils import load_model, print_large
+from utils import load_model, print_large, save_model
 
 iterations_with_no_improvement = 0
 lastSavedAvg = 9999
 
 
-def save_model(model, avg, model_dest, is_temp=False):
+def save_model_and_delete_last(model, avg, model_dest, is_temp=False):
     foldername = os.path.join(model_dest, str(
         avg) + ('_temp' if is_temp else ''))
-    os.makedirs(foldername, exist_ok=True)
-    model.save_weights(os.path.join(foldername, 'weights.h5'))
-    with open(os.path.join(foldername, 'model.json'), 'w') as json_file:
-        json_file.write(model.to_json())
-
-    print_large('Model saved.', foldername)
+    save_model(model, foldername)
 
     if lastSavedAvg < 9999 and not is_temp:
         old_foldername = os.path.join(model_dest, str(lastSavedAvg))
@@ -72,12 +67,12 @@ def saveIfShould(model, val, model_dest):
     print('(avg, 10, 50, 250)', avg, avg10, avg50, avg250)
 
     if avg < lastSavedAvg:
-        save_model(model, avg, model_dest=model_dest)
+        save_model_and_delete_last(model, avg, model_dest=model_dest)
         iterations_with_no_improvement = 0
         lastSavedAvg = avg
 
     if (iterations_with_no_improvement > 50):
-        save_model(model, avg, model_dest, True)
+        save_model_and_delete_last(model, avg, model_dest, True)
         iterations_with_no_improvement = 0
 
 

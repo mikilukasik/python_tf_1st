@@ -1,11 +1,11 @@
 from keras.models import Model
-from keras.layers import Input, Conv2D, Dense, Flatten, Reshape, Activation, Add, Multiply
+from keras.layers import Input, Conv2D, Dense, Flatten, Reshape, Activation, Add, Multiply, LeakyReLU
 from keras.layers import GlobalAveragePooling2D, BatchNormalization, Dropout, Softmax, Permute, Lambda
 from .attention_block import attention_block
 
 
-def create_chess_model(input_shape=(8, 8, 14), conv_filters=[256],
-                       residual_filters=[256, 256, 256, 256, 256, 256], use_attention=True,
+def create_chess_model(input_shape=(8, 8, 14), conv_filters=[],
+                       residual_filters=[128, 128, 128, 128], use_attention=False,
                        inter_channel=64, num_dense_layers=2, dense_units=[1024, 512],
                        dropout_rate=0, num_output_units=1837, use_batchnorm=True, activation='relu'):
     '''
@@ -38,7 +38,7 @@ def create_chess_model(input_shape=(8, 8, 14), conv_filters=[256],
     x = inputs
     for i in range(len(conv_filters)):
         x = Conv2D(filters=conv_filters[i], kernel_size=(
-            3, 3), activation=activation, padding='same')(x)
+            8, 8), activation=activation, padding='same')(x)
 
     # Define residual blocks with attention
     for i in range(num_residual_blocks):
