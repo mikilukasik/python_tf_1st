@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chessboard</title>
+    <style>
+      .chessboard {
+        width: 400px;
+        height: 400px;
+        border: 1px solid black;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .square {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+      }
+
+      .square.light {
+        background-color: #f0d9b5;
+      }
+
+      .square.dark {
+        background-color: #b58863;
+      }
+
+      .white {
+        color: white;
+      }
+
+      .black {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Chessboard</h1>
+    <label for="fen-input">Enter FEN Notation:</label>
+    <input type="text" id="fen-input" name="fen-input" /><br /><br />
+    <div id="board" class="chessboard"></div>
+
+    <script>
+      function drawBoard(fen) {
+        var board = document.getElementById("board");
+        board.innerHTML = "";
+
+        var pieces = fen.split(" ")[0];
+        var rows = pieces.split("/");
+
+        for (var i = 0; i < rows.length; i++) {
+          var row = rows[i];
+          var col = 0;
+
+          for (var j = 0; j < row.length; j++) {
+            var piece = row.charAt(j);
+
+            if (isNaN(piece)) {
+              var span = document.createElement("span");
+              span.innerHTML = getPieceUnicode(piece);
+
+              var square = document.createElement("div");
+              square.classList.add("square");
+              square.classList.add(i % 2 == j % 2 ? "light" : "dark");
+              square.appendChild(span);
+
+              board.appendChild(square);
+              col++;
+            } else {
+              var num = parseInt(piece);
+              for (var k = 0; k < num; k++) {
+                var square = document.createElement("div");
+                square.classList.add("square");
+                square.classList.add(i % 2 == col % 2 ? "light" : "dark");
+                board.appendChild(square);
+                col++;
+              }
+            }
+          }
+          if (col < 8) {
+            for (var k = col; k < 8; k++) {
+              var square = document.createElement("div");
+              square.classList.add("square");
+              square.classList.add(i % 2 == k % 2 ? "light" : "dark");
+              board.appendChild(square);
+            }
+          }
+        }
+      }
+
+      function getPieceUnicode(piece) {
+        var colorClass = piece == piece.toUpperCase() ? "white" : "black";
+
+        switch (piece.toUpperCase()) {
+          case "K":
+            return "<span class='" + colorClass + "'>&#9812;</span>";
+          case "Q":
+            return "<span class='" + colorClass + "'>&#9813;</span>";
+          case "R":
+            return "<span class='" + colorClass + "'>&#9814;</span>";
+          case "B":
+            return "<span class='" + colorClass + "'>&#9815;</span>";
+          case "N":
+            return "<span class='" + colorClass + "'>&#9816;</span>";
+          case "P":
+            return "<span class='" + colorClass + "'>&#9817;</span>";
+          default:
+            return "";
+        }
+      }
+      document
+        .getElementById("fen-input")
+        .addEventListener("input", function () {
+          var fen = document.getElementById("fen-input").value;
+          drawBoard(fen);
+        });
+
+      // initial board setup
+      drawBoard("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+    </script>
+  </body>
+</html>

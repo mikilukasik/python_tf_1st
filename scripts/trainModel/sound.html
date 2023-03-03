@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Morphing Shapes and Colors</title>
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Morphing Shapes and Colors</h1>
+    <canvas id="canvas"></canvas>
+    <script>
+      const canvas = document.getElementById("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.globalCompositeOperation = "lighter";
+      const shapes = [];
+      function e() {
+        const e = Math.random() * canvas.width,
+          t = Math.random() * canvas.height,
+          r = Math.random() * 200 + 50,
+          o = Math.random() * 360,
+          s = Math.random() * 100,
+          l = Math.random() * 100,
+          a = Math.random() * 0.5 + 0.5,
+          n = Math.random() * 6 - 3,
+          d = Math.random() * 6 - 3,
+          g = Math.floor(Math.random() * 3),
+          h = {
+            x: e,
+            y: t,
+            size: r,
+            hue: o,
+            saturation: s,
+            lightness: l,
+            alpha: a,
+            vx: n,
+            vy: d,
+            shape: g,
+          };
+        shapes.push(h);
+      }
+      function t() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height),
+          shapes.forEach((e) => {
+            (e.x += e.vx),
+              (e.y += e.vy),
+              (e.size += Math.random() * 4 - 2),
+              (e.hue += Math.random() * 20 - 10),
+              e.hue < 0 ? (e.hue += 360) : e.hue >= 360 && (e.hue -= 360),
+              ctx.beginPath(),
+              0 === e.shape
+                ? ctx.arc(e.x, e.y, e.size, 0, 2 * Math.PI)
+                : 1 === e.shape
+                ? (ctx.moveTo(e.x, e.y - e.size / 2),
+                  ctx.lineTo(e.x + e.size / 2, e.y + e.size / 2),
+                  ctx.lineTo(e.x - e.size / 2, e.y + e.size / 2))
+                : (ctx.moveTo(e.x, e.y - e.size / 2),
+                  ctx.lineTo(e.x + e.size / 2, e.y),
+                  ctx.lineTo(e.x, e.y + e.size / 2),
+                  ctx.lineTo(e.x - e.size / 2, e.y)),
+              ctx.closePath(),
+              (ctx.fillStyle = `hsla(${e.hue},${e.saturation}%,${e.lightness}%,${e.alpha})`),
+              ctx.fill();
+          }),
+          window.requestAnimationFrame(t);
+      }
+      e();
+      setInterval(e, 500);
+      t();
+    </script>
+  </body>
+</html>

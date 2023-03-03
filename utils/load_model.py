@@ -2,6 +2,7 @@ from typing import Union
 import os
 import tensorflow as tf
 from keras.models import model_from_json
+from utils import print_large
 
 
 def load_model(model_source: str) -> Union[tf.keras.Model, None]:
@@ -23,9 +24,10 @@ def load_model(model_source: str) -> Union[tf.keras.Model, None]:
 
             model = model_from_json(model_json)
             model.load_weights(os.path.join(model_source, "weights.h5"))
+            print_large('JSON model loaded.', model_source)
         else:
             model = tf.keras.models.load_model(model_source)
-
+            print_large('Keras model loaded.', model_source)
         return model
     except Exception as e:
         print(f"Error loading model: {str(e)}")

@@ -1,11 +1,13 @@
-import numpy as np
-from keras.models import load_model
 from flask import Flask, jsonify, request
+import numpy as np
+from utils import load_model
 
 app = Flask(__name__)
 
+model_name = './models/save/champion/c4RESd2_S_v1/1.6521898729460578'
+
 # Load the trained model
-model = load_model('./models/save/champion')
+model = load_model(model_name)
 
 
 @app.route('/predict', methods=['GET'])
