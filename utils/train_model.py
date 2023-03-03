@@ -8,25 +8,10 @@ from urllib.request import urlopen
 from keras.utils import to_categorical
 import tensorflow as tf
 import os
-from utils import load_model
-
-
-SHUFFLE_BUFFER_SIZE = 100
+from utils import load_model, print_large
 
 iterations_with_no_improvement = 0
 lastSavedAvg = 9999
-
-
-def print_large(*args, indent=30):
-    longest = max(args, key=len)
-    box_width = len(longest) + 14
-    top_bottom_border = '*' * (box_width)
-    left_padding = ' ' * (indent)
-    print(f'{left_padding}{top_bottom_border}')
-    for text in args:
-        text_padding = ' ' * ((box_width - len(text))//2 - 1)
-        print(f'{left_padding}*{text_padding}{text}{text_padding}*')
-    print(f'{left_padding}{top_bottom_border}')
 
 
 def save_model(model, avg, model_dest, is_temp=False):
@@ -75,14 +60,14 @@ def saveIfShould(model, val, model_dest):
         saveIfShould.counter = 0  # Initialize the counter
     saveIfShould.counter = (saveIfShould.counter + 1) % 5
 
-    # if saveIfShould.counter > 0 or len(avgQ10) < 6:
-    #     return
+    if saveIfShould.counter > 0 or len(avgQ10) < 6:
+        return
 
     avg10 = get_avg(avgQ10)
     avg50 = get_avg(avgQ50)
     avg250 = get_avg(avgQ250)
 
-    avg = (avg10 + avg50 * 3 + avg250) / 5
+    avg = (avg10 + avg50 + avg250) / 3
 
     print('(avg, 10, 50, 250)', avg, avg10, avg50, avg250)
 
@@ -114,7 +99,6 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
         dataset_labels = to_categorical(datasetCsv[896], num_classes=1837)
         datasetTensor = tf.data.Dataset.from_tensor_slices(
             (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 14]), dataset_labels))
-        datasetTensor = datasetTensor.shuffle(
-            SHUFFLE_BUFFER_SIZE).batch(BATCH_SIZE)
+        datasetTensor = datasetTensor.shuffle(100).batch(BATCH_SIZE)
         val = model.fit(datasetTensor, epochs=1).history["loss"][0]
         saveIfShould(model, val, model_dest=model_dest)
