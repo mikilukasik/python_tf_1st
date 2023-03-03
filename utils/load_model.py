@@ -23,7 +23,11 @@ def load_model(model_source: str) -> Union[tf.keras.Model, None]:
                 model_json = f.read()
 
             model = model_from_json(model_json)
-            model.load_weights(os.path.join(model_source, "weights.h5"))
+            try:
+                model.load_weights(os.path.join(model_source, "weights.h5"))
+                print_large('Weights loaded.', model_source)
+            except Exception as e:
+                print(f"Error loading weights: {str(e)}")
             print_large('JSON model loaded.', model_source)
         else:
             model = tf.keras.models.load_model(model_source)
