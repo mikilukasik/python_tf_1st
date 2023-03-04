@@ -1,6 +1,7 @@
 
 from .save_model import save_model
 from .load_model import load_model
+from . import prefetch
 from collections import deque
 import shutil
 import pandas as pd
@@ -90,6 +91,14 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
     datasetReaderId = json.loads(
         urlopen("http://localhost:3500/datasetReader").read())["id"]
 
+    def data_getter(url):
+        dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
+                                  datasetReaderId + "/dataset?format=csv", header=None, na_values=[''])
+        return dataset_csv
+
+    prefetch.set_data_getter(data_getter)
+    prefetch.prefetch_data('a')
+
     model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate), loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
 
@@ -98,8 +107,10 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
     while True:
         # Load the dataset from the server
         start_time = time.time()
-        datasetCsv = pd.read_csv("http://localhost:3500/datasetReader/" +
-                                 datasetReaderId + "/dataset?format=csv", header=None, na_values=[''])
+
+        datasetCsv = prefetch.get_data('a')
+        prefetch.prefetch_data('a')
+
         logging.info(
             f"Loaded dataset in {time.time() - start_time:.2f} seconds")
 

@@ -2,7 +2,7 @@ from utils.train_model import train_model
 
 # with tf.device('/cpu:0'):
 
-model_source = './models/champ_cgReduced_v1/_blank'
+model_source = './models/champ_cgReduced_v1/3.1363915109634397'
 model_dest = './models/champ_cgReduced_v1'
 
 learning_rate = 0.0003

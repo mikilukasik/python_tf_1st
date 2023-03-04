@@ -3,7 +3,6 @@ import unittest
 import requests
 import threading
 from unittest.mock import patch
-
 from utils import prefetch
 
 
