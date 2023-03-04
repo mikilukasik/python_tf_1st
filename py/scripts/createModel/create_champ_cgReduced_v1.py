@@ -1,40 +1,27 @@
-
 from keras.models import Model
 from keras.layers import Input
-from keras.layers import Dense, Conv2D, ELU, Flatten, Concatenate, Add
+from keras.layers import Dense, Conv2D, ELU, Flatten, Concatenate, Add, MaxPooling2D
 from utils import save_model
 
 input = Input(shape=(8, 8, 14))
 
-x = Conv2D(64, (3, 3), padding='same', activation='relu')(input)
-y = Conv2D(64, (3, 3), padding='same', activation='relu')(x)
-z = Add()([x, y])
-
-x = Conv2D(128, (3, 3), padding='same', activation='relu')(z)
+x = Conv2D(32, (3, 3), padding='same', activation='relu')(input)
+x = MaxPooling2D((2, 2))(x)
 y = Conv2D(128, (3, 3), padding='same', activation='relu')(x)
-z = Add()([x, y])
+y = MaxPooling2D((2, 2))(y)
 
-x = Conv2D(256, (3, 3), padding='same', activation='relu')(z)
-y = Conv2D(256, (3, 3), padding='same', activation='relu')(x)
-z = Add()([x, y])
+residual = Conv2D(128, (3, 3), padding='same')(y)
+residual = ELU()(residual)
+residual = Conv2D(128, (3, 3), padding='same')(residual)
 
-x = Conv2D(512, (3, 3), padding='same', activation='relu')(z)
-y = Conv2D(512, (3, 3), padding='same', activation='relu')(x)
-z = Add()([x, y])
+z = Add()([residual, y])
+z = Flatten()(z)
 
-flatInput = Flatten()(input)
-flatConv = Flatten()(z)
+dense1 = Dense(256, activation='relu')(z)
+dense2 = Dense(128, activation='relu')(dense1)
 
-concatted1 = Concatenate()([flatInput,  flatConv])
-dense1 = Dense(1024, ELU())(concatted1)
-
-concatted2 = Concatenate()([flatInput,  dense1])
-dense2 = Dense(512, ELU())(concatted2)
-
-concatted3 = Concatenate()([flatInput,  dense2])
-
-output = Dense(1837, 'softmax')(concatted3)
+output = Dense(1837, activation='softmax')(dense2)
 
 model = Model(inputs=input, outputs=output)
 model.summary()
-save_model(model, './models/c4RESd2_S_v1/_blank')
+save_model(model, './models/champ_cgReduced_v1/_blank')
