@@ -92,6 +92,7 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
         urlopen("http://localhost:3500/datasetReader").read())["id"]
 
     def data_getter(url):
+        start_time = time.monotonic()
         dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
                                   datasetReaderId + "/dataset?format=csv", header=None, na_values=[''])
         dataset_csv.fillna(value=0, inplace=True)
@@ -101,6 +102,8 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
             (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 14]), dataset_labels))
         datasetTensor = datasetTensor.shuffle(100).batch(BATCH_SIZE)
         end_time = time.monotonic()
+        logging.info(
+            f"http GET {end_time - start_time:.3f}s")
         return datasetTensor
 
     prefetch.set_data_getter(data_getter)
