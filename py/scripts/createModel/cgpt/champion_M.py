@@ -1,4 +1,4 @@
-from save_model import save_model
+from utils import save_model
 from create_chess_model import create_chess_model
 
 MODEL_NAME = 'champion_M'
@@ -19,4 +19,4 @@ model = create_chess_model(model_name=MODEL_NAME,
                            dense_units=dense_units,
                            output_units=output_units)
 
-save_model(model, './models/' + MODEL_NAME + '_blank')
+save_model(model, './models/' + MODEL_NAME + '/_blank')

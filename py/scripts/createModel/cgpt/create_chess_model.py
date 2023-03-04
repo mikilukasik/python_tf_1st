@@ -2,7 +2,7 @@ from typing import List, Tuple
 from keras.models import Model
 from keras.layers import Input
 from keras.layers import Dense, Conv2D, ELU, Flatten, Concatenate, Add
-from save_model import save_model
+# from utils import save_model
 
 
 def create_chess_model(model_name: str,
@@ -68,6 +68,6 @@ def create_chess_model(model_name: str,
     model = Model(inputs=input, outputs=output)
     model.summary()
 
-    save_model(model, f'./models/{model_name}/_blank')
+    # save_model(model, f'./models/{model_name}/_blank')
 
     return model

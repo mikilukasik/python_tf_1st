@@ -1,8 +1,9 @@
 
 from keras.models import Model
 from keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Concatenate, Dropout, ELU, Add
+from utils import save_model
 
-MODEL_NAME = '8L-64r2-128r2-256r2-512r2-K3-S2-P2-Arelu-D1024-D512'
+MODEL_NAME = 'is-it-champ_v1'
 
 # In this format:
 
@@ -16,9 +17,8 @@ MODEL_NAME = '8L-64r2-128r2-256r2-512r2-K3-S2-P2-Arelu-D1024-D512'
 
 
 # fmt: off
-import sys
-sys.path.append('./py/utils')
-from save_model import save_model
+# import sys
+# sys.path.append('./py/utils')
 # fmt: on
 
 # Input layer with shape (8, 8, 14)
@@ -67,8 +67,8 @@ output_layer = Dense(1837, activation='softmax')(concat2)
 
 # Create the model
 model = Model(inputs=input_layer, outputs=output_layer)
-
+model.summary()
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 
-save_model(model, './models/blanks/' + MODEL_NAME)
+save_model(model, './models/' + MODEL_NAME + '/_blank')

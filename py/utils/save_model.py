@@ -2,7 +2,7 @@ import os
 import json
 from PIL import Image, ImageDraw, ImageFont
 from keras.utils.vis_utils import plot_model
-from utils import print_large
+from .print_large import print_large
 
 
 def save_model(model, folder, metadata={}):

@@ -2,7 +2,7 @@ from typing import Union
 import os
 import tensorflow as tf
 from keras.models import model_from_json
-from utils import print_large
+from .print_large import print_large
 
 
 def load_model(model_source: str) -> Union[tf.keras.Model, None]:

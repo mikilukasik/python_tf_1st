@@ -1,4 +1,6 @@
 
+from .save_model import save_model
+from .load_model import load_model
 from collections import deque
 import shutil
 import pandas as pd
@@ -8,7 +10,13 @@ from urllib.request import urlopen
 from keras.utils import to_categorical
 import tensorflow as tf
 import os
-from utils import load_model, print_large, save_model
+# from utils import load_model, print_large, save_model
+import time
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+
 
 iterations_with_no_improvement = 0
 lastSavedAvg = 9999
@@ -88,12 +96,34 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
     model.summary()
 
     while True:
+        # Load the dataset from the server
+        start_time = time.time()
         datasetCsv = pd.read_csv("http://localhost:3500/datasetReader/" +
-                                 datasetReaderId + "/dataset?format=csv", header=None)
+                                 datasetReaderId + "/dataset?format=csv", header=None, na_values=[''])
+        logging.info(
+            f"Loaded dataset in {time.time() - start_time:.2f} seconds")
+
+        # Fill missing values with zeros
+        start_time = time.time()
+        datasetCsv.fillna(value=0, inplace=True)
+        logging.info(
+            f"Filled missing values in {time.time() - start_time:.2f} seconds")
+
+        # Prepare the dataset for training
+        start_time = time.time()
         dataset_features = np.array(datasetCsv.drop(columns=[896]))
         dataset_labels = to_categorical(datasetCsv[896], num_classes=1837)
         datasetTensor = tf.data.Dataset.from_tensor_slices(
             (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 14]), dataset_labels))
         datasetTensor = datasetTensor.shuffle(100).batch(BATCH_SIZE)
+        logging.info(
+            f"Prepared dataset in {time.time() - start_time:.2f} seconds")
+
+        # Train the model on the dataset
+        start_time = time.time()
         val = model.fit(datasetTensor, epochs=1).history["loss"][0]
+        logging.info(
+            f"Trained model on dataset in {time.time() - start_time:.2f} seconds")
+
+        # Save the model if necessary
         saveIfShould(model, val, model_dest=model_dest)
