@@ -94,10 +94,17 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
     def data_getter(url):
         dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
                                   datasetReaderId + "/dataset?format=csv", header=None, na_values=[''])
-        return dataset_csv
+        dataset_csv.fillna(value=0, inplace=True)
+        dataset_features = np.array(dataset_csv.drop(columns=[896]))
+        dataset_labels = to_categorical(dataset_csv[896], num_classes=1837)
+        datasetTensor = tf.data.Dataset.from_tensor_slices(
+            (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 14]), dataset_labels))
+        datasetTensor = datasetTensor.shuffle(100).batch(BATCH_SIZE)
+        end_time = time.monotonic()
+        return datasetTensor
 
     prefetch.set_data_getter(data_getter)
-    prefetch.prefetch_data('a')
+    prefetch.prefetch_data()
 
     model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate), loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
@@ -108,27 +115,11 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
         # Load the dataset from the server
         start_time = time.time()
 
-        datasetCsv = prefetch.get_data('a')
-        prefetch.prefetch_data('a')
+        datasetTensor = prefetch.get_data()
+        prefetch.prefetch_data()
 
         logging.info(
             f"Loaded dataset in {time.time() - start_time:.2f} seconds")
-
-        # Fill missing values with zeros
-        start_time = time.time()
-        datasetCsv.fillna(value=0, inplace=True)
-        logging.info(
-            f"Filled missing values in {time.time() - start_time:.2f} seconds")
-
-        # Prepare the dataset for training
-        start_time = time.time()
-        dataset_features = np.array(datasetCsv.drop(columns=[896]))
-        dataset_labels = to_categorical(datasetCsv[896], num_classes=1837)
-        datasetTensor = tf.data.Dataset.from_tensor_slices(
-            (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 14]), dataset_labels))
-        datasetTensor = datasetTensor.shuffle(100).batch(BATCH_SIZE)
-        logging.info(
-            f"Prepared dataset in {time.time() - start_time:.2f} seconds")
 
         # Train the model on the dataset
         start_time = time.time()
