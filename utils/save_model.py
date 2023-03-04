@@ -1,7 +1,7 @@
 import os
-from keras.utils.vis_utils import plot_model
 import json
 from PIL import Image, ImageDraw, ImageFont
+from keras.utils.vis_utils import plot_model
 from utils import print_large
 
 
@@ -24,6 +24,9 @@ def save_model(model, folder, metadata={}):
     # Save the model architecture as a JSON file
     with open(os.path.join(folder, 'model.json'), 'w') as f:
         f.write(model.to_json())
+
+    # Save the model weights as an HDF5 file
+    model.save_weights(os.path.join(folder, 'weights.h5'))
 
     # Save a summary of the model
     with open(os.path.join(folder, 'summary.txt'), 'w') as f:
