@@ -1,6 +1,8 @@
 
+from .print_large import print_large
 from .save_model import save_model
 from .load_model import load_model, load_model_meta
+
 from . import prefetch
 from collections import deque
 import shutil
@@ -14,6 +16,8 @@ import os
 # from utils import load_model, print_large, save_model
 import time
 import logging
+import requests
+
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -89,13 +93,21 @@ def saveIfShould(model, val, model_dest):
 def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
     global model_meta
 
+    # Load the Keras model and its metadata
     model = load_model(model_source)
     model_meta = load_model_meta(model_source)
 
-    datasetReaderId = json.loads(
-        urlopen("http://localhost:3500/datasetReader" + (('/' + model_meta["dataseReaderId"]) if model_meta["dataseReaderId"] else '')).read())["id"]
+    model.summary()
 
-    model_meta["dataseReaderId"] = datasetReaderId
+    # Get the dataset reader ID from the API
+    dataset_reader_id = model_meta.get("dataseReaderId")
+    if not dataset_reader_id:
+        dataset_reader_response = requests.get(
+            "http://localhost:3500/datasetReader")
+        dataset_reader_id = dataset_reader_response.json().get("id")
+        model_meta["dataseReaderId"] = dataset_reader_id
+        print_large("", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "", "New dataset_reader_id retrieved:",
+                    dataset_reader_id, "", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "")
 
     def data_getter(url, max_retries=120, retry_interval=5):
         retries = 0
@@ -103,7 +115,7 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
             try:
                 start_time = time.monotonic()
                 dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
-                                          datasetReaderId + "/dataset?format=csv", header=None, na_values=[''])
+                                          dataset_reader_id + "/dataset?format=csv", header=None, na_values=[''])
                 dataset_csv.fillna(value=0, inplace=True)
                 dataset_features = np.array(dataset_csv.drop(columns=[896]))
                 dataset_labels = to_categorical(
@@ -128,8 +140,6 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
 
     model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate), loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
-
-    model.summary()
 
     while True:
         # Load the dataset from the server
