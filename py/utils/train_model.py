@@ -1,6 +1,6 @@
 
 from .save_model import save_model
-from .load_model import load_model
+from .load_model import load_model, load_model_meta
 from . import prefetch
 from collections import deque
 import shutil
@@ -18,6 +18,7 @@ import logging
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 
+model_meta = {}
 
 iterations_with_no_improvement = 0
 lastSavedAvg = 9999
@@ -26,7 +27,7 @@ lastSavedAvg = 9999
 def save_model_and_delete_last(model, avg, model_dest, is_temp=False):
     foldername = os.path.join(model_dest, str(
         avg) + ('_temp' if is_temp else ''))
-    save_model(model, foldername)
+    save_model(model, foldername, model_meta)
 
     if lastSavedAvg < 9999 and not is_temp:
         old_foldername = os.path.join(model_dest, str(lastSavedAvg))
@@ -86,10 +87,15 @@ def saveIfShould(model, val, model_dest):
 
 
 def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
+    global model_meta
+
     model = load_model(model_source)
+    model_meta = load_model_meta(model_source)
 
     datasetReaderId = json.loads(
-        urlopen("http://localhost:3500/datasetReader").read())["id"]
+        urlopen("http://localhost:3500/datasetReader" + (('/' + model_meta["dataseReaderId"]) if model_meta["dataseReaderId"] else '')).read())["id"]
+
+    model_meta["dataseReaderId"] = datasetReaderId
 
     def data_getter(url, max_retries=120, retry_interval=5):
         retries = 0
