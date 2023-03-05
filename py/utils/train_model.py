@@ -52,6 +52,7 @@ def save_model_and_delete_last(model, avg, model_dest, is_temp=False):
 
 avgQ10 = deque(maxlen=10)
 avgQ50 = deque(maxlen=50)
+avgQ51to100 = deque(maxlen=50)
 avgQ250 = deque(maxlen=250)
 
 
@@ -63,9 +64,27 @@ def get_avg(avgQ):
 
 
 def appendToAvg(val):
+    global needs_lr_reduced
+    global avgQ51to100
+    global avgQ10
+    global avgQ50
+    global avgQ250
+
     avgQ10.append(val)
     avgQ50.append(val)
     avgQ250.append(val)
+
+    if len(avgQ50) == 50:
+        old_val = avgQ50.popleft()
+        avgQ51to100.append(old_val)
+
+        if len(avgQ51to100) == 50:
+            past_50_diff = get_avg(avgQ50) - get_avg(avgQ51to100)
+            print(f"Past 50 iterations loss diff: {past_50_diff}")
+
+            if past_50_diff > 0:
+                avgQ51to100 = deque(maxlen=50)
+                needs_lr_reduced = True
 
 
 def saveIfShould(model, val, model_dest):
@@ -99,7 +118,7 @@ def saveIfShould(model, val, model_dest):
 
     if (iterations_with_no_improvement > 50):
         save_model_and_delete_last(model, avg, model_dest, True)
-        needs_lr_reduced = True
+        # needs_lr_reduced = True
         iterations_with_no_improvement = 0
 
 
