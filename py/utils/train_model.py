@@ -91,20 +91,31 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
     datasetReaderId = json.loads(
         urlopen("http://localhost:3500/datasetReader").read())["id"]
 
-    def data_getter(url):
-        start_time = time.monotonic()
-        dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
-                                  datasetReaderId + "/dataset?format=csv", header=None, na_values=[''])
-        dataset_csv.fillna(value=0, inplace=True)
-        dataset_features = np.array(dataset_csv.drop(columns=[896]))
-        dataset_labels = to_categorical(dataset_csv[896], num_classes=1837)
-        datasetTensor = tf.data.Dataset.from_tensor_slices(
-            (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 14]), dataset_labels))
-        datasetTensor = datasetTensor.shuffle(100).batch(BATCH_SIZE)
-        end_time = time.monotonic()
-        logging.info(
-            f"http GET {end_time - start_time:.3f}s")
-        return datasetTensor
+    def data_getter(url, max_retries=120, retry_interval=5):
+        retries = 0
+        while retries < max_retries:
+            try:
+                start_time = time.monotonic()
+                dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
+                                          datasetReaderId + "/dataset?format=csv", header=None, na_values=[''])
+                dataset_csv.fillna(value=0, inplace=True)
+                dataset_features = np.array(dataset_csv.drop(columns=[896]))
+                dataset_labels = to_categorical(
+                    dataset_csv[896], num_classes=1837)
+                datasetTensor = tf.data.Dataset.from_tensor_slices(
+                    (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 14]), dataset_labels))
+                datasetTensor = datasetTensor.shuffle(100).batch(BATCH_SIZE)
+                end_time = time.monotonic()
+                logging.info(
+                    f"http GET {end_time - start_time:.3f}s")
+                return datasetTensor
+            except Exception as e:
+                logging.warning(
+                    f"Error while getting data: {e}. Retrying in {retry_interval} seconds...")
+                retries += 1
+                time.sleep(retry_interval)
+        logging.error(f"Failed to get data after {max_retries} retries.")
+        return None
 
     prefetch.set_data_getter(data_getter)
     prefetch.prefetch_data()
