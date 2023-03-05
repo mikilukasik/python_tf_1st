@@ -1,4 +1,3 @@
-
 from .print_large import print_large
 from .save_model import save_model
 from .load_model import load_model, load_model_meta
@@ -13,7 +12,6 @@ from urllib.request import urlopen
 from keras.utils import to_categorical
 import tensorflow as tf
 import os
-# from utils import load_model, print_large, save_model
 import time
 import logging
 import requests
@@ -23,9 +21,22 @@ import requests
 logging.basicConfig(level=logging.INFO)
 
 model_meta = {}
-
 iterations_with_no_improvement = 0
 lastSavedAvg = 9999
+needs_lr_reduced = False
+
+
+def lr_schedule(epoch, lr):
+    global needs_lr_reduced
+
+    if needs_lr_reduced:  # 5:
+        needs_lr_reduced = False
+        new_lr = lr * 0.5
+        print_large(f"Learning rate goes from {lr} to {new_lr}")
+        model_meta['lr'] = new_lr
+        return new_lr
+
+    return lr
 
 
 def save_model_and_delete_last(model, avg, model_dest, is_temp=False):
@@ -60,6 +71,7 @@ def appendToAvg(val):
 def saveIfShould(model, val, model_dest):
     global iterations_with_no_improvement
     global lastSavedAvg
+    global needs_lr_reduced
 
     appendToAvg(val)
 
@@ -67,7 +79,7 @@ def saveIfShould(model, val, model_dest):
 
     if not hasattr(saveIfShould, "counter"):
         saveIfShould.counter = 0  # Initialize the counter
-    saveIfShould.counter = (saveIfShould.counter + 1) % 5
+    saveIfShould.counter = (saveIfShould.counter + 1) % 3
 
     if saveIfShould.counter > 0 or len(avgQ10) < 6:
         return
@@ -87,15 +99,17 @@ def saveIfShould(model, val, model_dest):
 
     if (iterations_with_no_improvement > 50):
         save_model_and_delete_last(model, avg, model_dest, True)
+        needs_lr_reduced = True
         iterations_with_no_improvement = 0
 
 
-def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
+def train_model(model_source, model_dest, BATCH_SIZE=256, initial_learning_rate=0.0003):
     global model_meta
 
     # Load the Keras model and its metadata
     model = load_model(model_source)
     model_meta = load_model_meta(model_source)
+    model_meta['lr'] = initial_learning_rate
 
     model.summary()
 
@@ -138,8 +152,17 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
     prefetch.set_data_getter(data_getter)
     prefetch.prefetch_data()
 
-    model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate), loss='categorical_crossentropy',
+    # Initialize the optimizer
+    optimizer = tf.keras.optimizers.legacy.Adam(initial_learning_rate)
+
+    model.compile(optimizer=optimizer, loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
+
+    # Define a LambdaCallback to log the learning rate
+    log_lr_callback = tf.keras.callbacks.LambdaCallback(
+        on_epoch_end=lambda epoch, logs: logging.info(
+            f"Learning rate: {tf.keras.backend.get_value(model.optimizer.lr)}")
+    )
 
     while True:
         # Load the dataset from the server
@@ -153,7 +176,9 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003):
 
         # Train the model on the dataset
         start_time = time.time()
-        val = model.fit(datasetTensor, epochs=1).history["loss"][0]
+        val = model.fit(datasetTensor, epochs=1, callbacks=[
+                        tf.keras.callbacks.LearningRateScheduler(lr_schedule),
+                        log_lr_callback]).history["loss"][0]
         logging.info(
             f"Trained model on dataset in {time.time() - start_time:.2f} seconds")
 

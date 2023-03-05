@@ -59,7 +59,7 @@ def load_model_meta(model_source: str) -> Union[Dict, None]:
             return metadata
         else:
             print(f"Metadata file not found in {model_source}")
-            return None
+            return {}
     except Exception as e:
         print(f"Error loading metadata: {str(e)}")
         return None
