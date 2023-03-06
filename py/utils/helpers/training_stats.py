@@ -12,8 +12,8 @@ class TrainingStats:
         self.sample_size_history = [] if sample_size_history is None else sample_size_history
         self.batch_size_history = [] if batch_size_history is None else batch_size_history
         self.best_loss = np.inf
-        self.best_lr = initial_lr
-        self.best_batch_size = initial_batch_size
+        self.lr = initial_lr
+        self.batch_size = initial_batch_size
 
         if len(self.lr_history) > 0 and self.lr_history[-1] != initial_lr:
             self.lr_history.append(initial_lr)
@@ -27,8 +27,8 @@ class TrainingStats:
             'sample_size_history': self.sample_size_history,
             'batch_size_history': self.batch_size_history,
             'best_loss': self.best_loss,
-            'best_lr': self.best_lr,
-            'best_batch_size': self.best_batch_size
+            'lr': self.lr,
+            'batch_size': self.batch_size
         }
 
     def add_to_stats(self, loss, lr, time, sample_size, batch_size):
@@ -38,10 +38,13 @@ class TrainingStats:
         self.sample_size_history.append(sample_size)
         self.batch_size_history.append(batch_size)
 
+        self.lr = lr
+        self.batch_size = batch_size
+
         if loss < self.best_loss:
             self.best_loss = loss
-            self.best_lr = lr
-            self.best_batch_size = batch_size
+            self.lr = lr
+            self.batch_size = batch_size
 
     def get_next_lr(self):
         lr_len = len(self.lr_history)
@@ -50,8 +53,8 @@ class TrainingStats:
             self.sample_size_history), len(self.batch_size_history))
 
         if history_length < 2:
-            next_lr = self.lr_history[-1]
-            log = f'Using the previous learning rate: {next_lr:.6f}'
+            next_lr = self.lr
+            log = f'Using the initial learning rate: {next_lr:.6f}'
             return next_lr, log
 
         loss_diff = np.diff(self.loss_history[-history_length:])
@@ -59,28 +62,26 @@ class TrainingStats:
 
         inflection_point_index = np.argmax(loss_diff_diff) + 1
 
-        ideal_lr = self.lr_history[-1] * \
-            (2.0 ** (inflection_point_index - lr_len))
+        ideal_lr = self.lr * (2.0 ** (inflection_point_index - lr_len))
 
-        ideal_lr_sgd = self.best_lr * \
-            np.sqrt(self.lr_history[-1] / self.best_lr)
+        ideal_lr_sgd = self.best_lr * np.sqrt(self.lr / self.best_lr)
 
-        if ideal_lr < self.lr_history[-1]:
+        if ideal_lr < self.lr:
             next_lr = ideal_lr
             reason = 'ideal_lr'
-        elif ideal_lr_sgd < self.lr_history[-1]:
+        elif ideal_lr_sgd < self.lr:
             next_lr = ideal_lr_sgd
             reason = 'ideal_lr_sgd'
         else:
-            next_lr = self.lr_history[-1]
+            next_lr = self.lr
             reason = 'previous'
 
-        if next_lr != self.lr_history[-1]:
+        if next_lr != self.lr:
             improvement = (
                 (self.loss_history[-1] - self.loss_history[-2]) / self.loss_history[-2]) * 100.0
-            log = f'Changing the learning rate from {self.lr_history[-1]:.6f} to {next_lr:.6f} ({reason}), expected improvement: {improvement:.6f}%'
+            log = f'Changing the learning rate from {self.lr:.6f} to {next_lr:.6f} ({reason}), expected improvement: {improvement:.6f}%'
         else:
-            log = f'Using the previous learning rate: {next_lr:.6f}'
+            log = f'Using the initial learning rate: {next_lr:.6f}'
 
         return next_lr, log
 
@@ -210,7 +211,7 @@ class TrainingStats:
             ax.set_ylabel('Learning rate')
             ax.plot(self.lr_history[1:], 'g')
             ax.set_title('Learning rate history')
-            ax.text(0.95, 0.95, f'Best learning rate: {self.best_lr:.6f}', ha='right',
+            ax.text(0.95, 0.95, f'Best learning rate: {self.lr:.6f}', ha='right',
                     va='top', transform=ax.transAxes, bbox=dict(facecolor='white', alpha=0.5))
             pdf.savefig(fig)
             plt.close()
@@ -286,28 +287,47 @@ class TrainingStats:
         return total_time
 
     def print_stats(self):
-        current_loss = self.loss_history[-1]
-        current_lr = self.lr_history[-1]
-        current_time = self.time_history[-1]
-        current_sample_size = self.sample_size_history[-1]
-        current_batch_size = self.batch_size_history[-1]
+        if not self.lr_history and not self.loss_history and not self.time_history and not self.sample_size_history and not self.batch_size_history:
+            print('No history available yet.')
+            return
 
-        elapsed_time = sum(self.time_history)
-        remaining_time = self.get_estimated_eta()
+        if self.loss_history:
+            current_loss = self.loss_history[-1]
+            print(f'  Loss: {current_loss:.6f}')
 
-        elapsed_days, elapsed_hours = divmod(elapsed_time, 24 * 60 * 60)
-        remaining_days, remaining_hours = divmod(remaining_time, 24 * 60 * 60)
+        if self.lr_history:
+            current_lr = self.lr_history[-1]
+            print(f'  Learning rate: {current_lr:.6f}')
 
-        print(f'Epoch {len(self.lr_history)}:')
-        print(f'  Loss: {current_loss:.6f}')
-        print(f'  Learning rate: {current_lr:.6f}')
-        print(f'  Time: {current_time:.2f} seconds')
-        print(f'  Samples: {current_sample_size}')
-        print(f'  Batch size: {current_batch_size}')
-        print(
-            f'  Elapsed time: {elapsed_days:.0f} days, {elapsed_hours:.0f} hours')
-        print(
-            f'  Remaining time: {remaining_days:.0f} days, {remaining_hours:.0f} hours')
+        if self.time_history:
+            current_time = self.time_history[-1]
+            print(f'  Time: {current_time:.2f} seconds')
+
+        if self.sample_size_history:
+            current_sample_size = self.sample_size_history[-1]
+            print(f'  Samples: {current_sample_size}')
+
+        if self.batch_size_history:
+            current_batch_size = self.batch_size_history[-1]
+            print(f'  Batch size: {current_batch_size}')
+
+        if self.time_history:
+            elapsed_time = sum(self.time_history)
+            remaining_time = self.get_estimated_eta()
+
+            elapsed_days, elapsed_hours = divmod(elapsed_time, 24 * 60 * 60)
+            remaining_days, remaining_hours = divmod(
+                remaining_time, 24 * 60 * 60)
+
+            print(
+                f'  Elapsed time: {elapsed_days:.0f} days, {elapsed_hours:.0f} hours')
+
+            if remaining_time >= 0:
+                print(
+                    f'  Remaining time: {remaining_days:.0f} days, {remaining_hours:.0f} hours')
+            else:
+                print('  Remaining time: N/A')
+
         print('')
 
     def calculate_ideal_lr_and_batch_size(self):
@@ -331,8 +351,8 @@ class TrainingStats:
 
         ideal_lr = self.lr_history[-1] * \
             (2.0 ** (inflection_point_index - lr_len))
-        ideal_lr_sgd = self.best_lr * \
-            np.sqrt(self.lr_history[-1] / self.best_lr)
+        ideal_lr_sgd = self.lr * \
+            np.sqrt(self.lr_history[-1] / self.lr)
         if ideal_lr < self.lr_history[-1]:
             next_lr = ideal_lr
             reason = 'ideal_lr'
