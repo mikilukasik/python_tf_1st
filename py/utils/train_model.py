@@ -23,14 +23,22 @@ logging.basicConfig(level=logging.INFO)
 model_meta = {}
 iterations_with_no_improvement = 0
 lastSavedAvg = 9999
+
 needs_lr_reduced = False
+last_lr_reduce_time = 0
+min_time_between_lr_reduces = 1 * 60 * 60  # 2 hours in seconds
 
 
 def lr_schedule(epoch, lr):
-    global needs_lr_reduced
+    global needs_lr_reduced, last_lr_reduce_time
 
-    if needs_lr_reduced:  # 5:
+    current_time = time.time()
+    time_since_last_run = current_time - last_lr_reduce_time
+
+    if needs_lr_reduced and time_since_last_run >= min_time_between_lr_reduces:
         needs_lr_reduced = False
+        last_lr_reduce_time = current_time
+
         new_lr = lr * 0.5
         print_large(f"Learning rate goes from {lr} to {new_lr}")
         model_meta['lr'] = new_lr
