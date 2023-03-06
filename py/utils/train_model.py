@@ -155,6 +155,7 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, initial_learning_rate=
         while retries < max_retries:
             try:
                 start_time = time.monotonic()
+                print('calling API')
                 dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
                                           dataset_reader_id + "/dataset?format=csv", header=None, na_values=[''])
                 dataset_csv.fillna(value=0, inplace=True)
