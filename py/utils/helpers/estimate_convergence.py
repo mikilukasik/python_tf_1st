@@ -1,34 +1,37 @@
-import numpy as np
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.linear_model import LinearRegression
+import math
 
 
-def estimate_convergence(data):
+def estimate_convergence(loss_values):
     """
-    Given a list of data points representing the loss after each epoch, estimate
-    the value it will settle on and how many more epochs are needed for convergence.
+    Calculates the learning curve of the given loss values and estimates the
+    final loss value the model will settle on.
+
+    Args:
+        loss_values (list[float]): List of float values representing the loss
+            values of a Keras model after each epoch.
+
+    Returns:
+        A tuple (final_loss, remaining_epochs) where final_loss is the estimated
+        final loss value the model will settle on, and remaining_epochs is the
+        number of epochs remaining to reach that value.
     """
-    # Fit a linear curve to the data
-    X = np.arange(1, len(data) + 1).reshape((-1, 1))
-    y = np.array(data).reshape((-1, 1))
-    polynomial_features = PolynomialFeatures(degree=1, include_bias=False)
-    X_poly = polynomial_features.fit_transform(X)
-    model = LinearRegression()
-    model.fit(X_poly, y)
+    if not loss_values:
+        return None, None
 
-    # Estimate the settling value and epochs remaining
-    settling_value = model.predict(
-        np.array([[len(data) + 1]]))[0][0]
+    n = len(loss_values)
+    if n == 1:
+        return loss_values[0], None
 
-    # Check if the settling value is the same as the last data point
-    if settling_value == data[-1]:
-        return settling_value, 0
+    # Calculate the slope of the learning curve
+    m = (loss_values[-1] - loss_values[0]) / (n - 1)
 
-    # Calculate the derivative of the polynomial at the last data point
-    dydx = model.coef_[0]
+    # Calculate the y-intercept of the learning curve
+    b = loss_values[0]
 
-    # Estimate the epochs remaining
-    epochs_remaining = abs(int((settling_value - data[-1]) / dydx))
+    # Calculate the estimated final loss value using the formula for a line
+    final_loss = b + m * n
 
-    # Return the estimated settling value and epochs remaining
-    return settling_value, epochs_remaining
+    # Calculate the number of epochs remaining to reach the final loss value
+    remaining_epochs = math.ceil((final_loss - loss_values[-1]) / m)
+
+    return final_loss, remaining_epochs
