@@ -1,7 +1,7 @@
 from .print_large import print_large
 from .save_model import save_model
 from .load_model import load_model, load_model_meta
-from .helpers.training_stats import TrainingStats
+from .helpers.model_meta_manager import ModelMetaManager
 
 from . import prefetch
 from collections import deque
@@ -17,6 +17,7 @@ import time
 import logging
 import requests
 from keras.callbacks import LearningRateScheduler
+import collections
 
 
 # Set up logging
@@ -27,6 +28,7 @@ iterations_with_no_improvement = 0
 lastSavedAvg = 9999
 batch_size = 256
 next_lr = 0.0001
+model_manager = None
 
 # needs_lr_reduced = False
 # last_lr_reduce_time = 0
@@ -55,6 +57,7 @@ def save_model_and_delete_last(model, avg, model_dest, is_temp=False):
     foldername = os.path.join(model_dest, str(
         avg) + ('_temp' if is_temp else ''))
     save_model(model, foldername, model_meta)
+    model_manager.save_stats(foldername)
 
     if lastSavedAvg < 9999 and not is_temp:
         old_foldername = os.path.join(model_dest, str(lastSavedAvg))
@@ -135,8 +138,8 @@ def saveIfShould(model, val, model_dest):
 
 
 def train_model_v2(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003):
-    global model_meta, batch_size, next_lr
-
+    global model_meta, batch_size, next_lr, model_manager
+    batch_size = initial_batch_size
     # Load the Keras model and its metadata
     model = load_model(model_source)
     model_meta = load_model_meta(model_source)
@@ -144,13 +147,14 @@ def train_model_v2(model_source, model_dest, initial_batch_size=256, initial_lr=
 
     model.summary()
 
-    stats = TrainingStats(initial_batch_size=initial_batch_size, initial_lr=initial_lr,
-                          loss_history=model_meta.get('loss_history', []),
-                          lr_history=model_meta.get('lr_history', []),
-                          time_history=model_meta.get('time_history', []),
-                          sample_size_history=model_meta.get(
-                              'sample_size_history', []),
-                          batch_size_history=model_meta.get('batch_size_history', []))
+    model_manager = ModelMetaManager(
+        initial_lr=initial_lr, model_meta=model_meta)
+    # loss_history=model_meta.get('loss_history', []),
+    # lr_history=model_meta.get('lr_history', []),
+    # time_history=model_meta.get('time_history', []),
+    # sample_size_history=model_meta.get(
+    #     'sample_size_history', []),
+    # batch_size_history=model_meta.get('batch_size_history', []))
 
     # next_lr, msg = stats.get_next_lr()
 
@@ -195,6 +199,7 @@ def train_model_v2(model_source, model_dest, initial_batch_size=256, initial_lr=
     prefetch.prefetch_data()
 
     # Initialize the optimizer
+    # optimizer = tf.keras.optimizers.legacy.Adam(initial_lr)
     optimizer = tf.keras.optimizers.legacy.Adam(initial_lr)
 
     model.compile(optimizer=optimizer, loss='categorical_crossentropy',
@@ -208,11 +213,18 @@ def train_model_v2(model_source, model_dest, initial_batch_size=256, initial_lr=
 
     def lr_scheduler(epoch):
         global next_lr
-        next_lr, msg = stats.get_next_lr()
-        print(msg)
+        next_lr = model_manager.get_next_lr()
         return next_lr
 
     lr_scheduler_callback = LearningRateScheduler(lr_scheduler)
+    # reduce_lr_callback = tf.keras.callbacks.ReduceLROnPlateau(
+    #     monitor='loss', factor=0.1, patience=2)
+
+    # Use a window size of 10 for the moving average
+    # window_size = 10
+    # loss_window = collections.deque(maxlen=window_size)
+    # reduce_lr_callback = tf.keras.callbacks.ReduceLROnPlateau(
+    #     monitor='loss', factor=0.1, patience=10, verbose=1, min_delta=0.001)
 
     while True:
         # Load the dataset from the server
@@ -224,10 +236,10 @@ def train_model_v2(model_source, model_dest, initial_batch_size=256, initial_lr=
         logging.info(
             f"Loaded dataset in {time.time() - start_time:.2f} seconds")
 
-        stats.print_stats()
+        model_manager.print_stats()
 
-        batch_size, msg = stats.get_batch_size(50000)
-        print(msg)
+        # batch_size, msg = stats.get_batch_size(50000)
+        # print(msg)
 
         # Train the model on the dataset
         start_time = time.time()
@@ -236,15 +248,19 @@ def train_model_v2(model_source, model_dest, initial_batch_size=256, initial_lr=
                         # tf.keras.callbacks.LearningRateScheduler(lr_schedule),
                         # log_lr_callback]
                         callbacks=[lr_scheduler_callback]
+                        # callbacks=[reduce_lr_callback]
                         ).history["loss"][0]
 
         logging.info(
             f"Trained model on dataset in {time.time() - start_time:.2f} seconds")
 
-        stats.add_to_stats(loss=val, lr=next_lr, time=time.time(
+        # lr = model.optimizer.lr.numpy()
+        # print_large('LR', lr)
+
+        model_manager.add_to_stats(loss=val, lr=model.optimizer.lr.numpy(), time=time.time(
         ) - start_time, sample_size=50000, batch_size=batch_size)
 
-        model_meta.update(stats.get_history())
+        # model_meta.update(stats.get_history())
 
         # Save the model if necessary
         saveIfShould(model, val, model_dest=model_dest)
