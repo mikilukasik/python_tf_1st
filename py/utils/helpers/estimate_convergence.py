@@ -16,11 +16,11 @@ def estimate_convergence(loss_values):
         number of epochs remaining to reach that value.
     """
     if not loss_values:
-        return None, None
+        return 0, 0
 
     n = len(loss_values)
     if n == 1:
-        return loss_values[0], None
+        return loss_values[0], 0
 
     # Calculate the slope of the learning curve
     m = (loss_values[-1] - loss_values[0]) / (n - 1)

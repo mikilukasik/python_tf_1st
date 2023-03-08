@@ -1,7 +1,7 @@
 from utils.train_model_v3 import train_model
 
 # model_source = '../models/champ_he_M_v1/_blank'
-model_source = '../models/champ_he_M_v1/1.7997031331062316'
+model_source = '../models/champ_he_M_v1/1.7415535921962173'
 model_dest = '../models/champ_he_M_v1'
 
 initial_lr = 5e-5 // 0.00005
