@@ -1,34 +1,10 @@
 import os
 import sys
+from datetime import datetime
 
-
-def find_most_recent_metadata(folder):
-    """Recursively finds the most recently modified metadata.json file in a folder."""
-
-    most_recent_time = 0
-    most_recent_file = ""
-
-    # Search for metadata.json in the current directory
-    for file in os.listdir(folder):
-        file_path = os.path.join(folder, file)
-        if os.path.isdir(file_path):
-            # Recursively search the subdirectory
-            subdirectory_file = find_most_recent_metadata(file_path)
-            if subdirectory_file:
-                # Update most_recent_file if a more recent file was found in the subdirectory
-                subdirectory_time = os.path.getmtime(subdirectory_file)
-                if subdirectory_time > most_recent_time:
-                    most_recent_time = subdirectory_time
-                    most_recent_file = subdirectory_file
-        elif file == "metadata.json":
-            # Check if metadata.json is in the current directory
-            modified_time = os.path.getmtime(file_path)
-            if modified_time > most_recent_time:
-                most_recent_time = modified_time
-                most_recent_file = file_path
-
-    return most_recent_file
-
+from utils.find_most_recent_model import find_most_recent_model
+from utils.load_model import load_model_meta
+from utils.plot_model_meta import plot_model_meta
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -41,10 +17,16 @@ if __name__ == "__main__":
         print(folder, "is not a valid directory")
         sys.exit(1)
 
-    most_recent_file = find_most_recent_metadata(folder)
+    modelFolder = find_most_recent_model(folder)
 
-    if not most_recent_file:
-        print("No metadata.json files found in", folder)
-    else:
-        folder_name = os.path.dirname(most_recent_file)
-        print("Most recently modified metadata.json file found in:", folder_name)
+    if not modelFolder:
+        print("No model.json files found in", folder)
+        exit()
+
+    model_meta = load_model_meta(modelFolder)
+
+    # filename = f'./training_stats_{datetime.now().strftime("%Y%m%d_%H%M%S")}.pdf'
+    filename = f'./training_stats.pdf'
+    print('filename', filename)
+
+    plot_model_meta(model_meta, filename, True)
