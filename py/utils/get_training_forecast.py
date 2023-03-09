@@ -13,8 +13,8 @@ def get_training_forecast(model_meta):
 
     # Create a small TensorFlow model with one hidden layer and train on the data
     model = tf.keras.Sequential([
-        tf.keras.layers.Dense(128, activation='sigmoid'),
-        tf.keras.layers.Dense(128, activation='sigmoid'),
+        tf.keras.layers.Dense(512, activation='sigmoid'),
+        tf.keras.layers.Dense(512, activation='sigmoid'),
         tf.keras.layers.Dense(1)
     ])
 
@@ -27,7 +27,7 @@ def get_training_forecast(model_meta):
     # with tf.device(device):
     print(xs, ys)
 
-    model.fit(xs, ys, epochs=50)
+    model.fit(xs, ys, epochs=10)
 
     # Make predictions with the trained model
     new_xs = np.arange(len(loss_history)*4).reshape((-1, 1))
