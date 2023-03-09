@@ -9,4 +9,4 @@ initial_lr = 0.00001
 initial_batch_size = 128
 
 train_model(model_source, model_dest,
-            initial_batch_size, initial_lr, gpu=False, force_lr=False)
+            initial_batch_size, initial_lr, gpu=True, force_lr=False)
