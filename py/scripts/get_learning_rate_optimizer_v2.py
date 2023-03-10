@@ -54,8 +54,6 @@ model.compile(optimizer=opt, loss='mse')
 model.summary()
 
 # Define the learning rate scheduler
-
-
 def lr_scheduler(epoch, lr):
     return lr * 0.98
 
