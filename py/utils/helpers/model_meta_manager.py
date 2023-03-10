@@ -17,6 +17,8 @@ class ModelMetaManager:
             model_meta['lr_history'] = [
                 {'active': True, 'lr': initial_lr, 'epoch_history': [], 'started': datetime.now().isoformat(), 'avg_epoch_time': None}]
 
+        transtorm_old_model_meta(model_meta, initial_lr)
+
         self.model_meta = model_meta
         self.lr_meta = model_meta['lr_history'][-1]
 

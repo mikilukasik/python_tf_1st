@@ -13,6 +13,26 @@ import time
 logging.basicConfig(level=logging.INFO)
 
 
+def get_existing_epochs(model_meta):
+    existing_epochs = []
+
+    for lr_meta in model_meta['lr_history']:
+        for epoch in lr_meta['epoch_history']:
+            existing_epochs.append({'l': epoch['loss'], 't': epoch['time'],
+                                   's': epoch['sample_size'], 'b': epoch['batch_size'], 'lr': lr_meta['lr']})
+
+    return existing_epochs
+
+
+def transtorm_old_model_meta(model_meta, initial_lr):
+    if (model_meta.get('training_stats')):
+        return
+
+    existing_epochs = get_existing_epochs(model_meta)
+
+    model_meta['training_stats'] = {'epochs': existing_epochs}
+
+
 class TrainingManager:
     def __init__(self, initial_lr, initial_batch_size, force_lr, model_meta=None):
         if model_meta is None:
@@ -25,6 +45,8 @@ class TrainingManager:
             model_meta['lr_history'][-1]['active'] = False
             model_meta['lr_history'].append({'active': True, 'lr': initial_lr, 'epoch_history': [
             ], 'started': datetime.now().isoformat(), 'avg_epoch_time': None})
+
+        transtorm_old_model_meta(model_meta, initial_lr)
 
         self.model_meta = model_meta
         self.lr_meta = model_meta['lr_history'][-1]

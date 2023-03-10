@@ -1,7 +1,7 @@
 from .print_large import print_large
 from .save_model import save_model
 from .load_model import load_model, load_model_meta
-from .helpers.training_manager import TrainingManager
+from .helpers.training_manager_v2 import TrainingManagerV2
 from .helpers.dataset_provider import DatasetProvider
 
 from collections import deque
@@ -28,7 +28,7 @@ def save_model_and_delete_last(model, avg, model_dest, is_temp=False):
     foldername = os.path.join(model_dest, str(
         avg) + ('_temp' if is_temp else ''))
     save_model(model, foldername, model_meta)
-    training_manager.save_stats(foldername, True)
+    # training_manager.save_stats(foldername, True)
 
     if lastSavedAvg < 9999 and not is_temp:
         old_foldername = os.path.join(model_dest, str(lastSavedAvg))
@@ -67,8 +67,8 @@ def saveIfShould(model, val, model_dest):
         saveIfShould.counter = 0  # Initialize the counter
     saveIfShould.counter = (saveIfShould.counter + 1) % 3
 
-    # if saveIfShould.counter > 0 or len(avgQ10) < 6:
-    #     return
+    if saveIfShould.counter > 0 or len(avgQ10) < 6:
+        return
 
     avg10 = get_avg(avgQ10)
     avg50 = get_avg(avgQ50)
@@ -88,13 +88,13 @@ def saveIfShould(model, val, model_dest):
         iterations_with_no_improvement = 0
 
 
-def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False):
+def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=1):
     device = '/gpu:0' if gpu else '/cpu:0'
     with tf.device(device):
-        return train_model_v3(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr)
+        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier)
 
 
-def train_model_v3(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False):
+def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=1):
     global model_meta, batch_size, next_lr, training_manager
 
     batch_size = initial_batch_size
@@ -104,8 +104,8 @@ def train_model_v3(model_source, model_dest, initial_batch_size=256, initial_lr=
     model_meta = load_model_meta(model_source)
     model.summary()
 
-    training_manager = TrainingManager(
-        initial_lr=initial_lr, initial_batch_size=initial_batch_size, model_meta=model_meta, force_lr=force_lr)
+    training_manager = TrainingManagerV2(
+        model_meta, batch_size=initial_batch_size, lr_multiplier=lr_multiplier)
     dataset_provider = DatasetProvider(model_meta, initial_batch_size)
 
     optimizer = training_manager.get_optimizer()

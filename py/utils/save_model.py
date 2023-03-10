@@ -1,8 +1,16 @@
 import os
 import json
+import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from keras.utils.vis_utils import plot_model
 from .print_large import print_large
+
+
+class NumpyJSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.floating):
+            return float(obj)
+        return super(NumpyJSONEncoder, self).default(obj)
 
 
 def save_model(model, folder, metadata={}):
@@ -62,6 +70,6 @@ def save_model(model, folder, metadata={}):
 
     # Save metadata
     with open(os.path.join(folder, 'metadata.json'), 'w') as f:
-        json.dump(metadata, f)
+        json.dump(metadata, f, cls=NumpyJSONEncoder)
 
     print_large('Model saved.', folder)
