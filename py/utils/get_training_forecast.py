@@ -53,7 +53,7 @@ def get_training_forecast_ai(model_meta):
         # tf.keras.layers.Dense(512, activation='sigmoid'),
         # tf.keras.layers.Dense(256, activation='sigmoid'),
         tf.keras.layers.Dense(64, activation='sigmoid', input_shape=(1,)),
-        tf.keras.layers.Dense(128, activation='sigmoid'),
+        tf.keras.layers.Dense(128, activation='relu'),
         tf.keras.layers.Dense(64, activation='sigmoid'),
         tf.keras.layers.Dense(1, activation='linear')
     ])
