@@ -1,17 +1,22 @@
 from flask import Flask, jsonify, request
 import numpy as np
-from utils import load_model
+from utils.load_model import load_model
+from utils.get_all_model_names import get_all_model_names
 
 app = Flask(__name__)
 
-model_name = './models/save/champion/c4RESd2_S_v1/1.6521898729460578'
+model_name = '../models/champ_he_M_v1/1.6669645971722076'
+models_folder = '../models'
 
 # Load the trained model
 model = load_model(model_name)
 
 
-@app.route('/predict', methods=['GET'])
-def predict():
+@app.route('/predict/<model_name>', methods=['GET'])
+def predict(model_name):
+
+    print(model_name)
+
     # Get the input from the request parameters
     input_data = request.args.get('input')
     input_data = np.array(input_data.split(','), dtype=np.float32)
@@ -27,6 +32,14 @@ def predict():
 
     # Return the prediction as a JSON object
     return jsonify({'prediction': prediction_str})
+
+
+@app.route('/models', methods=['GET'])
+def example():
+    model_names = get_all_model_names(models_folder)
+
+    # Convert the string array to a JSON object
+    return jsonify({'models': model_names})
 
 
 if __name__ == '__main__':
