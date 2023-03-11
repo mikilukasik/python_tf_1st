@@ -1,14 +1,17 @@
 import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
-from datetime import datetime
+# import matplotlib.pyplot as plt
+# from matplotlib.backends.backend_pdf import PdfPages
+# from datetime import datetime
 import logging
-from datetime import datetime
+# from datetime import datetime
 import tensorflow as tf
-from .estimate_convergence import estimate_convergence
-import shutil
-import os
-import time
+# from .estimate_convergence import estimate_convergence
+from .get_random_multiplier import get_random_multiplier
+# from .predict_next_lr import predict_next_lr
+# import shutil
+# import os
+# import time
+import math
 
 logging.basicConfig(level=logging.INFO)
 
@@ -68,49 +71,33 @@ class TrainingManagerV2:
         self.batch_size = batch_size
 
     def get_next_lr(self, lr):
-        return get_random_lr() * self.lr_multiplier
-        return self.lr_meta['lr']
+        if len(self.model_meta['training_stats']['epochs']) == 0:
+            return 0.0001
+
+        # next_lr = 0.002000458 + (-0.000001246426 - 0.002000458)/(
+        #     1 + (self.model_meta['training_stats']['epochs'][-1]['l']/3.323395) ^ 10.29872)
+
+        next_lr = 0.002000458 + (-0.000001246426 - 0.002000458) / (1 + math.pow(
+            self.model_meta['training_stats']['epochs'][-1]['l'] / 3.323395, 10.29872))
+
+        # predicted_next_lr = predict_next_lr(self.model_meta)
+        random_multiplier = get_random_multiplier(1.2)
+        print('next_lr from formula', next_lr)
+        print('random_multiplier', random_multiplier)
+
+        return next_lr * self.lr_multiplier * random_multiplier
 
     def get_optimizer(self):
         optimizer = tf.keras.optimizers.legacy.Adam(self.get_next_lr(None))
         return optimizer
 
     def add_to_stats(self, loss, lr, time, sample_size, batch_size, gpu):
-        # if not np.isclose(lr, self.lr_meta['lr'], rtol=1e-7, atol=1e-7):
-        #     print(lr, self.lr_meta['lr'])
-        #     raise ValueError("learning rate mismatch")
+
         self.model_meta['training_stats']['epochs'].append(
             {'l': loss, 't': time,
              's': sample_size, 'b': batch_size, 'lr': lr, 'g': gpu}
 
         )
-
-        # self.lr_meta['epoch_history'].append(
-        #     {'loss': loss, 'time': time, 'sample_size': sample_size, 'batch_size': batch_size, 'gpu': gpu})
-        # self.lr_meta['avg_epoch_time'] = sum(
-        #     [x['time'] for x in self.lr_meta['epoch_history']]) / len(self.lr_meta['epoch_history'])
-
-        # if len(self.lr_meta['epoch_history']) >= 100:
-        #     last_50_losses = [x['loss']
-        #                       for x in self.lr_meta['epoch_history'][-50:]]
-        #     prev_50_losses = [x['loss']
-        #                       for x in self.lr_meta['epoch_history'][-100:-50]]
-        #     last_50_loss_avg = sum(last_50_losses) / len(last_50_losses)
-        #     prev_50_loss_avg = sum(prev_50_losses) / len(prev_50_losses)
-        #     loss_diff = last_50_loss_avg - prev_50_loss_avg
-
-        #     print("Loss difference between last 50 and previous 50 epochs:", loss_diff)
-
-        #     if (loss_diff * -1) < self.lr_meta['lr']*100:
-        #         self.model_meta['lr'] = self.lr_meta['lr']/2
-        #         print("New learning rate will be:", self.model_meta['lr'])
-
-        #         self.lr_meta['finished'] = datetime.now().isoformat()
-        #         self.lr_meta['active'] = False
-
-        #         self.lr_meta = {'active': True, 'lr': self.model_meta['lr'], 'epoch_history': [
-        #         ], 'started': datetime.now().isoformat(), 'avg_epoch_time': None}
-        #         self.model_meta['lr_history'].append(self.lr_meta)
 
     def print_stats(self):
         if not self.model_meta['training_stats']['epochs'] or len(self.model_meta['training_stats']['epochs']) < 1:
@@ -135,22 +122,5 @@ class TrainingManagerV2:
 
         print(
             f'  Elapsed time: {elapsed_days:.0f} days, {elapsed_hours:.0f} hours, {elapsed_minutes:.0f} minutes, {elapsed_seconds:.0f} seconds')
-
-        # convergence_value, epochs_remaining = estimate_convergence(
-        #     [epoch['loss'] for epoch in self.lr_meta['epoch_history']])
-        # print(f'  Estimated convergence value: {convergence_value:.6f}')
-        # print(
-        #     f'  Estimated epochs remaining until convergence: {epochs_remaining}')
-
-        # avg_epoch_time = self.lr_meta['avg_epoch_time']
-        # if avg_epoch_time is not None:
-        #     remaining_time_seconds = avg_epoch_time * epochs_remaining
-        #     remaining_minutes, remaining_seconds = divmod(
-        #         remaining_time_seconds, 60)
-        #     remaining_hours, remaining_minutes = divmod(remaining_minutes, 60)
-        #     remaining_days, remaining_hours = divmod(remaining_hours, 24)
-
-        #     print(
-        #         f'  Estimated remaining time: {remaining_days:.0f} days, {remaining_hours:.0f} hours, {remaining_minutes:.0f} minutes, {remaining_seconds:.0f} seconds')
 
         print('')

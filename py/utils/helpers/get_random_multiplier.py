@@ -1,7 +1,7 @@
 import random
 
 
-def random_multiplier(factor=1):
+def get_random_multiplier(factor=1):
     positive_multiplier = (pow(random.uniform(0, 1), 5)
                            * (factor - 1)) + 1
 
@@ -14,5 +14,5 @@ def random_multiplier(factor=1):
 
 # If the file is executed from the command line, output a generated number
 if __name__ == '__main__':
-    multiplier = random_multiplier(10)
+    multiplier = get_random_multiplier(10)
     print(multiplier)

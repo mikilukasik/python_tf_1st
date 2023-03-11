@@ -1,7 +1,7 @@
-from utils.train_model_v5 import train_model
+from utils.train_model_v4 import train_model
 
 # model_source = '../models/ch_XS_v1/_blank'
-model_source = '../models/ch_XS_v1_MESSUP/2.307998169692105'
+model_source = '../models/ch_XS_v1_MESSUP/2.2961974612715976'
 model_dest = '../models/ch_XS_v1_MESSUP'
 
 initial_lr = 0.00001
