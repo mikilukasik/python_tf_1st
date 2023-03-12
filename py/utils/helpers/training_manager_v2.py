@@ -81,7 +81,7 @@ class TrainingManagerV2:
             self.model_meta['training_stats']['epochs'][-1]['l'] / 3.323395, 10.29872))
 
         # predicted_next_lr = predict_next_lr(self.model_meta)
-        random_multiplier = get_random_multiplier(1.2)
+        random_multiplier = get_random_multiplier(1.5)
         print('next_lr from formula', next_lr)
         print('random_multiplier', random_multiplier)
 

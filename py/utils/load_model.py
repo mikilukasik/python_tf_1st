@@ -18,6 +18,8 @@ def load_model(model_source: str) -> Union[tf.keras.Model, None]:
     """
 
     try:
+        model_source = os.path.abspath(
+            model_source)
         from_json = os.path.exists(os.path.join(model_source, "model.json"))
         if from_json:
             with open(os.path.join(model_source, "model.json"), "r") as f:
@@ -51,6 +53,8 @@ def load_model_meta(model_source: str) -> Union[Dict, None]:
     """
 
     try:
+        model_source = os.path.abspath(
+            model_source)  # convert to absolute path
         meta_path = os.path.join(model_source, "metadata.json")
         if os.path.exists(meta_path):
             with open(meta_path, "r") as f:
