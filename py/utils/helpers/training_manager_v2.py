@@ -25,7 +25,7 @@ def get_existing_epochs(model_meta):
     for lr_meta in model_meta['lr_history']:
         for epoch in lr_meta['epoch_history']:
             existing_epochs.append({'l': epoch['loss'], 't': epoch['time'],
-                                   's': epoch['sample_size'], 'b': epoch['batch_size'], 'g': epoch['gpu'], 'lr': lr_meta['lr']})
+                                   's': epoch['sample_size'], 'b': epoch['batch_size'], 'g': epoch.get('gpu', True), 'lr': lr_meta['lr']})
 
     return existing_epochs
 
