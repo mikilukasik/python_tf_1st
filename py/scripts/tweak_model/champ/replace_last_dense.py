@@ -32,29 +32,6 @@ def echo_weights(w):
     return [np.concatenate([w[0], w[0][896:]], axis=1), np.concatenate([w[1], w[1][896:]])]
 
 
-# def duplicate_weights2(w, desired_output_size):
-#     original_size = w[0].shape[1]
-#     new_size = max(original_size, desired_output_size)
-
-#     new_weights = [
-#         np.zeros((w[0].shape[0], new_size)),
-#         np.zeros(w[1].shape)]
-
-#     # Copy the old weights into the new array up to the original size
-#     new_weights[0][:, :original_size] = w[0]
-
-#     # Calculate the number of remaining weights to be filled from the end of the original array
-#     remaining_size = new_size - original_size
-
-#     # Copy the remaining weights from the end of the original array
-#     new_weights[0][:, original_size:] = w[0][:, -remaining_size:]
-
-#     # Copy the bias term
-#     new_weights[1] = w[1]
-
-#     return new_weights
-
-
 def copy_weights(old_layer, new_layer, new_input_units, weight_extender=duplicate_weights):
     _ = new_layer(np.random.rand(10, new_input_units))
 

@@ -7,6 +7,7 @@ import logging
 import tensorflow as tf
 # from .estimate_convergence import estimate_convergence
 from .get_random_multiplier import get_random_multiplier
+from ..print_large import print_large
 # from .predict_next_lr import predict_next_lr
 # import shutil
 # import os
@@ -69,35 +70,52 @@ class TrainingManagerV2:
         self.forced_lr = forced_lr
         self.lr_multiplier = lr_multiplier
         self.batch_size = batch_size
+        self.epochs_since_lr_multiplier_adjusted = 0
+
+        print_large('training_manger initialized, epochs in history:',
+                    len(self.model_meta['training_stats']['epochs']))
 
     def get_next_lr(self, lr):
         if len(self.model_meta['training_stats']['epochs']) == 0:
             return 0.0001
 
-        # next_lr = 0.002000458 + (-0.000001246426 - 0.002000458)/(
-        #     1 + (self.model_meta['training_stats']['epochs'][-1]['l']/3.323395) ^ 10.29872)
-
         next_lr = 0.002000458 + (-0.000001246426 - 0.002000458) / (1 + math.pow(
             self.model_meta['training_stats']['epochs'][-1]['l'] / 3.323395, 10.29872))
+        random_multiplier = get_random_multiplier(1.25)
+        result = next_lr * self.lr_multiplier * random_multiplier
 
-        # predicted_next_lr = predict_next_lr(self.model_meta)
-        random_multiplier = get_random_multiplier(1.5)
         print('next_lr from formula', next_lr)
+        print('lr_multiplier', self.lr_multiplier)
         print('random_multiplier', random_multiplier)
+        print('next_lr', result)
+        print('')
 
-        return next_lr * self.lr_multiplier * random_multiplier
+        return result
 
     def get_optimizer(self):
         optimizer = tf.keras.optimizers.legacy.Adam(self.get_next_lr(None))
         return optimizer
 
     def add_to_stats(self, loss, lr, time, sample_size, batch_size, gpu):
+        self.epochs_since_lr_multiplier_adjusted += 1
 
         self.model_meta['training_stats']['epochs'].append(
             {'l': loss, 't': time,
-             's': sample_size, 'b': batch_size, 'lr': lr, 'g': gpu}
+             's': sample_size, 'b': batch_size, 'lr': lr, 'g': gpu})
 
-        )
+        if len(self.model_meta['training_stats']['epochs']) >= 200:
+            last_100_loss = [
+                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-100:]]
+            prev_100_loss = [
+                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-200:-100]]
+            loss_diff_in_past_200 = sum(
+                last_100_loss)/len(last_100_loss) - sum(prev_100_loss)/len(prev_100_loss)
+            print('loss diff in past 200 epochs:', loss_diff_in_past_200)
+
+            if self.epochs_since_lr_multiplier_adjusted > 100 and loss_diff_in_past_200 > 0:
+                self.lr_multiplier /= 3
+                self.epochs_since_lr_multiplier_adjusted = 0
+                print_large('New lr multiplier:', self.lr_multiplier)
 
     def print_stats(self):
         if not self.model_meta['training_stats']['epochs'] or len(self.model_meta['training_stats']['epochs']) < 1:
