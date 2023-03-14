@@ -1,7 +1,7 @@
 from utils.train_model_v4 import train_model
 
 # model_source = '../models/tripple_assisted_v2/_blank'
-model_source = '../models/tripple_assisted_vx/2.867364841794211'
+model_source = '../models/tripple_assisted_vx/2.317265893485811'
 model_dest = '../models/tripple_assisted_vx'
 
 initial_lr = 0.00001

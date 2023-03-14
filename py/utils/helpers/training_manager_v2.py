@@ -72,6 +72,8 @@ class TrainingManagerV2:
         self.batch_size = batch_size
         self.epochs_since_lr_multiplier_adjusted = 0
         self.fixed_lr = fixed_lr
+        self.next_lr_mul_goes_up = False
+        self.loss_to_beat = None
 
         print_large('training_manger initialized, epochs in history:',
                     len(self.model_meta['training_stats']['epochs']))
@@ -116,19 +118,40 @@ class TrainingManagerV2:
             {'l': loss, 't': time,
              's': sample_size, 'b': batch_size, 'lr': lr, 'g': gpu})
 
-        if len(self.model_meta['training_stats']['epochs']) >= 100 and self.lr_multiplier is not None:
-            last_50_loss = [
-                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-50:]]
-            prev_50_loss = [
-                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-100:-50]]
-            loss_diff_in_past_100 = sum(
-                last_50_loss)/len(last_50_loss) - sum(prev_50_loss)/len(prev_50_loss)
-            print('loss diff in past 100 epochs:', loss_diff_in_past_100)
+        if len(self.model_meta['training_stats']['epochs']) >= 50 and self.lr_multiplier is not None:
+            last_25_loss = [
+                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-25:]]
+            prev_25_loss = [
+                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-50:-25]]
 
-            if self.epochs_since_lr_multiplier_adjusted > 50 and loss_diff_in_past_100 > 0:
-                self.lr_multiplier /= 3
-                self.epochs_since_lr_multiplier_adjusted = 0
-                print_large('New lr multiplier:', self.lr_multiplier)
+            last_25_avg = sum(last_25_loss)/len(last_25_loss)
+            prev_25_avg = sum(prev_25_loss)/len(prev_25_loss)
+
+            loss_diff_in_past_50 = last_25_avg - prev_25_avg
+            print('loss diff in past 50 epochs:', loss_diff_in_past_50)
+
+            loss_diff_to_consider = loss_diff_in_past_50 if self.loss_to_beat is None else last_25_avg - self.loss_to_beat
+
+            if self.epochs_since_lr_multiplier_adjusted > 50:
+                if loss_diff_to_consider > 0:
+                    if self.loss_to_beat is None:
+                        self.loss_to_beat = last_25_avg
+
+                    if self.next_lr_mul_goes_up:
+                        print_large('lr multiplier goes up from',
+                                    self.lr_multiplier, 'to', self.lr_multiplier * 2)
+                        self.lr_multiplier *= 2
+                        self.epochs_since_lr_multiplier_adjusted = 0
+                        self.next_lr_mul_goes_up = False
+                    else:
+                        print_large('lr multiplier goes down from',
+                                    self.lr_multiplier, 'to', self.lr_multiplier / 2)
+                        self.lr_multiplier /= 2
+                        self.epochs_since_lr_multiplier_adjusted = 0
+                        self.next_lr_mul_goes_up = True
+                else:
+                    self.loss_to_beat = None
+                    self.next_lr_mul_goes_up = False
 
     def print_stats(self):
         if not self.model_meta['training_stats']['epochs'] or len(self.model_meta['training_stats']['epochs']) < 1:
