@@ -88,13 +88,13 @@ def saveIfShould(model, val, model_dest):
         iterations_with_no_improvement = 0
 
 
-def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=1):
+def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=1, ys_format='default'):
     device = '/gpu:0' if gpu else '/cpu:0'
     with tf.device(device):
-        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier)
+        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format)
 
 
-def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=1):
+def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=1, ys_format='default'):
     global model_meta, batch_size, next_lr, training_manager
 
     batch_size = initial_batch_size
@@ -106,11 +106,38 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
 
     training_manager = TrainingManagerV2(
         model_meta, batch_size=initial_batch_size, lr_multiplier=lr_multiplier)
-    dataset_provider = DatasetProvider(model_meta, initial_batch_size)
+    dataset_provider = DatasetProvider(
+        model_meta, initial_batch_size, ys_format)
 
     optimizer = training_manager.get_optimizer()
-    model.compile(optimizer=optimizer, loss='categorical_crossentropy',
-                  metrics=['categorical_crossentropy'])
+
+    loss = 'categorical_crossentropy'
+
+    if ys_format == '1966':
+        def custom_loss(y_true, y_pred):
+            # Define the custom loss for the 1837 classes output
+            loss_class = tf.keras.losses.CategoricalCrossentropy()(
+                y_true[:, :1837], y_pred[:, :1837])
+
+            # Define the custom loss for the "from_labels" output
+            loss_from = tf.keras.losses.CategoricalCrossentropy()(
+                y_true[:, 1837:1901], y_pred[:, 1837:1901])
+
+            # Define the custom loss for the "to_labels" output
+            loss_to = tf.keras.losses.CategoricalCrossentropy()(
+                y_true[:, 1901:1965], y_pred[:, 1901:1965])
+
+            # Define the custom loss for the "knight_promo" output
+            loss_promo = tf.keras.losses.BinaryCrossentropy()(
+                y_true[:, -1], y_pred[:, -1])
+
+            # Return the sum of the four individual losses
+            return (loss_class * 1.8 + loss_from + loss_to + loss_promo * 0.2)/4
+
+        loss = custom_loss
+
+    model.compile(optimizer=optimizer, loss=loss,
+                  metrics=['accuracy'])
 
     lr_scheduler_callback = LearningRateScheduler(training_manager.get_next_lr)
 
