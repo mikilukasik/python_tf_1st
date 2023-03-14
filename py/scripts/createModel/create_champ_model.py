@@ -6,6 +6,7 @@ from keras.initializers import he_normal
 from helpers.create_champ_model import create_champ_model
 from utils.save_model import save_model
 
-model = create_champ_model(layers_per_conv_block=7)
+model = create_champ_model(
+    filter_nums=[40, 80, 160, 320], dense_units=[600, 300])
 model.summary()
-save_model(model, '../models/champ_lpc7/_blank')
+save_model(model, '../models/blk1_fn4-8-16-32_du60-30_v1/_blank')

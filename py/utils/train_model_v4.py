@@ -88,13 +88,13 @@ def saveIfShould(model, val, model_dest):
         iterations_with_no_improvement = 0
 
 
-def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=1, ys_format='default'):
+def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', fixed_lr=None):
     device = '/gpu:0' if gpu else '/cpu:0'
     with tf.device(device):
-        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format)
+        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format, fixed_lr)
 
 
-def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=1, ys_format='default'):
+def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', fixed_lr=None):
     global model_meta, batch_size, next_lr, training_manager
 
     batch_size = initial_batch_size
@@ -105,7 +105,7 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
     model.summary()
 
     training_manager = TrainingManagerV2(
-        model_meta, batch_size=initial_batch_size, lr_multiplier=lr_multiplier)
+        model_meta, batch_size=initial_batch_size, lr_multiplier=lr_multiplier, fixed_lr=fixed_lr)
     dataset_provider = DatasetProvider(
         model_meta, initial_batch_size, ys_format)
 
@@ -132,7 +132,8 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
                 y_true[:, -1], y_pred[:, -1])
 
             # Return the sum of the four individual losses
-            return (loss_class * 1.8 + loss_from + loss_to + loss_promo * 0.2)/4
+            # (loss_class * 1.8 + loss_from + loss_to + loss_promo * 0.2)/4
+            return (loss_class * 1.99 + loss_from + loss_to + loss_promo*0.01)/4
 
         loss = custom_loss
 

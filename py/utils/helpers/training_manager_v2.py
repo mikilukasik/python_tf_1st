@@ -59,7 +59,7 @@ def get_random_lr():
 
 
 class TrainingManagerV2:
-    def __init__(self, model_meta=None, forced_lr=None, lr_multiplier=1, batch_size=64):
+    def __init__(self, model_meta=None, forced_lr=None, lr_multiplier=None, batch_size=64, fixed_lr=None):
         if model_meta is None:
             raise ValueError("model_meta cannot be None")
 
@@ -71,11 +71,24 @@ class TrainingManagerV2:
         self.lr_multiplier = lr_multiplier
         self.batch_size = batch_size
         self.epochs_since_lr_multiplier_adjusted = 0
+        self.fixed_lr = fixed_lr
 
         print_large('training_manger initialized, epochs in history:',
                     len(self.model_meta['training_stats']['epochs']))
 
     def get_next_lr(self, lr):
+        if self.fixed_lr is not None:
+            print('fixed_lr', self.fixed_lr)
+            if self.lr_multiplier is not None:
+                print('lr_multiplier', self.lr_multiplier)
+                result = self.fixed_lr * self.lr_multiplier
+                print('next_lr', result)
+                print('')
+                return result
+
+            print('')
+            return self.fixed_lr
+
         if len(self.model_meta['training_stats']['epochs']) == 0:
             return 0.0001
 
@@ -103,16 +116,16 @@ class TrainingManagerV2:
             {'l': loss, 't': time,
              's': sample_size, 'b': batch_size, 'lr': lr, 'g': gpu})
 
-        if len(self.model_meta['training_stats']['epochs']) >= 200:
-            last_100_loss = [
-                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-100:]]
-            prev_100_loss = [
-                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-200:-100]]
-            loss_diff_in_past_200 = sum(
-                last_100_loss)/len(last_100_loss) - sum(prev_100_loss)/len(prev_100_loss)
-            print('loss diff in past 200 epochs:', loss_diff_in_past_200)
+        if len(self.model_meta['training_stats']['epochs']) >= 100 and self.lr_multiplier is not None:
+            last_50_loss = [
+                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-50:]]
+            prev_50_loss = [
+                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-100:-50]]
+            loss_diff_in_past_100 = sum(
+                last_50_loss)/len(last_50_loss) - sum(prev_50_loss)/len(prev_50_loss)
+            print('loss diff in past 100 epochs:', loss_diff_in_past_100)
 
-            if self.epochs_since_lr_multiplier_adjusted > 100 and loss_diff_in_past_200 > 0:
+            if self.epochs_since_lr_multiplier_adjusted > 50 and loss_diff_in_past_100 > 0:
                 self.lr_multiplier /= 3
                 self.epochs_since_lr_multiplier_adjusted = 0
                 print_large('New lr multiplier:', self.lr_multiplier)
