@@ -7,6 +7,6 @@ from helpers.create_champ_model import create_champ_model
 from utils.save_model import save_model
 
 model = create_champ_model(
-    filter_nums=[40, 80, 160, 320], dense_units=[600, 300])
+    filter_nums=[32, 32, 32, 32], dense_units=[260, 130])
 model.summary()
-save_model(model, '../models/blk1_fn4-8-16-32_du60-30_v1/_blank')
+save_model(model, '../models/blk1_fn3-3-3-3_du26-13_v1/_blank')
