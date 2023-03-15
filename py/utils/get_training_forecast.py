@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 from scipy.optimize import curve_fit
+import math
 
 
 def smooth_data(data, window_size=10):
@@ -40,9 +41,8 @@ def get_training_forecast(model_meta):
 
 def get_training_forecast_ai(model_meta):
     loss_history = []
-    for lr_meta in model_meta['lr_history']:
-        for epoch in lr_meta['epoch_history']:
-            loss_history.append(epoch['loss'])
+    for epoch in model_meta['training_stats']['epochs']:
+        loss_history.append(epoch['l'])
 
     # Convert loss history to a numpy array
     loss_history = np.array(loss_history)
@@ -68,6 +68,16 @@ def get_training_forecast_ai(model_meta):
     xs = smooth_data(np.arange(len(loss_history))).reshape((-1, 1))
     ys = smooth_data(loss_history).reshape((-1, 1))
 
+    pct_20 = math.ceil(len(xs)*0.2)
+    pct_5 = math.ceil(len(xs)*0.05)
+    print('pct_20', pct_20)
+    print('pct_5', pct_5)
+
+    xs = np.concatenate(
+        (xs, xs[-pct_20:], xs[-pct_20:], xs[-pct_5:], xs[-pct_5:]), axis=0)
+    ys = np.concatenate(
+        (ys, ys[-pct_20:], ys[-pct_20:], ys[-pct_5:], ys[-pct_5:]), axis=0)
+
     # device = '/cpu:0'
     # with tf.device(device):
 
@@ -78,7 +88,7 @@ def get_training_forecast_ai(model_meta):
         lr_scheduler), early_callback])
 
     # Make predictions with the trained model
-    new_xs = np.arange(len(loss_history)*2).reshape((-1, 1))
+    new_xs = np.arange(math.ceil(len(loss_history)*1.5)).reshape((-1, 1))
 
     new_ys = model.predict(new_xs).flatten()
     print(new_ys[-1])
