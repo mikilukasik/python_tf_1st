@@ -32,7 +32,7 @@ class DatasetProvider:
         prefetch.prefetch_data()
         return data
 
-    def get_dataset(self, url, max_retries=1, retry_interval=5):
+    def get_dataset(self, url, max_retries=50, retry_interval=5):
         retries = 0
         while retries < max_retries:
             try:

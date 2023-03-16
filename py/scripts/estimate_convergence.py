@@ -29,4 +29,4 @@ if __name__ == "__main__":
     filename = f'./training_stats.pdf'
     print('filename', filename)
 
-    plot_model_meta(model_meta, filename, False, title=model_folder)
+    plot_model_meta(model_meta, filename, True, title=model_folder)

@@ -74,9 +74,9 @@ def get_training_forecast_ai(model_meta):
     print('pct_5', pct_5)
 
     xs = np.concatenate(
-        (xs, xs[-pct_20:], xs[-pct_20:], xs[-pct_5:], xs[-pct_5:]), axis=0)
+        (xs, xs[-pct_20:], xs[-pct_20:], xs[-pct_5:], xs[-pct_5:], xs[-pct_20:], xs[-pct_5:], xs[-pct_5:], xs[-pct_20:], xs[-pct_5:], xs[-pct_5:], xs[-pct_20:], xs[-pct_5:], xs[-pct_5:], xs[-pct_20:], xs[-pct_5:], xs[-pct_5:]), axis=0)
     ys = np.concatenate(
-        (ys, ys[-pct_20:], ys[-pct_20:], ys[-pct_5:], ys[-pct_5:]), axis=0)
+        (ys, ys[-pct_20:], ys[-pct_20:], ys[-pct_5:], ys[-pct_5:], ys[-pct_20:], ys[-pct_5:], ys[-pct_5:], ys[-pct_20:], ys[-pct_5:], ys[-pct_5:], ys[-pct_20:], ys[-pct_5:], ys[-pct_5:], ys[-pct_20:], ys[-pct_5:], ys[-pct_5:]), axis=0)
 
     # device = '/cpu:0'
     # with tf.device(device):
