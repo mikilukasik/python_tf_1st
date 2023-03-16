@@ -1,13 +1,13 @@
 from utils.train_model_v4 import train_model
 
 # model_source = '../models/tripple_assisted_v2/_blank'
-model_source = '../models/tripple_assisted_vx/2.317265893485811'
+model_source = '../models/tripple_assisted_vx/2.0256476284662885'
 model_dest = '../models/tripple_assisted_vx'
 
 initial_lr = 0.00001
 # initial_lr = 0.0001
 initial_batch_size = 64
-lr_multiplier = 1
+lr_multiplier = 0.2
 fixed_lr = 0.000005
 
 ys_format = '1966'

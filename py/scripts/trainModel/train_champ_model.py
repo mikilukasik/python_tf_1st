@@ -1,8 +1,8 @@
 from utils.train_model_v4 import train_model
 
-# model_source = '../models/blk1_fn3-3-3-3_du26-13_v1/_blank'
-model_source = '../models/blk1_fn3-3-3-3_du26-13_v1/2.3551076902662005'
-model_dest = '../models/blk1_fn3-3-3-3_du26-13_v1'
+# model_source = '../models/blk1_fn6-6-6-6_du26-13_v1/_blank'
+model_source = '../models/blk1_fn6-6-6-6_du26-13_v1/2.82140560104918'
+model_dest = '../models/blk1_fn6-6-6-6_du26-13_v1'
 
 initial_lr = 0.00001
 # initial_lr = 0.0001

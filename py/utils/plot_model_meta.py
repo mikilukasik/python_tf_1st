@@ -1,10 +1,10 @@
 from matplotlib.backends.backend_pdf import PdfPages
 import matplotlib.pyplot as plt
 import numpy as np
-from .get_training_forecast import get_training_forecast, get_training_forecast_ai
+from .get_training_forecast import get_training_forecast_ai
 
 
-def plot_model_meta(model_meta, filename, plot_forecast=False):
+def plot_model_meta(model_meta, filename, plot_forecast=False, title='Loss and learning rate history'):
     if len(model_meta['training_stats']['epochs']) == 0:
         return
 
@@ -17,7 +17,7 @@ def plot_model_meta(model_meta, filename, plot_forecast=False):
     for epoch in model_meta['training_stats']['epochs']:
         loss_history.append(epoch['l'])
     ax1.plot(loss_history, color='tab:red', linewidth=0.5)
-    ax1.set_title('Loss and learning rate history')
+    ax1.set_title(title, fontdict={'fontsize': 8})
 
     if plot_forecast:
         forecast_data = get_training_forecast_ai(model_meta)

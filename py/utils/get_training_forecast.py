@@ -82,13 +82,13 @@ def get_training_forecast_ai(model_meta):
     # with tf.device(device):
 
     early_callback = tf.keras.callbacks.EarlyStopping(
-        monitor='mean_squared_error', patience=3, mode='min', verbose=1, restore_best_weights=True, min_delta=0, baseline=None)
+        monitor='mean_squared_error', patience=1, mode='min', verbose=1, restore_best_weights=True, min_delta=0, baseline=None)
 
     model.fit(xs, ys, epochs=75, callbacks=[tf.keras.callbacks.LearningRateScheduler(
         lr_scheduler), early_callback])
 
     # Make predictions with the trained model
-    new_xs = np.arange(math.ceil(len(loss_history)*1.5)).reshape((-1, 1))
+    new_xs = np.arange(math.ceil(len(loss_history)*1.2)).reshape((-1, 1))
 
     new_ys = model.predict(new_xs).flatten()
     print(new_ys[-1])

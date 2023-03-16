@@ -6,7 +6,8 @@ from keras.initializers import he_normal
 from helpers.create_champ_model import create_champ_model
 from utils.save_model import save_model
 
-model = create_champ_model(
-    filter_nums=[32, 32, 32, 32], dense_units=[260, 130])
+input = Input(shape=(8, 8, 39))
+
+model = create_champ_model(input=input)
 model.summary()
-save_model(model, '../models/blk1_fn3-3-3-3_du26-13_v1/_blank')
+save_model(model, '../models/xs39_L_v1/_blank')

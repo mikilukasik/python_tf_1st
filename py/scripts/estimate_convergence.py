@@ -17,16 +17,16 @@ if __name__ == "__main__":
         print(folder, "is not a valid directory")
         sys.exit(1)
 
-    modelFolder = find_most_recent_model(folder)
+    model_folder = find_most_recent_model(folder)
 
-    if not modelFolder:
+    if not model_folder:
         print("No model.json files found in", folder)
         exit()
 
-    model_meta = load_model_meta(modelFolder)
+    model_meta = load_model_meta(model_folder)
 
     # filename = f'./training_stats_{datetime.now().strftime("%Y%m%d_%H%M%S")}.pdf'
     filename = f'./training_stats.pdf'
     print('filename', filename)
 
-    plot_model_meta(model_meta, filename, True)
+    plot_model_meta(model_meta, filename, False, title=model_folder)
