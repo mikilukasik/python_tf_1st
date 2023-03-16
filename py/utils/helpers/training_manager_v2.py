@@ -59,7 +59,7 @@ def get_random_lr():
 
 
 class TrainingManagerV2:
-    def __init__(self, model_meta=None, forced_lr=None, lr_multiplier=None, batch_size=64, fixed_lr=None):
+    def __init__(self, model_meta=None, forced_lr=None, lr_multiplier=None, batch_size=64, fixed_lr=None, loss_monitor_sample_size=250):
         if model_meta is None:
             raise ValueError("model_meta cannot be None")
 
@@ -74,6 +74,7 @@ class TrainingManagerV2:
         self.fixed_lr = fixed_lr
         self.next_lr_mul_goes_up = False
         self.loss_to_beat = None
+        self.loss_monitor_sample_size = loss_monitor_sample_size
 
         print_large('training_manger initialized, epochs in history:',
                     len(self.model_meta['training_stats']['epochs']))
@@ -118,24 +119,26 @@ class TrainingManagerV2:
             {'l': loss, 't': time,
              's': sample_size, 'b': batch_size, 'lr': lr, 'g': gpu})
 
-        if len(self.model_meta['training_stats']['epochs']) >= 50 and self.lr_multiplier is not None:
-            last_25_loss = [
-                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-25:]]
-            prev_25_loss = [
-                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-50:-25]]
+        if len(self.model_meta['training_stats']['epochs']) >= self.loss_monitor_sample_size and self.lr_multiplier is not None:
+            last_loss = [
+                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-self.loss_monitor_sample_size//2:]]
+            prev_loss = [
+                epoch['l'] for epoch in self.model_meta['training_stats']['epochs'][-self.loss_monitor_sample_size:-self.loss_monitor_sample_size//2]]
 
-            last_25_avg = sum(last_25_loss)/len(last_25_loss)
-            prev_25_avg = sum(prev_25_loss)/len(prev_25_loss)
+            last_avg = sum(last_loss)/len(last_loss)
+            prev_avg = sum(prev_loss)/len(prev_loss)
 
-            loss_diff_in_past_50 = last_25_avg - prev_25_avg
-            print('loss diff in past 50 epochs:', loss_diff_in_past_50)
+            loss_diff = last_avg - prev_avg
+            print(
+                f'loss diff in past {self.loss_monitor_sample_size} epochs:', loss_diff)
 
-            loss_diff_to_consider = loss_diff_in_past_50 if self.loss_to_beat is None else last_25_avg - self.loss_to_beat
+            loss_diff_to_consider = loss_diff if self.loss_to_beat is None else last_avg - \
+                self.loss_to_beat
 
-            if self.epochs_since_lr_multiplier_adjusted > 50:
+            if self.epochs_since_lr_multiplier_adjusted > self.loss_monitor_sample_size:
                 if loss_diff_to_consider > 0:
                     if self.loss_to_beat is None:
-                        self.loss_to_beat = last_25_avg
+                        self.loss_to_beat = last_avg
 
                     if self.next_lr_mul_goes_up:
                         print_large('lr multiplier goes up from',
