@@ -1,2 +1,7 @@
 .DS_Store
 models
+lambda/package
+
+lambda/my-deployment-package.zip
+lambda/champ/model.json
+lambda/champ/weights.h5

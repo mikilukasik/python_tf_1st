@@ -7,8 +7,8 @@ from utils.load_model import load_model_meta
 from utils.plot_model_meta import plot_model_meta
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python find_metadata.py folder")
+    if len(sys.argv) < 2:
+        print("Usage: python find_metadata.py folder [forecast]")
         sys.exit(1)
 
     folder = sys.argv[1]
@@ -29,4 +29,5 @@ if __name__ == "__main__":
     filename = f'./training_stats.pdf'
     print('filename', filename)
 
-    plot_model_meta(model_meta, filename, True, title=model_folder)
+    plot_model_meta(model_meta, filename, True if len(
+        sys.argv) > 2 else False, title=model_folder)

@@ -10,15 +10,16 @@ from ..print_large import print_large
 
 
 class DatasetProvider:
-    def __init__(self, model_meta, batch_size, ys_format='default', xs_format='default'):
+    def __init__(self, model_meta, batch_size, ys_format='default', xs_format='default', dataset_reader_version='16'):
         self.dataset_reader_id = model_meta.get("dataseReaderId")
         self.batch_size = batch_size
         self.ys_format = ys_format
         self.xs_format = xs_format
+        self.dataset_reader_version = dataset_reader_version
 
         if not self.dataset_reader_id:
             dataset_reader_response = requests.get(
-                "http://localhost:3500/datasetReader?ysformat="+self.ys_format+'&xsformat='+self.xs_format)
+                "http://localhost:3500/datasetReader?ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version)
             self.dataset_reader_id = dataset_reader_response.json().get("id")
             model_meta["dataseReaderId"] = self.dataset_reader_id
             print_large("", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "", "New dataset_reader_id retrieved:",
@@ -39,7 +40,7 @@ class DatasetProvider:
                 start_time = time.monotonic()
                 print('calling API')
                 dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
-                                          self.dataset_reader_id + "/dataset?format=csv&ysformat="+self.ys_format+'&xsformat='+self.xs_format, header=None, na_values=[''])
+                                          self.dataset_reader_id + "/dataset?format=csv&ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version, header=None, na_values=[''])
                 dataset_csv.fillna(value=0, inplace=True)
 
                 if self.ys_format == '1966':

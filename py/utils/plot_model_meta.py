@@ -19,7 +19,7 @@ def plot_model_meta(model_meta, filename, plot_forecast=False, title='Loss and l
     ax1.plot(loss_history, color='tab:red', linewidth=0.5)
     ax1.set_title(title, fontdict={'fontsize': 8})
 
-    if plot_forecast:
+    if bool(plot_forecast):
         forecast_data = get_training_forecast_ai(model_meta)
 
         ax3 = ax1.twinx()

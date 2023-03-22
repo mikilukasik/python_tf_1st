@@ -1,19 +1,17 @@
 from utils.train_model_v4 import train_model
 
-# model_source = '../models/xs39_L_v1/_blank'
-model_source = '../models/xs39_L_v1/1.8760964042345682'
-model_dest = '../models/xs39_L_v1'
+# model_source = '../models/xs39_L_v2/_blank'
+model_source = '../models/xs39_L_v2/2.0534344933827717'
+model_dest = '../models/xs39_L_v2'
 
-# initial_lr = 0.00001
-# initial_lr = 0.0001
 initial_batch_size = 64
-lr_multiplier = 0.2
+lr_multiplier = 0.015
 
 
-fixed_lr = 0.00001
+fixed_lr = 0.00003
 
 #  initial
-#  fixed_lr = 0.00005
+#  fixed_lr = 0.0003
 
 xs_format = '39'
 

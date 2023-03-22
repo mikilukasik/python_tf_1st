@@ -6,8 +6,9 @@ from keras.initializers import he_normal
 from helpers.create_champ_model import create_champ_model
 from utils.save_model import save_model
 
-input = Input(shape=(8, 8, 39))
+# input = Input(shape=(8, 8, 39))
 
-model = create_champ_model(input=input)
+model = create_champ_model()
 model.summary()
-save_model(model, '../models/xs39_L_v1/_blank')
+
+save_model(model, '../models/plain/_blank')
