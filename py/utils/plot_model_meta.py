@@ -18,16 +18,20 @@ def plot_model_meta(model_meta, filename, plot_forecast=False, title='Loss and l
         loss_history.append(epoch['l'])
     ax1.plot(loss_history, color='tab:red', linewidth=0.5)
     ax1.set_title(title, fontdict={'fontsize': 8})
+    ax1.set_ylim(1.5, 2)    # ax1.set_ylim(1.7, 1.8)
+
 
     if bool(plot_forecast):
         forecast_data = get_training_forecast_ai(model_meta)
 
         ax3 = ax1.twinx()
-        ax3.set_ylabel('Learning rate', color='tab:green')
+        ax3.set_ylabel('Forecast', color='tab:green')
 
         ax3.plot(forecast_data, color='tab:green', linewidth=1)
         ax3.tick_params(axis='y', labelcolor='tab:green')
         ax1.set_ylim(ax3.get_ylim())
+
+        print(ax3.get_ylim())
 
     ax2 = ax1.twinx()
     ax2.set_ylabel('Learning rate', color='tab:blue')

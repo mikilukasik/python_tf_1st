@@ -5,7 +5,7 @@ from keras.initializers import he_normal
 import random
 
 
-def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512], kernel_size=3, layers_per_conv_block=2, conv_activation='relu', dense_activation=ELU(), kernel_initializer=he_normal(), input=None, flat_input=None, return_dense_index=None, layer_name_prefix='', returned_dense_name=None):
+def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512], kernel_size=3, layers_per_conv_block=2, conv_activation='relu', dense_activation=ELU(), kernel_initializer='he_normal', input=None, flat_input=None, return_dense_index=None, layer_name_prefix='', returned_dense_name=None):
     if input == None:
         input = Input(shape=(8, 8, 14))
 

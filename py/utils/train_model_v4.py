@@ -67,8 +67,8 @@ def saveIfShould(model, val, model_dest):
         saveIfShould.counter = 0  # Initialize the counter
     saveIfShould.counter = (saveIfShould.counter + 1) % 3
 
-    if saveIfShould.counter > 0 or len(avgQ10) < 6:
-        return
+    # if saveIfShould.counter > 0 or len(avgQ10) < 6:
+    #     return
 
     avg10 = get_avg(avgQ10)
     avg50 = get_avg(avgQ50)
