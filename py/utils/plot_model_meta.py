@@ -18,7 +18,7 @@ def plot_model_meta(model_meta, filename, plot_forecast=False, title='Loss and l
         loss_history.append(epoch['l'])
     ax1.plot(loss_history, color='tab:red', linewidth=0.5)
     ax1.set_title(title, fontdict={'fontsize': 8})
-    ax1.set_ylim(1.5, 2)    # ax1.set_ylim(1.7, 1.8)
+    ax1.set_ylim(1.45, 1.65)    # ax1.set_ylim(1.7, 1.8)
 
 
     if bool(plot_forecast):
