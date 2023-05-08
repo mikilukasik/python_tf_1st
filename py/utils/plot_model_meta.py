@@ -16,9 +16,9 @@ def plot_model_meta(model_meta, filename, plot_forecast=False, title='Loss and l
     loss_history = []
     for epoch in model_meta['training_stats']['epochs']:
         loss_history.append(epoch['l'])
-    ax1.plot(loss_history, color='tab:red', linewidth=0.5)
+    ax1.plot(loss_history, color='tab:red', linewidth=0.3)
     ax1.set_title(title, fontdict={'fontsize': 8})
-    ax1.set_ylim(1.45, 1.65)    # ax1.set_ylim(1.7, 1.8)
+    ax1.set_ylim(1.8, 2.4)    # ax1.set_ylim(1.7, 1.8)
 
 
     if bool(plot_forecast):
@@ -27,7 +27,7 @@ def plot_model_meta(model_meta, filename, plot_forecast=False, title='Loss and l
         ax3 = ax1.twinx()
         ax3.set_ylabel('Forecast', color='tab:green')
 
-        ax3.plot(forecast_data, color='tab:green', linewidth=1)
+        ax3.plot(forecast_data, color='tab:green', linewidth=0.2)
         ax3.tick_params(axis='y', labelcolor='tab:green')
         ax1.set_ylim(ax3.get_ylim())
 
@@ -39,7 +39,7 @@ def plot_model_meta(model_meta, filename, plot_forecast=False, title='Loss and l
     # for lr_meta in model_meta['lr_history']:
     for epoch in model_meta['training_stats']['epochs']:
         lr_history.append(epoch['lr'])
-    ax2.plot(lr_history, color='tab:blue', linewidth=1)
+    ax2.plot(lr_history, color='tab:blue', linewidth=0.2)
     ax2.tick_params(axis='y', labelcolor='tab:blue')
 
     # Plot the batch size timeline

@@ -70,6 +70,9 @@ def saveIfShould(model, val, model_dest):
     # if saveIfShould.counter > 0 or len(avgQ10) < 6:
     #     return
 
+    if len(avgQ10) < 6:
+        return
+
     avg10 = get_avg(avgQ10)
     avg50 = get_avg(avgQ50)
     avg250 = get_avg(avgQ250)
@@ -88,13 +91,13 @@ def saveIfShould(model, val, model_dest):
         iterations_with_no_improvement = 0
 
 
-def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16'):
+def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default'):
     device = '/gpu:0' if gpu else '/cpu:0'
     with tf.device(device):
-        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format, xs_format, fixed_lr, dataset_reader_version)
+        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format, xs_format, fixed_lr, dataset_reader_version, filter)
 
 
-def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16'):
+def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default'):
     global model_meta, batch_size, next_lr, training_manager
 
     batch_size = initial_batch_size
@@ -107,11 +110,19 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
     training_manager = TrainingManagerV2(
         model_meta, batch_size=initial_batch_size, lr_multiplier=lr_multiplier, fixed_lr=fixed_lr)
     dataset_provider = DatasetProvider(
-        model_meta, initial_batch_size, ys_format, xs_format, dataset_reader_version)
+        model_meta, initial_batch_size, ys_format, xs_format, dataset_reader_version, filter)
 
     optimizer = training_manager.get_optimizer()
 
     loss = 'categorical_crossentropy'
+
+    if ys_format == 'winner':
+        loss='binary_crossentropy'
+
+    if ys_format == 'chkmtOrStallEnding' or ys_format == 'nextBalance' or ys_format=='bal8' or ys_format.startswith('nextBal'):
+        loss=tf.keras.losses.MeanSquaredError()
+
+        # ys_format
 
     if ys_format == '1966':
         def custom_loss(y_true, y_pred):
@@ -138,7 +149,7 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
         loss = custom_loss
 
     model.compile(optimizer=optimizer, loss=loss,
-                  metrics=['accuracy'])
+                  metrics=[tf.keras.losses.MeanAbsoluteError()])
 
     lr_scheduler_callback = LearningRateScheduler(training_manager.get_next_lr)
 

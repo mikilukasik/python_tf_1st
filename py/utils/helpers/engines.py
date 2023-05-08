@@ -1,5 +1,5 @@
 class Engine():
     def get_move(engine, board):
-        print(board.lmf, len(board.lmf))
+        print(board)
 
-        return 'e2e4'
+        return 'd7d5'

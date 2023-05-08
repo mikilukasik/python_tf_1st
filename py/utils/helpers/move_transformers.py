@@ -1,4 +1,6 @@
 def chess_move_to_indices(move):
+    print('ggg', move, move.from_square)
+
     start_square = move.from_square
     end_square = move.to_square
 

@@ -28,7 +28,7 @@ while not board.is_game_over():
         break
 
     # Make a move
-    my_move = my_engine.get_move(board)
+    my_move = chess.Move.from_uci(my_engine.get_move(board))
     print('my engine move:', my_move)
     board.push(my_move)
 

@@ -59,7 +59,7 @@ def get_random_lr():
 
 
 class TrainingManagerV2:
-    def __init__(self, model_meta=None, forced_lr=None, lr_multiplier=None, batch_size=64, fixed_lr=None, loss_monitor_sample_size=250):
+    def __init__(self, model_meta=None, forced_lr=None, lr_multiplier=None, batch_size=64, fixed_lr=None, loss_monitor_sample_size=500):
         if model_meta is None:
             raise ValueError("model_meta cannot be None")
 

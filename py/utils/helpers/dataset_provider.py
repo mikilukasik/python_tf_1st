@@ -10,16 +10,17 @@ from ..print_large import print_large
 
 
 class DatasetProvider:
-    def __init__(self, model_meta, batch_size, ys_format='default', xs_format='default', dataset_reader_version='16'):
+    def __init__(self, model_meta, batch_size, ys_format='default', xs_format='default', dataset_reader_version='16', filter='default'):
         self.dataset_reader_id = model_meta.get("dataseReaderId")
         self.batch_size = batch_size
         self.ys_format = ys_format
         self.xs_format = xs_format
         self.dataset_reader_version = dataset_reader_version
+        self.filter = filter
 
         if not self.dataset_reader_id:
             dataset_reader_response = requests.get(
-                "http://localhost:3500/datasetReader?ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version)
+                "http://localhost:3500/datasetReader?ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version+'&filter='+self.filter)
             self.dataset_reader_id = dataset_reader_response.json().get("id")
             model_meta["dataseReaderId"] = self.dataset_reader_id
             print_large("", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "", "New dataset_reader_id retrieved:",
@@ -40,7 +41,7 @@ class DatasetProvider:
                 start_time = time.monotonic()
                 print('calling API')
                 dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
-                                          self.dataset_reader_id + "/dataset?format=csv&ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version, header=None, na_values=[''])
+                                          self.dataset_reader_id + "/dataset?format=csv&ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version+'&filter='+self.filter, header=None, na_values=[''])
                 dataset_csv.fillna(value=0, inplace=True)
 
                 if self.ys_format == '1966':
@@ -60,6 +61,10 @@ class DatasetProvider:
                     dataset_labels = np.concatenate(
                         [class_labels_one_hot, from_labels_one_hot, to_labels_one_hot, dataset_csv[899].values.reshape(-1, 1)], axis=1)
 
+                elif self.ys_format == 'winner' or self.ys_format == 'chkmtOrStallEnding'or self.ys_format == 'nextBalance' or self.ys_format=='bal8'  or self.ys_format.startswith('nextBal'):
+                    dataset_features = np.array(
+                            dataset_csv.drop(columns=[896]))
+                    dataset_labels = dataset_csv[896]
                 else:
                     if self.xs_format == '39':
                         dataset_features = np.array(
