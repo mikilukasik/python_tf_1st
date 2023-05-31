@@ -72,6 +72,7 @@ class DatasetProvider:
                         dataset_labels = to_categorical(
                             dataset_csv[2496], num_classes=1837)
                     else:
+                        print('pedig itt van', dataset_csv[896])
                         dataset_features = np.array(
                             dataset_csv.drop(columns=[896]))
                         dataset_labels = to_categorical(

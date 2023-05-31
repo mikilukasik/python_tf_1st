@@ -19,19 +19,25 @@ logging.basicConfig(level=logging.INFO)
 model_meta = {}
 iterations_with_no_improvement = 0
 lastSavedAvg = 9999
+currentBest = 9999
 batch_size = 256
 next_lr = 0.0001
 training_manager = None
 
 
-def save_model_and_delete_last(model, avg, model_dest, is_temp=False):
+def save_model_and_delete_last(model, val, model_dest, is_temp=False, isCurrentBest=False):
     foldername = os.path.join(model_dest, str(
-        avg) + ('_temp' if is_temp else ''))
+        val) + ('_temp' if is_temp else '')+ ('_best' if isCurrentBest else ''))
     save_model(model, foldername, model_meta)
     # training_manager.save_stats(foldername, True)
 
-    if lastSavedAvg < 9999 and not is_temp:
+    if lastSavedAvg < 9999 and not is_temp and not isCurrentBest:
         old_foldername = os.path.join(model_dest, str(lastSavedAvg))
+        shutil.rmtree(old_foldername)
+        print('deleted old:', old_foldername)
+
+    if currentBest < 9999 and not is_temp and isCurrentBest:
+        old_foldername = os.path.join(model_dest, str(currentBest)+'_best')
         shutil.rmtree(old_foldername)
         print('deleted old:', old_foldername)
 
@@ -59,6 +65,7 @@ def appendToAvg(val):
 def saveIfShould(model, val, model_dest):
     global iterations_with_no_improvement
     global lastSavedAvg
+    global currentBest
 
     appendToAvg(val)
     iterations_with_no_improvement += 1
@@ -77,9 +84,14 @@ def saveIfShould(model, val, model_dest):
     avg50 = get_avg(avgQ50)
     avg250 = get_avg(avgQ250)
 
-    avg = (avg10 + avg50 + avg250) / 3
+    avg = (val+avg10 + avg50 + avg250) / 4
 
     print('(avg, 10, 50, 250)', avg, avg10, avg50, avg250)
+
+    if val < currentBest:
+        save_model_and_delete_last(model, val,model_dest, False, True)
+        iterations_with_no_improvement = 0
+        currentBest = val
 
     if avg < lastSavedAvg:
         save_model_and_delete_last(model, avg, model_dest=model_dest)
@@ -148,8 +160,11 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
 
         loss = custom_loss
 
+    print('loss','loss')
+
     model.compile(optimizer=optimizer, loss=loss,
-                  metrics=[tf.keras.losses.MeanAbsoluteError()])
+                  metrics=['accuracy'])
+                #   metrics=[tf.keras.losses.MeanAbsoluteError()])
 
     lr_scheduler_callback = LearningRateScheduler(training_manager.get_next_lr)
 
