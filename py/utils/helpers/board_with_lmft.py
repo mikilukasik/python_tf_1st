@@ -33,6 +33,8 @@ def get_board_with_lmft():
 
     def print_board(*args, **kwargs):
         print(board.unicode(empty_square="."))
+        # print(board.lmf)
+        # print(board.lmt)
 
     board.print = print_board
 

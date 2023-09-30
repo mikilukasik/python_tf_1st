@@ -11,6 +11,7 @@ import math
 #     return smoothed_data
 
 def get_biased(in_array, num_segments=5):
+    return in_array
     array = in_array[len(in_array)//5:]
     # return array
     segment_size = len(array) // num_segments
@@ -35,11 +36,11 @@ def get_training_forecast_ai(model_meta):
     # Create a small TensorFlow model with one hidden layer and train on the data
     model = tf.keras.Sequential([
         # tf.keras.layers.Dense(256, activation='sigmoid', input_shape=(1,)),
-        # tf.keras.layers.Dense(512, activation='sigmoid'),
         # tf.keras.layers.Dense(256, activation='sigmoid'),
-        tf.keras.layers.Dense(64, activation='sigmoid', input_shape=(1,)),
-        tf.keras.layers.Dense(128, activation='relu'),
-        tf.keras.layers.Dense(64, activation='sigmoid'),
+        # tf.keras.layers.Dense(256, activation='sigmoid'),
+        tf.keras.layers.Dense(128, activation='sigmoid', input_shape=(1,)),
+        tf.keras.layers.Dense(256, activation='relu'),
+        tf.keras.layers.Dense(128, activation='sigmoid'),
         tf.keras.layers.Dense(1, activation='linear')
     ])
 

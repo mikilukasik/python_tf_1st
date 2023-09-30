@@ -1,7 +1,7 @@
 from .print_large import print_large
 from .save_model import save_model
 from .load_model import load_model, load_model_meta
-from .helpers.training_manager_v2 import TrainingManagerV2
+from .helpers.training_manager_v3 import TrainingManager
 from .helpers.dataset_provider import DatasetProvider
 
 from collections import deque
@@ -28,7 +28,7 @@ training_manager = None
 
 def save_model_and_delete_last(model, val, model_dest, is_temp=False, isCurrentBest=False):
     foldername = os.path.join(model_dest, str(
-        val) + ('_temp' if is_temp else '')+ ('_best' if isCurrentBest else ''))
+        val) + ('_temp' if is_temp else '') + ('_best' if isCurrentBest else ''))
     save_model(model, foldername, model_meta)
     # training_manager.save_stats(foldername, True)
 
@@ -90,7 +90,7 @@ def saveIfShould(model, val, model_dest):
     print('(avg, 10, 50, 250)', avg, avg10, avg50, avg250)
 
     if val < currentBest:
-        save_model_and_delete_last(model, val,model_dest, False, True)
+        save_model_and_delete_last(model, val, model_dest, False, True)
         iterations_with_no_improvement = 0
         currentBest = val
 
@@ -104,13 +104,13 @@ def saveIfShould(model, val, model_dest):
         iterations_with_no_improvement = 0
 
 
-def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False):
+def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False, make_trainable=False, evaluate=True):
     device = '/gpu:0' if gpu else '/cpu:0'
     with tf.device(device):
-        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format, xs_format, fixed_lr, dataset_reader_version, filter, evaluateOnly)
+        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format, xs_format, fixed_lr, dataset_reader_version, filter, evaluateOnly, make_trainable, evaluate)
 
 
-def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False):
+def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False, make_trainable=False, evaluate=True):
     global model_meta, batch_size, next_lr, training_manager
 
     batch_size = initial_batch_size
@@ -118,9 +118,14 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
     # Load the Keras model and its metadata
     model = load_model(model_source)
     model_meta = load_model_meta(model_source)
+
+    if make_trainable:
+        for layer in model.layers:
+            layer.trainable = True
+
     model.summary()
 
-    training_manager = TrainingManagerV2(
+    training_manager = TrainingManager(
         model_meta, batch_size=initial_batch_size, lr_multiplier=lr_multiplier, fixed_lr=fixed_lr)
     dataset_provider = DatasetProvider(
         model_meta, initial_batch_size, ys_format, xs_format, dataset_reader_version, filter, evaluateOnly)
@@ -130,10 +135,10 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
     loss = 'categorical_crossentropy'
 
     if ys_format == 'winner':
-        loss='binary_crossentropy'
+        loss = 'binary_crossentropy'
 
-    if ys_format == 'chkmtOrStallEnding' or ys_format == 'nextBalance' or ys_format=='bal8' or ys_format.startswith('nextBal'):
-        loss=tf.keras.losses.MeanSquaredError()
+    if ys_format == 'chkmtOrStallEnding' or ys_format == 'nextBalance' or ys_format == 'bal8' or ys_format.startswith('nextBal'):
+        loss = tf.keras.losses.MeanSquaredError()
 
         # ys_format
 
@@ -161,29 +166,42 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
 
         loss = custom_loss
 
-    print('loss','loss')
+    # print('loss','loss')
 
     model.compile(optimizer=optimizer, loss=loss,
                   metrics=['accuracy'])
-                #   metrics=[tf.keras.losses.MeanAbsoluteError()])
+    #   metrics=[tf.keras.losses.MeanAbsoluteError()])
+
+    def evaluate_model(datasetTensor):
+        print('Evaluating model')
+        [eval_acc, eval_loss] = model.evaluate(datasetTensor)
+
+        print({eval_acc, eval_loss})
+        return [eval_acc, eval_loss]
 
     if evaluateOnly:
         print('Evaluating only')
         datasetTensor = dataset_provider.get_next_batch()
-        evalResult=  model.evaluate(datasetTensor)
-        print(evalResult)
-        print('exiting')
+
+        evaluate_model(datasetTensor)
         sys.exit()
 
     else:
+        lr_scheduler_callback = LearningRateScheduler(
+            training_manager.get_next_lr)
 
-        print('now im here')
-
-        lr_scheduler_callback = LearningRateScheduler(training_manager.get_next_lr)
+        last_evaluated = 0
 
         while True:
-            start_time = time.time()
             datasetTensor = dataset_provider.get_next_batch()
+
+            if evaluate and time.time() - last_evaluated > 3600:
+                [eval_acc, eval_loss] = evaluate_model(datasetTensor)
+                training_manager.add_eval_result(eval_loss, eval_acc)
+                last_evaluated = time.time()
+
+            start_time = time.time()
+
             logging.info(
                 f"Loaded dataset in {time.time() - start_time:.2f} seconds")
 

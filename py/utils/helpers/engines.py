@@ -1,5 +1,11 @@
-class Engine():
-    def get_move(engine, board):
-        print(board)
+from .predict_move import predict_move
 
-        return 'd7d5'
+
+class Engine():
+    def __init__(self, model_name):
+        # Store the model name as an instance variable
+        self.model_name = model_name
+
+    def get_move(self, board):  # Removed the 'engine' parameter
+        move = predict_move(board, self.model_name)
+        return move

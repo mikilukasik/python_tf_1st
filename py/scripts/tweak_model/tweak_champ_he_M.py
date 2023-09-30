@@ -3,12 +3,13 @@ from keras.models import Model
 from keras.layers import Input
 from keras.layers import Dense, Conv2D, ELU, Flatten, Concatenate, Add, ReLU
 from keras.initializers import he_normal
+from keras import regularizers
 import numpy as np
 
 from utils.load_model import load_model
 
 # Load the saved model
-model_name = '../models/champ_he_M_v1/1.6669645971722076'
+model_name = '../models/plain_16x3_do/1.7019222573041917'
 model = load_model(model_name)
 
 # Set all layers except the new dense layers to not trainable
@@ -22,8 +23,8 @@ for i in range(len(model.layers)):
 
 
 # Create new dense layers with double the units
-new_dense1 = Dense(2048, ReLU(), kernel_initializer=he_normal())
-new_dense2 = Dense(1024, ReLU(), kernel_initializer=he_normal())
+new_dense1 = Dense(1024, ELU(), kernel_initializer=he_normal(), activity_regularizer=regularizers.l2(0.001))
+new_dense2 = Dense(512, ELU(), kernel_initializer=he_normal(), activity_regularizer=regularizers.l2(0.001))
 
 # # Initialize the weights of the new layers using the weights of the old layers
 # old_weights1 = model.layers[8].get_weights()
@@ -53,12 +54,12 @@ input = model.layers[0]
 # flatInput = Flatten()(input)
 # x = Flatten()(x)
 
-x = new_dense1(model.layers[15].output)
-x = new_dense2(Concatenate(name='concat_11')([model.layers[13].output, x]))
+x = new_dense1(Concatenate(name='concat_11')([model.layers[13].output, model.layers[16].output]))
+x = new_dense2(Concatenate(name='concat_12')([model.layers[13].output, x]))
 
 # output = model.layers[-1](Concatenate()([model.layers[13], x]))
 output = Dense(1837, 'softmax')(Concatenate(
-    name='concat_12')([model.layers[13].output, x]))
+    name='concat_13')([model.layers[13].output, x]))
 
 
 new_model = Model(inputs=input.output, outputs=output)
@@ -72,7 +73,7 @@ new_model.summary()
 for i in range(len(new_model.layers)):
     print(i, new_model.layers[i], new_model.layers[i].trainable)
 
-new_model.save('../models/champ_he_M_d2048-d1024_v1/_blank')
+new_model.save('../models/plain_16x3_do_mod2/_blank')
 
 # # Set all layers except the new dense layers to not trainable
 # for layer in model.layers:

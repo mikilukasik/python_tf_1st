@@ -10,12 +10,12 @@ from ..print_large import print_large
 
 
 class DatasetProvider:
-    def __init__(self, model_meta, batch_size, ys_format='default', xs_format='default', dataset_reader_version='16', filter='default'):
-        self.dataset_reader_id = model_meta.get("dataseReaderId")
+    def __init__(self, model_meta, batch_size, ys_format='default', xs_format='default', dataset_reader_version='16', filter='default', evaluateOnly=False):
+        self.dataset_reader_id = 'eval2' if evaluateOnly else model_meta.get("dataseReaderId")
         self.batch_size = batch_size
         self.ys_format = ys_format
         self.xs_format = xs_format
-        self.dataset_reader_version = dataset_reader_version
+        self.dataset_reader_version =  dataset_reader_version
         self.filter = filter
 
         if not self.dataset_reader_id:
@@ -72,7 +72,7 @@ class DatasetProvider:
                         dataset_labels = to_categorical(
                             dataset_csv[2496], num_classes=1837)
                     else:
-                        print('pedig itt van', dataset_csv[896])
+                        # print('pedig itt van', dataset_csv[896])
                         dataset_features = np.array(
                             dataset_csv.drop(columns=[896]))
                         dataset_labels = to_categorical(
