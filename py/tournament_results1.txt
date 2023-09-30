@@ -1,0 +1,631 @@
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs currchampv1/1.786349892616272_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs currchampv1/1.786349892616272_best: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+currchampv1/1.786349892616272_best vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1/2-1/2
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+currchampv1/1.786349892616272_best vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+currchampv1/1.786349892616272_best vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 0: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 1: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 2: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 3: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 4: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 5: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 6: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 7: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 8: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 9: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 10: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 11: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 12: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 13: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 14: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 15: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 16: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 17: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 18: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 19: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 20: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 21: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 22: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 23: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish (W) 24: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 0: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 1: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 2: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 3: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 4: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 5: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 6: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 7: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 8: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 9: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 10: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 11: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 12: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 13: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 14: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 15: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 16: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 17: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 18: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 19: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 20: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 21: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 22: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 23: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 24: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 0: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 1: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 5: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 6: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 7: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 8: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 9: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 11: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 12: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 15: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 16: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 18: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 19: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 20: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 21: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 22: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 23: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish (W) 24: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 0: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 1: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 3: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 4: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 7: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 13: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 14: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 18: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 21: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 22: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 23: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 24: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 0: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 1: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 5: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 6: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 7: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 8: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 9: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 11: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 12: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 15: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 17: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 18: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 19: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 20: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 21: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 22: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 23: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish (W) 24: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 0: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 1: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 2: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 3: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 4: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 11: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 15: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 19: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 20: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 21: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 22: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 23: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 24: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 0: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 1: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 5: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 6: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 7: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 8: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 9: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 11: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 12: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 13: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 15: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 18: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 19: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 20: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 21: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 22: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 23: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish (W) 24: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 0: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 1: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 2: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 7: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 9: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 11: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 13: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 18: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 20: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 21: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 22: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 23: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 24: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 0: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 1: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 4: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 5: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 6: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 7: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 8: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 9: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 11: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 12: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 13: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 14: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 15: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 18: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 19: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 20: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 21: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 22: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 23: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish (W) 24: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 0: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 1: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 2: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 3: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 7: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 9: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 11: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 12: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 14: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 17: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 21: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 22: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 23: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 24: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 0: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 1: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 2: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 3: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 4: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 5: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 6: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 7: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 8: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 9: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 10: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 11: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 12: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 13: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 14: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 15: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 16: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 17: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 18: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 19: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 20: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 21: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 22: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 23: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish (W) 24: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 0: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 1: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 2: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 3: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 4: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 5: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 6: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 7: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 8: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 9: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 10: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 11: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 12: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 13: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 14: 1/2-1/2
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 15: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 16: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 17: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 18: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 19: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 20: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 21: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 22: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 23: 1/2-1/2
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 24: 0-1
+currchampv1/1.786349892616272_best vs Stockfish (W) 0: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 1: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 2: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 3: 1/2-1/2
+currchampv1/1.786349892616272_best vs Stockfish (W) 4: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 5: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 6: 1/2-1/2
+currchampv1/1.786349892616272_best vs Stockfish (W) 7: 1/2-1/2
+currchampv1/1.786349892616272_best vs Stockfish (W) 8: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 9: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 10: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 11: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 12: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 13: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 14: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 15: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 16: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 17: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 18: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 19: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 20: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 21: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 22: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 23: 1-0
+currchampv1/1.786349892616272_best vs Stockfish (W) 24: 1-0
+Stockfish vs currchampv1/1.786349892616272_best (B) 0: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 1: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 2: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 3: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 4: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 5: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 6: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 7: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 8: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 9: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 10: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 11: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 12: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best (B) 13: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 14: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 15: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best (B) 16: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best (B) 17: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 18: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 19: 0-1
+Stockfish vs currchampv1/1.786349892616272_best (B) 20: 1-0
+Stockfish vs currchampv1/1.786349892616272_best (B) 21: 1-0
+Stockfish vs currchampv1/1.786349892616272_best (B) 22: 1-0
+Stockfish vs currchampv1/1.786349892616272_best (B) 23: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best (B) 24: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 0: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 1: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 2: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 3: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 4: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 5: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 6: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 7: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 8: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 9: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 10: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 11: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 12: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 13: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 14: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 15: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 16: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 17: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 18: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 19: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 20: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 21: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 22: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 23: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish (W) 24: 0-1
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 0: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 1: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 2: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 3: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 4: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 5: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 6: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 7: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 8: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 9: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 10: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 11: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 12: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 13: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 14: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 15: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 16: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 17: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 18: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 19: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 20: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 21: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 22: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 23: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best (B) 24: 1-0
+
+Rankings:
+Stockfish: 76.0
+currchampv1/1.786349892616272_best: 34.0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 29.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 28.0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 25.5
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 25.0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 24.5
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 23.5
+Stockfish (W) 5: 4.5
+Stockfish (W) 11: 4.5
+Stockfish (W) 18: 4.5
+Stockfish (W) 7: 4.0
+Stockfish (W) 6: 4.0
+Stockfish (W) 15: 3.5
+Stockfish (W) 13: 3.5
+Stockfish (W) 16: 3.0
+Stockfish (W) 17: 3.0
+Stockfish (W) 20: 3.0
+Stockfish (W) 8: 3
+Stockfish (W) 4: 2.5
+Stockfish (W) 12: 2.5
+Stockfish (W) 9: 2.5
+Stockfish (W) 14: 2.5
+Stockfish (W) 19: 2
+Stockfish (W) 21: 2
+Stockfish (W) 22: 2.0
+Stockfish (W) 1: 1.5
+Stockfish (W) 23: 1.5
+Stockfish (W) 24: 1.5
+Stockfish (W) 10: 1.5
+Stockfish (W) 3: 1.5
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1.0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 1: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 3: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 9: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 10: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 11: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 17: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 18: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 19: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 20: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 23: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 24: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 0: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 2: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 5: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 6: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 8: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 9: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 10: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 11: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 12: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 15: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 16: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 17: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 19: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 20: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 21: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 22: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 23: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 24: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 1: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 5: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 6: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 7: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 8: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 9: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 10: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 12: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 13: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 14: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 16: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 17: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 18: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 21: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 24: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 0: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 1: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 3: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 4: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 5: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 6: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 8: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 10: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 12: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 14: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 15: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 16: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 17: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 19: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 21: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 22: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 23: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 4: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 5: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 6: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 8: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 10: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 13: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 15: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 16: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 18: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 19: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 20: 1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 24: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 0: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 1: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 3: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 4: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 6: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 8: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 9: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 10: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 11: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 12: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 13: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 15: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 16: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 17: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 18: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 20: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 21: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 22: 1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 24: 1
+currchampv1/1.786349892616272_best (B) 0: 1
+currchampv1/1.786349892616272_best (B) 1: 1
+currchampv1/1.786349892616272_best (B) 2: 1
+currchampv1/1.786349892616272_best (B) 3: 1
+currchampv1/1.786349892616272_best (B) 4: 1
+currchampv1/1.786349892616272_best (B) 5: 1
+currchampv1/1.786349892616272_best (B) 6: 1
+currchampv1/1.786349892616272_best (B) 7: 1
+currchampv1/1.786349892616272_best (B) 8: 1
+currchampv1/1.786349892616272_best (B) 9: 1
+currchampv1/1.786349892616272_best (B) 10: 1
+currchampv1/1.786349892616272_best (B) 11: 1
+currchampv1/1.786349892616272_best (B) 13: 1
+currchampv1/1.786349892616272_best (B) 14: 1
+currchampv1/1.786349892616272_best (B) 17: 1
+currchampv1/1.786349892616272_best (B) 18: 1
+currchampv1/1.786349892616272_best (B) 19: 1
+currchampv1/1.786349892616272_best (B) 24: 1
+Stockfish (W) 0: 1
+Stockfish (W) 2: 1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 0: 0.5
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 2: 0.5
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 4: 0.5
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 5: 0.5
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 6: 0.5
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 8: 0.5
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 15: 0.5
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best (B) 16: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 1: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 4: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 13: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy (B) 14: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 0: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy (B) 23: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 7: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 20: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy (B) 24: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 1: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 7: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 14: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 17: 0.5
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy (B) 23: 0.5
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 14: 0.5
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best (B) 23: 0.5
+currchampv1/1.786349892616272_best (B) 12: 0.5
+currchampv1/1.786349892616272_best (B) 15: 0.5
+currchampv1/1.786349892616272_best (B) 16: 0.5
+currchampv1/1.786349892616272_best (B) 23: 0.5

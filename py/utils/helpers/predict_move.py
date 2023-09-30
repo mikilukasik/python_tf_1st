@@ -49,7 +49,7 @@ promotionPieces = ["", None, "b", "n", "r", "q"]
 
 
 def clear_model_cache(model_name):
-    print('Cleaning up after model:', model_name)
+    # print('Cleaning up after model:', model_name)
     model_cache.pop(model_name, None)
     model_timers.pop(model_name, None)
 
@@ -200,10 +200,10 @@ def predict_move(board, model_name):
     if model is None:
         model_path = os.path.join(
             models_folder, model_name)
-        print('Loading model:', model_name)
-        model = load_model(model_path)
+        # print('Loading model:', model_name)
+        model = load_model(model_path, quiet=True)
         model_cache[model_name] = model
-        print('Loaded model:', model_name)
+        # print('Loaded model:', model_name)
 
     xsAsArray = getXs(board)
     boardXs = tf.convert_to_tensor(xsAsArray, dtype=tf.float32)
