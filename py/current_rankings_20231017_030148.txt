@@ -1,0 +1,6 @@
+Stockfish d6 s6: 2028.5 from 2500 games (0.81 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7054112847362246 copy: 111.5 from 508 games (0.22 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6967400099549974: 106.5 from 508 games (0.21 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 104.5 from 508 games (0.21 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6917481422424316_best copy: 100.0 from 508 games (0.20 ppg)
+merged_trained/1.6798388957977295_best copy: 69.0 from 508 games (0.14 ppg)

@@ -1,0 +1,952 @@
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs currchampv1/1.786349892616272_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 4: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 5: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 6: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 7: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 8: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 9: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 11: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 12: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 17: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 19: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy vs Stockfish Game 20: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 4: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 5: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 6: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 7: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 8: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 9: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 11: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 12: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 17: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 19: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy vs Stockfish Game 20: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs currchampv1/1.786349892616272_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 4: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 5: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 6: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 7: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 8: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 9: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 11: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 12: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 17: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 19: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy vs Stockfish Game 20: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs currchampv1/1.786349892616272_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 4: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 5: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 6: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 7: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 8: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 9: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 11: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 12: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 17: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 19: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp vs Stockfish Game 20: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 2: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 4: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 5: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 6: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 7: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 8: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 9: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 11: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 12: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 13: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 16: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 17: 1-0
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 18: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 19: 0-1
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp vs Stockfish Game 20: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 5: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 6: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 7: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 8: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 9: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 11: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 12: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 14: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 16: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 17: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 19: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy vs Stockfish Game 20: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 2: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 3: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 4: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 5: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 6: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 7: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 8: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 9: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 10: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 11: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 12: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 13: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 14: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 15: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 16: 1-0
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 17: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 18: 0-1
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 19: 1/2-1/2
+inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best vs Stockfish Game 20: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 5: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 6: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 7: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 8: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 9: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 11: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 12: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 18: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 19: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy vs Stockfish Game 20: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs currchampv1/1.786349892616272_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 5: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 6: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 7: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 8: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 9: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 11: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 12: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 15: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 19: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy vs Stockfish Game 20: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 5: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 6: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 7: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 8: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 9: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 11: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 12: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 15: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 17: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 19: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy vs Stockfish Game 20: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 2: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 4: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 5: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 6: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 7: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 8: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 9: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 11: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 12: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 19: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp vs Stockfish Game 20: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 3: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 4: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 5: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 6: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 7: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 8: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 9: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 11: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 12: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 13: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 15: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 18: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 19: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy vs Stockfish Game 20: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs currchampv1/1.786349892616272_best: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 2: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 5: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 6: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 7: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 8: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 9: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 10: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 11: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 12: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 14: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 16: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 18: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 19: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy vs Stockfish Game 20: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs currchampv1/1.786349892616272_best: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 2: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 3: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 4: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 5: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 6: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 7: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 8: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 9: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 10: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 11: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 12: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 13: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 14: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 15: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 16: 0-1
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 17: 1-0
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 18: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 19: 1/2-1/2
+inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy vs Stockfish Game 20: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs currchampv1/1.786349892616272_best: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 2: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 3: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 4: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 5: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 6: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 7: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 8: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 9: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 10: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 11: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 12: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 13: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 14: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 15: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 16: 0-1
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 17: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 18: 1/2-1/2
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 19: 1-0
+plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best vs Stockfish Game 20: 1-0
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 0-1
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 1-0
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 1-0
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 0-1
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 1/2-1/2
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 1/2-1/2
+currchampv1/1.786349892616272_best vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1/2-1/2
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1-0
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1-0
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 0-1
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1/2-1/2
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1/2-1/2
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 1-0
+currchampv1/1.786349892616272_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+currchampv1/1.786349892616272_best vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+currchampv1/1.786349892616272_best vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+currchampv1/1.786349892616272_best vs Stockfish: 0-1
+currchampv1/1.786349892616272_best vs Stockfish Game 2: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 3: 0-1
+currchampv1/1.786349892616272_best vs Stockfish Game 4: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 5: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 6: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 7: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 8: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 9: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 10: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 11: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 12: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 13: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 14: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 15: 0-1
+currchampv1/1.786349892616272_best vs Stockfish Game 16: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 17: 1-0
+currchampv1/1.786349892616272_best vs Stockfish Game 18: 0-1
+currchampv1/1.786349892616272_best vs Stockfish Game 19: 1/2-1/2
+currchampv1/1.786349892616272_best vs Stockfish Game 20: 1-0
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs currchampv1/1.786349892616272_best: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 2: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 3: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 4: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 5: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 6: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 7: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 8: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 9: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 10: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 11: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 12: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 13: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 14: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 15: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 16: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 17: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 18: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 19: 0-1
+plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best vs Stockfish Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 6: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 13: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 14: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 3: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 10: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 13: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 14: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 19: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7162982078790665 copy Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 12: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 13: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 19: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7314529418945312_best copy Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 3: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 4: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 6: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 8: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 13: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 14: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 9: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 11: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 15: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7490653453380365_temp Game 20: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 8: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 13: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 17: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy Game 20: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 2: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 3: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 4: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 5: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 6: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 7: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 8: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 9: 1-0
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 10: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 11: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 12: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 13: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 14: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 15: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 16: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 17: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 18: 1/2-1/2
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 19: 0-1
+Stockfish vs inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best Game 20: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 4: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 6: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 9: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 15: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 2: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 3: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 5: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 7: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 8: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 9: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 11: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 16: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 17: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 5: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 7: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 15: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 17: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy Game 20: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 10: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 11: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 18: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 5: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 9: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 10: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 12: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 14: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 18: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 5: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 8: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 9: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 14: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 15: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 16: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 17: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 18: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy Game 20: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 2: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 3: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 4: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 5: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 6: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 7: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 8: 1/2-1/2
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 9: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 10: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 11: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 12: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 13: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 14: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 15: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 16: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 17: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 18: 1-0
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 19: 0-1
+Stockfish vs inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy Game 20: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 2: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 3: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 4: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 5: 1/2-1/2
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 6: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 7: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 8: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 9: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 10: 1/2-1/2
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 11: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 12: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 13: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 14: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 15: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 16: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 17: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 18: 1-0
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 19: 0-1
+Stockfish vs plain_c16x2x5_d101010_do1bc_v3/1.861648678779602_best Game 20: 1-0
+Stockfish vs currchampv1/1.786349892616272_best: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best Game 2: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 3: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 4: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best Game 5: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 6: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 7: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 8: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 9: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 10: 1-0
+Stockfish vs currchampv1/1.786349892616272_best Game 11: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 12: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best Game 13: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best Game 14: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 15: 1/2-1/2
+Stockfish vs currchampv1/1.786349892616272_best Game 16: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 17: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 18: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 19: 0-1
+Stockfish vs currchampv1/1.786349892616272_best Game 20: 1/2-1/2
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 2: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 3: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 4: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 5: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 6: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 7: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 8: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 9: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 10: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 11: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 12: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 13: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 14: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 15: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 16: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 17: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 18: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 19: 1-0
+Stockfish vs plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best Game 20: 1-0

@@ -1,0 +1,5 @@
+merged_trained/_orig: 1 from 1 games (1.00 ppg)
+merged_trained/1.6798388957977295_best copy: 1 from 1 games (1.00 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1 from 1 games (1.00 ppg)
+merged_trained/1.6335621824351754 copy: 0.5 from 1 games (0.50 ppg)
+merged_trained/1.6211222410202026_best copy: 1.5 from 5 games (0.30 ppg)

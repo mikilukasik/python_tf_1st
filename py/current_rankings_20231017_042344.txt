@@ -1,0 +1,8 @@
+merged_trained/1.6586135723193485 copy: 314.0 from 512 games (0.61 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6967400099549974: 310.5 from 512 games (0.61 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6917481422424316_best copy: 296.0 from 512 games (0.58 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 275.0 from 512 games (0.54 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7054112847362246 copy: 274.5 from 512 games (0.54 ppg)
+merged_trained/1.6798388957977295_best copy: 264.0 from 512 games (0.52 ppg)
+merged_trained/_orig: 248.0 from 512 games (0.48 ppg)
+Stockfish d4 s4: 1560.0 from 3500 games (0.45 ppg)

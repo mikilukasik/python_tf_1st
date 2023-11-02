@@ -59,7 +59,8 @@ def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512],
                 str(random.randint(0, 999999)))(layers_in_this_block)
 
         if dropout_rate > 0.0 and dropout_between_conv:
-            x = Dropout(dropout_rate)(x)
+            x = Dropout(dropout_rate, name='Dropout-' +
+                        str(random.randint(0, 999999)))(x)
 
     if len(filter_nums) > 0:
         x = Flatten(name=layer_name_prefix + 'Flatten-flattened_last_conv-' +
@@ -102,7 +103,8 @@ def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512],
             return x
 
         if dropout_rate > 0.0:
-            x = Dropout(dropout_rate)(x)
+            x = Dropout(dropout_rate, name='Dropout-' +
+                        str(random.randint(0, 999999)))(x)
 
     x = flat_input if x is None else Concatenate(name=layer_name_prefix + 'concat-' +
                                                  str(random.randint(0, 999999)))([flat_input, x])

@@ -210,10 +210,10 @@ def predict_move(board, model_name):
     boardXs = tf.reshape(boardXs, [1, 8, 8, 14])
     moveYs = model.predict(boardXs, verbose=0)
 
-    # Set a timer to clear the model from the cache after a minute
+    # Set a timer to clear the model from the cache after half a minute
     if model_name in model_timers:
         model_timers[model_name].cancel()
-    timer = threading.Timer(5, clear_model_cache, args=[model_name])
+    timer = threading.Timer(30, clear_model_cache, args=[model_name])
     model_timers[model_name] = timer
     timer.start()
 

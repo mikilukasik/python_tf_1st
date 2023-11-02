@@ -1,0 +1,36 @@
+merged_trained/1.6586135723193485 copy vs merged_trained/_orig: 1-0
+merged_trained/1.6586135723193485 copy vs merged_trained/1.6798388957977295_best copy: 0-1
+merged_trained/1.6586135723193485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy: 1-0
+merged_trained/1.6586135723193485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6967400099549974: 1/2-1/2
+merged_trained/1.6586135723193485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6917481422424316_best copy: 1-0
+merged_trained/1.6586135723193485 copy vs inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7054112847362246 copy: 1-0
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 2: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 3: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 4: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 5: 1/2-1/2
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 6: 1/2-1/2
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 7: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 8: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 9: 1/2-1/2
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 10: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 11: 1-0
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 12: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 13: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 14: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 15: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 16: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 17: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 18: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 19: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 20: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 21: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 22: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 23: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 24: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 25: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 26: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 27: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 28: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 29: 0-1
+merged_trained/1.6586135723193485 copy vs Stockfish d6 s6 Game 30: 1/2-1/2

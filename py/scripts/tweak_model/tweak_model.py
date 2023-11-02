@@ -16,7 +16,7 @@ import sys
 
 
 # Load the saved model
-model_name = '../models/inc_c16x1_l3_d256_l1_bn_l2-4/2.4103991985321045_bestcopy'
+model_name = '../models/currchampv1/1.786349892616272_best'
 model = load_model(model_name)
 
 # Set all layers except the new dense layers to not trainable
@@ -48,12 +48,15 @@ for i in range(len(model.layers)):
 # Create a new model with the updated architecture
 input = model.layers[0]
 
-flat_input = model.layers[11]
-flattened_last_conv = model.layers[12]
-last_activated_conv = model.layers[10]
-# latest_softmax = model.layers[11]
-first_dense = model.layers[14]
-# second_dense = model.layers[41]
+flat_input = model.layers[20]
+flattened_last_conv = model.layers[19]
+last_activated_conv = model.layers[18]
+latest_softmax = model.layers[29]
+first_dense = model.layers[24]
+second_dense = model.layers[27]
+
+concatted_dense = Concatenate(name='concat_dense_tw')(
+    [first_dense.output, second_dense.output, latest_softmax.output])
 
 concatted_conv = Concatenate(name='concat_conv')(
     [input.output, last_activated_conv.output])
@@ -61,18 +64,20 @@ concatted_conv = Concatenate(name='concat_conv')(
 new_model = create_champ_model(input=input.output,
                                attach_cnn_to_layer=concatted_conv,  # last_activated_conv,
                                flat_input=flat_input.output,
-                               filter_nums=[32],
-                               dense_units=[256],
-                               layers_per_conv_block=3,
+                               filter_nums=[1024],
+                               dense_units=[1024, 2048, 1024],
+                               layers_per_conv_block=2,
                                layers_per_dense_block=1,
+                               dropout_rate=0.3,
                                #  dropout_rate=0.05, dropout_between_conv=True,
                                batch_normalization=True,
-                               l2_reg=0.00001,
+                               #    l2_reg=0.00001,
                                #    concat_to_flattened_conv=Concatenate(name='concat-' + str(random.randint(0, 999999)))([
                                #        latest_softmax.output,
                                #        flattened_last_conv.output,
                                #    ]),
-                               concat_to_flattened_conv=first_dense.output  # latest_softmax.output
+                               # first_dense.output  # latest_softmax.output
+                               concat_to_flattened_conv=concatted_dense
                                )
 # old_dense1 = model.layers[24]
 # old_dense2 = model.layers[27]
@@ -129,7 +134,7 @@ new_model.summary()
 # for i in range(len(new_model.layers)):
 #     print(i, new_model.layers[i], new_model.layers[i].trainable)
 
-new_model.save('../models/inc_c16x2_l3_d256_l1_bn_l2-4/_blank')
+new_model.save('../models/XL_champv1')
 
 # # Set all layers except the new dense layers to not trainable
 # for layer in model.layers:

@@ -1,0 +1,4 @@
+merged_trained/1.6798388957977295_best copy: 1 from 1 games (1.00 ppg)
+Stockfish d6 s6: 27.0 from 30 games (0.90 ppg)
+inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6967400099549974: 0.5 from 1 games (0.50 ppg)
+merged_trained/1.6586135723193485 copy: 7.5 from 36 games (0.21 ppg)

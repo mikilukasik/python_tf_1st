@@ -10,15 +10,16 @@ from ..print_large import print_large
 
 
 class DatasetProvider:
-    def __init__(self, model_meta, batch_size, ys_format='default', xs_format='default', dataset_reader_version='16', filter='default', evaluateOnly=False):
-        self.dataset_reader_id = 'eval2' if evaluateOnly else model_meta.get("dataseReaderId")
+    def __init__(self, model_meta, batch_size, ys_format='default', xs_format='default', dataset_reader_version='16', filter='default', evaluateOnly=False, fresh_reader=False):
+        self.dataset_reader_id = 'eval2' if evaluateOnly else model_meta.get(
+            "dataseReaderId")
         self.batch_size = batch_size
         self.ys_format = ys_format
         self.xs_format = xs_format
-        self.dataset_reader_version =  dataset_reader_version
+        self.dataset_reader_version = dataset_reader_version
         self.filter = filter
 
-        if not self.dataset_reader_id:
+        if fresh_reader or not self.dataset_reader_id:
             dataset_reader_response = requests.get(
                 "http://localhost:3500/datasetReader?ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version+'&filter='+self.filter)
             self.dataset_reader_id = dataset_reader_response.json().get("id")
@@ -61,10 +62,15 @@ class DatasetProvider:
                     dataset_labels = np.concatenate(
                         [class_labels_one_hot, from_labels_one_hot, to_labels_one_hot, dataset_csv[899].values.reshape(-1, 1)], axis=1)
 
-                elif self.ys_format == 'winner' or self.ys_format == 'chkmtOrStallEnding'or self.ys_format == 'nextBalance' or self.ys_format=='bal8'  or self.ys_format.startswith('nextBal'):
+                elif self.ys_format == 'is1stProgGroup' or self.ys_format == 'winner' or self.ys_format == 'chkmtOrStallEnding' or self.ys_format == 'nextBalance' or self.ys_format == 'bal8' or self.ys_format.startswith('nextBal'):
                     dataset_features = np.array(
-                            dataset_csv.drop(columns=[896]))
+                        dataset_csv.drop(columns=[896]))
                     dataset_labels = dataset_csv[896]
+                elif self.ys_format == 'progressGroup5':
+                    dataset_features = np.array(
+                        dataset_csv.drop(columns=[896]))
+                    dataset_labels = to_categorical(
+                        dataset_csv[896], num_classes=5)
                 else:
                     if self.xs_format == '39':
                         dataset_features = np.array(

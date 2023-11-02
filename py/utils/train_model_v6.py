@@ -104,13 +104,13 @@ def saveIfShould(model, val, model_dest):
         iterations_with_no_improvement = 0
 
 
-def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False, make_trainable=False, evaluate=True):
+def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False, make_trainable=False, evaluate=True, fresh_reader=False):
     device = '/gpu:0' if gpu else '/cpu:0'
     with tf.device(device):
-        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format, xs_format, fixed_lr, dataset_reader_version, filter, evaluateOnly, make_trainable, evaluate)
+        return train_model_v4(model_source, model_dest, initial_batch_size, initial_lr, gpu, force_lr, lr_multiplier, ys_format, xs_format, fixed_lr, dataset_reader_version, filter, evaluateOnly, make_trainable, evaluate, fresh_reader)
 
 
-def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False, make_trainable=False, evaluate=True):
+def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False, make_trainable=False, evaluate=True, fresh_reader=False):
     global model_meta, batch_size, next_lr, training_manager
 
     batch_size = initial_batch_size
@@ -128,7 +128,7 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
     training_manager = TrainingManager(
         model_meta, batch_size=initial_batch_size, lr_multiplier=lr_multiplier, fixed_lr=fixed_lr)
     dataset_provider = DatasetProvider(
-        model_meta, initial_batch_size, ys_format, xs_format, dataset_reader_version, filter, evaluateOnly)
+        model_meta, initial_batch_size, ys_format, xs_format, dataset_reader_version, filter, evaluateOnly, fresh_reader=fresh_reader)
 
     optimizer = training_manager.get_optimizer()
 
@@ -137,7 +137,7 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
     if ys_format == 'winner':
         loss = 'binary_crossentropy'
 
-    if ys_format == 'chkmtOrStallEnding' or ys_format == 'nextBalance' or ys_format == 'bal8' or ys_format.startswith('nextBal'):
+    if ys_format == 'chkmtOrStallEnding' or ys_format == 'is1stProgGroup' or ys_format == 'nextBalance' or ys_format == 'bal8' or ys_format.startswith('nextBal'):
         loss = tf.keras.losses.MeanSquaredError()
 
         # ys_format
