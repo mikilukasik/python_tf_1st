@@ -22,16 +22,16 @@ from utils.save_model import save_model
 
 model = create_champ_model(filter_nums=[16, 32, 64, 128, 256, 512],
                            layers_per_conv_block=2,
-                           dense_units=[512, 1024],
+                           dense_units=[1024, 1024, 1024],
                            layers_per_dense_block=1,
-                           #  dropout_rate=0.1,
+                           dropout_rate=0.1,
                            #  dropout_between_conv=False,
                            batch_normalization=True,
                            #  l2_reg=0.00001,
                            input_to_all_conv=True,
                            add_skip_connections=True
                            )
-model_name = '../models/inpConv_c16x2x6_skip_l2_d510_l1_bn/_blank'
+model_name = '../models/inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/_blank'
 
 model.summary()
 save_model(model, model_name)

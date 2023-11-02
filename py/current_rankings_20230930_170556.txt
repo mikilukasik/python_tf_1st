@@ -1,2 +1,0 @@
-inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 1 from 1 games (1.00 ppg)
-inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 2 from 3 games (0.67 ppg)

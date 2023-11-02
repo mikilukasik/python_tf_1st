@@ -82,15 +82,20 @@ model_dest = '../models/plain_c16x2x5_d101010_do1bc_v3'
 # model_source = '../models/inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7406492165327072_temp'
 # model_dest = '../models/inpConv_c16x2x5_skip_l2_d510_l1_bn'
 
-# model_source = '../models/inpConv_c16x2x6_skip_l2_d510_l1_bn/_blank'
-model_source = '../models/inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7836655653715134'
-model_dest = '../models/inpConv_c16x2x6_skip_l2_d510_l1_bn'
+# # model_source = '../models/inpConv_c16x2x6_skip_l2_d510_l1_bn/_blank'
+# model_source = '../models/inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7836655653715134'
+# model_dest = '../models/inpConv_c16x2x6_skip_l2_d510_l1_bn'
+
+
+# model_source = '../models/inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/_blank'
+model_source = '../models/inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.749123655430814_temp'
+model_dest = '../models/inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn'
 
 
 initial_batch_size = 256
-lr_multiplier = 0.1  # 0.01  # 0.01
+lr_multiplier = 0.1  # 0.1  # 0.01  # 0.01
 fixed_lr = 0.0002
 
 train_model(model_source, model_dest,
             initial_batch_size, gpu=True, lr_multiplier=lr_multiplier, fixed_lr=fixed_lr,
-            dataset_reader_version='18', filter='almostall', ys_format='default', make_trainable=True, evaluate=False)
+            dataset_reader_version='18', filter='mostlyGood', ys_format='default', make_trainable=True, evaluate=True)

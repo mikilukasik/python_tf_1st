@@ -1,8 +1,0 @@
-inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy: 4 from 4 games (1.00 ppg)
-currchampv1/1.786349892616272_best: 2 from 2 games (1.00 ppg)
-inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy: 1.5 from 2 games (0.75 ppg)
-inpConv_c16x2x6_skip_l2_d510_l1_bn/1.8599706888198853_best copy: 1.5 from 2 games (0.75 ppg)
-plain_c16x2x4_lc4d1_d0505_do1_bnorm_l2-4/4.364177227020264_best: 1.0 from 2 games (0.50 ppg)
-inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7753417491912842_best copy: 5.0 from 11 games (0.45 ppg)
-inpConv_c16x2x5_skip_l2_d510_l1_bn/1.7275872230529785_best: 5.5 from 13 games (0.42 ppg)
-inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy: 0.5 from 2 games (0.25 ppg)
