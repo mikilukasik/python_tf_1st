@@ -7,7 +7,7 @@ BATCH_SIZE = 64
 SHUFFLE_BUFFER_SIZE = 100
 
 datasetReaderId = json.loads(
-    urlopen("http://localhost:3500/datasetReader").read())["id"]
+    urlopen("http://localhost:3550/datasetReader").read())["id"]
 print("datasetReaderId", datasetReaderId)
 
 model = tf.keras.models.load_model('./models/blanks/c2d2_L_v1')
@@ -18,7 +18,7 @@ model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate=0.001), lo
 model.summary()
 
 # testDataset = json.loads(
-#     urlopen("http://localhost:3500/datasetReader/" + datasetReaderId + "/testDataset").read())
+#     urlopen("http://localhost:3550/datasetReader/" + datasetReaderId + "/testDataset").read())
 
 # print("testDataset length", len(testDataset['xs']))
 
@@ -32,7 +32,7 @@ model.summary()
 for x in range(10000):
     # for x in range(5):
     dataset = json.loads(
-        urlopen("http://localhost:3500/datasetReader/" + datasetReaderId + "/dataset").read())
+        urlopen("http://localhost:3550/datasetReader/" + datasetReaderId + "/dataset").read())
 
     print("loaded dataset length", len(dataset['xs']))
 

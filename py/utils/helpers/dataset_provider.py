@@ -21,7 +21,7 @@ class DatasetProvider:
 
         if fresh_reader or not self.dataset_reader_id:
             dataset_reader_response = requests.get(
-                "http://localhost:3500/datasetReader?ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version+'&filter='+self.filter)
+                "http://localhost:3550/datasetReader?ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version+'&filter='+self.filter)
             self.dataset_reader_id = dataset_reader_response.json().get("id")
             model_meta["dataseReaderId"] = self.dataset_reader_id
             print_large("", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "", "New dataset_reader_id retrieved:",
@@ -41,7 +41,7 @@ class DatasetProvider:
             try:
                 start_time = time.monotonic()
                 print('calling API')
-                dataset_csv = pd.read_csv("http://localhost:3500/datasetReader/" +
+                dataset_csv = pd.read_csv("http://localhost:3550/datasetReader/" +
                                           self.dataset_reader_id + "/dataset?format=csv&ysformat="+self.ys_format+'&xsformat='+self.xs_format+'&readerVersion='+self.dataset_reader_version+'&filter='+self.filter, header=None, na_values=[''])
                 dataset_csv.fillna(value=0, inplace=True)
 

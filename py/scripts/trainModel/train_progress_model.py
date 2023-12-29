@@ -25,7 +25,7 @@ fixed_lr = 0.0002
 
 train_model(model_source, model_dest,
             initial_batch_size, gpu=True, lr_multiplier=lr_multiplier, fixed_lr=fixed_lr,
-            dataset_reader_version='19',
+            dataset_reader_version='20',
             # fresh_reader=True,
             # filter='obj(percent:0.4,result:1,progressMax:0.2,opponentMinElo:2500)(percent:0.3,result:1,progressMax:0.2,opponentMinElo:2000)(percent:0.1,result:1,progressMax:0.2)',
             filter=filter,

@@ -1,5 +1,11 @@
 from utils.train_model_v6 import train_model
 
+dropout_rate = None
+make_trainable = False
+gpu = True
+evaluate = False
+
+
 # # model_source = '../models/plain_c16x2x5_d101010_do1bc/_blank'
 # model_source = '../models/_promising/plain_c16x2x5_d101010_do1bc_v2/1.767619252204895_best'
 # model_dest = '../models/plain_c16x2x5_d101010_do1bc_v3'
@@ -158,24 +164,249 @@ from utils.train_model_v6 import train_model
 # filter = 'groups(01234);mostlyGood4'
 
 
-# model_source = '../models/5+1fold_XS/_orig'
-model_source = '../models/5+1fold_XS/1.9441334009170532_best'
-model_dest = '../models/5+1fold_XS'
-filter = 'groups(01234);mostlyGood4'
+# # model_source = '../models/5+1fold_XS/_orig'
+# model_source = '../models/5+1fold_XS/1.826489714026451_temp'
+# model_dest = '../models/5+1fold_XS'
+# filter = 'groups(01234);mostlyGood4'
+
+# # model_source = '../models/3fold_M/_orig'
+# model_source = '../models/3fold_M/2.8491184319320477'
+# model_dest = '../models/3fold_M'
+# filter = 'groups(01234);mostlyGood4'
+
+
+# # model_source = '../models/new/XS_c16_32_64_128_skip_d2_do1_bn/_blank'
+# model_source = '../models/new/S_p1234_t1_c16_32_64_128_skip_d2_do1_bn/1.8703149026632309_temp'
+# model_dest = '../models/new/S_p1234_t1_c16_32_64_128_skip_d2_do1_bn'
+# filter = 'groups(1234);mostlyGood4'
+
+
+# # model_source = '../models/new/XS_c16_32_64_128_skip_d2_do1_bn_nic/_blank'
+# model_source = '../models/new/S_p1234_t1_c16_32_64_128_skip_d2_do1_bn_nic/2.0176358222961426_best'
+# model_dest = '../models/new/S_p1234_t1_c16_32_64_128_skip_d2_do1_bn_nic'
+# filter = 'groups(1234);mostlyGood4'
+
+
+# # model_source = '../models/new/comb2/_orig'
+# model_source = '../models/new/comb2/1.9095149995088576_temp'
+# model_dest = '../models/new/comb2'
+# filter = 'groups(1234);mostlyGood4'
+
+
+# model_source = '../models/new/XL_p1-4_mg4/4.287527084350586_best'
+# model_source = '../models/new/XL_p1-4_mg4/1.5893226511478424_temp'
+# model_dest = '../models/new/XL_p1-4_mg4'
+# filter = 'groups(1234);mostlyGood4'
+
+# model_source = '../models/newTweak/from_allButOpenings_transf_inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/v1'
+# # model_source = '../models/newTweak/v1/1.9095149995088576_temp'
+# model_dest = '../models/newTweak/v1'
+# filter = 'groups(1234);mostlyGood4'
+
+
+# model_source = '../models/merged_XL/_orig'
+# # model_source = '../models/merged_XL/1.599389974583279'
+# model_dest = '../models/merged_XL'
+# filter = 'groups(01234);mostlyGood4'
+
+
+# model_source = '../models/merged_XL2/_orig'
+# # model_source = '../models/merged_XL2/1.599389974583279'
+# model_dest = '../models/merged_XL2'
+# filter = 'groups(01234);mostlyGood4'
+
+
+# # model_source = '../models/new/XL_op'
+# model_source = '../models/new/XL_p0_v2_do2/1.5090183297395707_temp'
+# model_dest = '../models/new/XL_p0_v2_do3'
+# dropout_rate = 0.3
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(0);obj(result:1)(minElo:2400,result:0)(minElo:2500)'
+# lr_multiplier = 0.01
+
+
+# model_source = '../models/merged_XL3/_orig'
+# # model_source = '../models/merged_XL3/1.5090183297395707_temp'
+# model_dest = '../models/merged_XL3_train_midend'
+# dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(01234);obj(result:1)(minElo:2400,result:0)(minElo:2500)'
+# lr_multiplier = 0.01
+
+
+# # model_source = '../models/merged_XL3/_orig'
+# # model_source = '../models/merged_XL3_train_midend2/1.6687036752700806_best'
+# model_source = '../models/merged_XL3_train_midend/1.628904486298561'
+# model_dest = '../models/merged_XL3_train_midend2'
+# dropout_rate = 0.1
+# filter = 'groups(01234);obj(result:1)(willHit:1)(minElo:2400,result:0)(minElo:2500)'
+# lr_multiplier = 0.001
+# make_trainable = False
+
+# model_source = '../models/new/XL_op'
+# # model_source = '../models/new/XL_p0_v2_do2/1.5090183297395707_temp'
+# model_dest = '../models/new/XL_p34_win_do3'
+# dropout_rate = 0.3
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(34);obj(result:1)(minElo:2500,result:0)'
+# lr_multiplier = 1
+
+
+# model_source = '../models/merged_double/v1/1.585583065237318'
+# # model_source = '../models/new/XL_p0_v2_do2/1.5090183297395707_temp'
+# model_dest = '../models/merged_double/v1'
+# dropout_rate = 0
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(01234);obj(result:1,willHit:1)(minElo:2400,result:1)(minElo:2700)'
+# lr_multiplier = 0.002
+# make_trainable = True
+
+# model_source = '../models/new/XS_c16x2x4_bnorm_skip/V1/2.538818836212158_best'
+# # model_source = '../models/new/XL_p0_v2_do2/1.5090183297395707_temp'
+# model_dest = '../models/new/XS_c16x2x4_bnorm_skip/V3'
+# dropout_rate = 0
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2400,result:1)(minElo:2700)'
+# lr_multiplier = 0.3
+# make_trainable = True
+
+# model_source = '../models/new/double_kernel_M/_blank'
+# # model_source = '../models/new/XL_p0_v2_do2/1.5090183297395707_temp'
+# model_dest = '../models/new/double_kernel_M/V1_allButOpenings'
+# dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2400,result:1)(minElo:2700)'
+# lr_multiplier = 1
+# make_trainable = True
+
+
+# model_source = '../models/new/smallest/_blank'
+# # model_source = '../models/new/XL_p0_v2_do2/1.5090183297395707_temp'
+# model_dest = '../models/new/smallest/V1_allButOpenings'
+# # dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 1
+# make_trainable = True
+
+
+# model_source = '../models/new/d2x8/_blank'
+# # model_source = '../models/new/XL_p0_v2_do2/1.5090183297395707_temp'
+# model_dest = '../models/new/d2x8/V1_allButOpenings'
+# # dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 1
+# make_trainable = True
+
+
+# model_source = '../models/new/d102010/_blank'
+# # model_source = '../models/new/XL_p0_v2_do2/1.5090183297395707_temp'
+# model_dest = '../models/new/d102010/V1_allButOpenings'
+# # dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 1
+# make_trainable = True
+
+# # model_source = '../models/new/c16X4x1_d10/_blank'
+# model_source = '../models/new/c16X4x1_d10/V1_allButOpenings/2.1230948121547697'
+# model_dest = '../models/new/c16X4x1_d10/V1_allButOpenings'
+# # dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 0.02
+# make_trainable = True
+
+
+# # model_source = '../models/new/c16to256AndBack/_blank'
+# model_source = '../models/new/c16to256AndBack/V1_allButOpenings/1.7295656563043593'
+# model_dest = '../models/new/c16to256AndBack/V1_allButOpenings'
+# # dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 0.3
+# make_trainable = True
+
+
+# # model_source = '../models/new/c16to512AndBack/_blank'
+# model_source = '../models/new/c16to512AndBack/V1f_allButOpenings/1.5322560130346279_temp'
+# model_dest = '../models/new/c16to512AndBack/V1f_allButOpenings'
+# # dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 0.01
+# make_trainable = True
+# gpu = True
+
+
+model_source = '../models/new_age/btlnck_resnet_v1/_blank'
+# model_source = '../models/new_age/btlnck_resnet_v1/p1234_v1/1.786265799999237'
+model_dest = '../models/new_age/btlnck_resnet_v1/p1234_v1'
+dropout_rate = 0.3
+# filter = 'groups(0);obj(result:1)(minElo:2400)'
+filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+lr_multiplier = 1
+make_trainable = False
+gpu = True
+evaluate = True
+
+
+# # model_source = '../models/new/c16to512AndBack/expanded_v4/_orig'
+# model_source = '../models/new/c16to512AndBack/expanded_v4/V1_allButOpenings/1.786265799999237'
+# model_dest = '../models/new/c16to512AndBack/expanded_v4/V1_allButOpenings'
+# dropout_rate = 0.03
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 0.3
+# make_trainable = False
+# gpu = True
+# evaluate = True
+
+
+# model_source = '../models/new/c16-256-32_d5-10-5/_blank'
+# # model_source = '../models/new/c16-256-32_d5-10-5/V1_allButOpenings/3.5583174228668213_best'
+# model_dest = '../models/new/c16-256-32_d5-10-5/V1_allButOpenings'
+# # dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 3
+# make_trainable = True
+# gpu = True
+
+# model_source = '../models/new/XS_c16x2x4_bnorm_skip/_blank'
+# # model_source = '../models/merged_XL3_train_midend/1.628904486298561'
+# model_dest = '../models/new/XS_c16x2x4_bnorm_skip/V1'
+# # dropout_rate = 0.15
+# filter = 'groups(01234);obj(result:1)(willHit:1)(minElo:2400,result:0)(minElo:2500)'
+# lr_multiplier = 1
+# # make_trainable = True
+
+
+# model_source = '../models/new_tweaked/16to256ab-Add_d5-10-5/_blank'
+# # model_source = '../models/new_tweaked/16to256ab-Add_d5-10-5/V1_allButOpenings/3.5583174228668213_best'
+# model_dest = '../models/new_tweaked/16to256ab-Add_d5-10-5/V1_allButOpenings'
+# # dropout_rate = 0.2
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 1
+# make_trainable = False
+# gpu = True
 
 
 initial_batch_size = 256
-lr_multiplier = 0.3
 fixed_lr = 0.0001
 
 train_model(model_source, model_dest,
-            initial_batch_size, gpu=True, lr_multiplier=lr_multiplier, fixed_lr=fixed_lr,
-            dataset_reader_version='19',
+            initial_batch_size, gpu=gpu, lr_multiplier=lr_multiplier, fixed_lr=fixed_lr,
+            dataset_reader_version='20',
             # filter='obj(percent:0.4,result:1,progressMax:0.2,opponentMinElo:2500)(percent:0.3,result:1,progressMax:0.2,opponentMinElo:2000)(percent:0.1,result:1,progressMax:0.2)',
             filter=filter,
             # filter='openings',
             ys_format='default',
-            make_trainable=True,
-            evaluate=True)
+            make_trainable=make_trainable,
+            evaluate=evaluate,
+            dropout_rate=dropout_rate,
+            )
 
 #

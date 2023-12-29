@@ -97,7 +97,7 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, 
         model = tf.keras.models.load_model(model_source)
 
     datasetReaderId = json.loads(
-        urlopen("http://localhost:3500/datasetReader").read())["id"]
+        urlopen("http://localhost:3550/datasetReader").read())["id"]
 
     model.compile(optimizer=tf.keras.optimizers.legacy.Adam(learning_rate), loss='categorical_crossentropy',
                   metrics=['categorical_crossentropy'])
@@ -105,7 +105,7 @@ def train_model(model_source, model_dest, BATCH_SIZE=256, learning_rate=0.0003, 
     model.summary()
 
     while True:
-        datasetCsv = pd.read_csv("http://localhost:3500/datasetReader/" +
+        datasetCsv = pd.read_csv("http://localhost:3550/datasetReader/" +
                                  datasetReaderId + "/dataset?format=csv", header=None)
         dataset_features = np.array(datasetCsv.drop(columns=[896]))
         dataset_labels = to_categorical(datasetCsv[896], num_classes=1837)

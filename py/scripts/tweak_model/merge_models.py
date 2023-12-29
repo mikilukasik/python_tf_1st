@@ -27,7 +27,7 @@ opening_model_name = '../models/inpConv_c16_64_128_skip_d25_do3_bn_upToProg20Win
 opening_model = load_model(opening_model_name)
 
 # load the mid/end model (trained to predict the best move in the mid/end game)
-mid_end_model_name = '../models/allButOpenings_transf_inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6221170337200164_temp'
+mid_end_model_name = '../models/new/XL_p1-4_mg4/1.5905999898165464 copy'
 mid_end_model = load_model(mid_end_model_name)
 
 

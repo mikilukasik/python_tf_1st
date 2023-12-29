@@ -16,7 +16,7 @@ with tf.device('/cpu:0'):
     SHUFFLE_BUFFER_SIZE = 100
 
     datasetReaderId = json.loads(
-        urlopen("http://localhost:3500/datasetReader").read())["id"]
+        urlopen("http://localhost:3550/datasetReader").read())["id"]
     print("datasetReaderId", datasetReaderId)
 
     model = tf.keras.models.load_model(
@@ -99,7 +99,7 @@ with tf.device('/cpu:0'):
 
     for x in range(100000):
         datasetCsv = pd.read_csv(
-            "http://localhost:3500/datasetReader/" + datasetReaderId + "/dataset?format=csv", header=None)
+            "http://localhost:3550/datasetReader/" + datasetReaderId + "/dataset?format=csv", header=None)
 
         dataset_features = datasetCsv.copy()
         dataset_labels = dataset_features.pop(896)

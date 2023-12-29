@@ -7,6 +7,7 @@ from keras import regularizers
 import numpy as np
 
 from utils.load_model import load_model
+from utils.save_model import save_model
 
 from utils.create_champ_model import create_champ_model
 
@@ -16,7 +17,7 @@ import sys
 
 
 # Load the saved model
-model_name = '../models/currchampv1/1.786349892616272_best'
+model_name = '../models/allButOpenings_transf_inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.616123914718628_best'
 model = load_model(model_name)
 
 # Set all layers except the new dense layers to not trainable
@@ -26,9 +27,8 @@ for layer in model.layers:
 model.summary()
 
 for i in range(len(model.layers)):
-    print(i, model.layers[i], model.layers[i].name)
+    print(i, model.layers[i].name)
 
-# sys.exit()
 
 # Create new dense layers with double the units
 # new_dense1 = Dense(1024, ELU(), kernel_initializer=he_normal(), activity_regularizer=regularizers.l2(0.001))
@@ -48,15 +48,15 @@ for i in range(len(model.layers)):
 # Create a new model with the updated architecture
 input = model.layers[0]
 
-flat_input = model.layers[20]
-flattened_last_conv = model.layers[19]
-last_activated_conv = model.layers[18]
-latest_softmax = model.layers[29]
-first_dense = model.layers[24]
-second_dense = model.layers[27]
+flat_input = model.layers[54]
+flattened_last_conv = model.layers[55]
+last_activated_conv = model.layers[52]
+# latest_softmax = model.layers[29]
+# first_dense = model.layers[24]
+# second_dense = model.layers[27]
 
 concatted_dense = Concatenate(name='concat_dense_tw')(
-    [first_dense.output, second_dense.output, latest_softmax.output])
+    [model.layers[57].output, model.layers[60].output, model.layers[63].output])
 
 concatted_conv = Concatenate(name='concat_conv')(
     [input.output, last_activated_conv.output])
@@ -65,11 +65,12 @@ new_model = create_champ_model(input=input.output,
                                attach_cnn_to_layer=concatted_conv,  # last_activated_conv,
                                flat_input=flat_input.output,
                                filter_nums=[1024],
-                               dense_units=[1024, 2048, 1024],
+                               dense_units=[512, 512],
                                layers_per_conv_block=2,
                                layers_per_dense_block=1,
-                               dropout_rate=0.3,
-                               #  dropout_rate=0.05, dropout_between_conv=True,
+                               dropout_rate=0.1,
+                               #  dropout_rate=0.05,
+                               dropout_between_conv=False,
                                batch_normalization=True,
                                #    l2_reg=0.00001,
                                #    concat_to_flattened_conv=Concatenate(name='concat-' + str(random.randint(0, 999999)))([
@@ -77,7 +78,9 @@ new_model = create_champ_model(input=input.output,
                                #        flattened_last_conv.output,
                                #    ]),
                                # first_dense.output  # latest_softmax.output
-                               concat_to_flattened_conv=concatted_dense
+                               #    concat_to_flattened_conv=concatted_dense,
+                               input_to_all_conv=True,
+                               add_skip_connections=True
                                )
 # old_dense1 = model.layers[24]
 # old_dense2 = model.layers[27]
@@ -134,7 +137,8 @@ new_model.summary()
 # for i in range(len(new_model.layers)):
 #     print(i, new_model.layers[i], new_model.layers[i].trainable)
 
-new_model.save('../models/XL_champv1')
+save_model(new_model,
+           '../models/newTweak/from_allButOpenings_transf_inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/v2')
 
 # # Set all layers except the new dense layers to not trainable
 # for layer in model.layers:

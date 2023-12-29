@@ -7,7 +7,6 @@ import os
 from datetime import datetime
 
 
-# Generate the current timestamp and format it as YYYYMMDD_HHMMSS
 timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
 
 stockfish_games = 1000
@@ -18,12 +17,21 @@ stockfish_skill = 5
 stockfish_name = "Stockfish d" + \
     str(stockfish_depth) + " s" + str(stockfish_skill)
 
-# Constants for Chess Results
 WHITE_WIN = "1-0"
 BLACK_WIN = "0-1"
 DRAW = "1/2-1/2"
 
 engine_names = [
+    # "merged_double/v1/1.5734939713162535 copy",
+    'merged_double/_orig',
+    # 'merged_triple/_orig',
+    # 'merged_triple_v2/_orig',
+    'merged_2op3me/_orig',
+    # 'merged_XL3_train_midend/1.6300672443740625 copy',
+    # 'merged_XL3_train_midend/1.6535537508027307 copy',
+    'merged_XL3/_orig',
+    'merged_XL/_orig',
+    # '5+1fold_XS/1.8239935278892516_temp',
     'merged_3models_fo/1.590137270045908 copy',
     'merged_mg4/1.586208572149277_temp',
 
@@ -70,58 +78,10 @@ engine_names = [
     #: 637.0 from 1048 games (0.61 ppg)
 
     'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6967400099549974',
-
 ]
 
-# engine_names = [
-#     'merged_mg4/1.582800602197647 copy',
-#     'merged_mg4/1.5850087277119673_temp',
-#     'merged_mg4/1.5783308744430542_best copy',
-#     'merged_mg3/1.5500810146331787_best copy',
-#     'merged_mg3/1.5644773782491683_temp',
-#     'merged_mg3/1.5581268072128296_best copy',
-#     'merged_mg3/1.5691540241241455_best copy',
-#     'merged_mg3/1.5735136878617266 copy',
-#     'merged_mg2/1.568634271621704_best copy',
-#     'merged_trained_progFixed/1.596966028213501_best copy',
-#     'merged_trained_progFixed/1.6103842393159866 copy',
-#     'merged_trained_progFixed/1.6067324876785278_best copy',
-#     'merged_trained_progFixed/1.6072452068328857_best copy',
-#     'merged_trained_progFixed/1.6182471289634703_temp',
-#     'merged_trained_progFixed/1.6225605730947694',
-#     'merged_trained_progFixed/1.6200499534606934_best copy',
-#     'merged_trained_progFixed/_orig',
-#     'merged_trained_progtrain/1.610970377922058_best copy',
-#     'merged_trained_progtrain/1.6210292340051837',
-#     'merged_trained/1.629942218542099 copy',
-#     'merged_trained/1.631397050023079 copy',
-#     'merged_trained/1.6335621824351754 copy',
-#     'merged_trained/1.6586135723193485 copy',
-#     # 'merged_trained/_orig',
-#     # 'merged_trained/1.6798388957977295_best copy',
-#     # 'XL_champv1/1.8358032703399658_best copy',
-#     # 'XL_champv1/1.8431299924850464_best copy',
-#     # 'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.688239574432373_best copy',
-#     # 'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6962979712152992 copy',
-#     # 'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7104873843193054 copy',
-#     # 'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7105298320055007 copy',
-#     # 'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.711094715833664 copy',
-#     # 'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7052313089370728_best copy',
-#     'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6967400099549974',
-#     # 'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7050988605994135_temp',
-#     'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.6917481422424316_best copy',
-#     # 'inpConv_c16x2x6_skip_l2_d101010_l1_do1_bn/1.7054112847362246 copy',
-#     # 'inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7226097583770752_best copy',
-#     # 'inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7330505576133728 copy',
-#     # 'inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7388049893379212 copy',
-#     # 'inpConv_c16x2x6_skip_l2_d510_l1_bn/1.7381287091970443_temp',
-#     # 'inpConv_c16x2x6_skip_l2_d510_l1_bn/1.729777216911316_best copy',
-#     # 'inpConv_c16x2x6_skip_l2_d510_l1_bn/1.766247645020485 copy',
-#     # 'currchampv1/1.786349892616272_best',
-# ]
 
-
-def find_latest_game_result_files(n=15):
+def find_latest_game_result_files(n=30):
     """Find the latest 'n' game results files based on the timestamp."""
     files = [f for f in os.listdir('.') if f.startswith('game_results_')]
     sorted_files = sorted(files, key=os.path.getctime, reverse=True)
@@ -129,12 +89,13 @@ def find_latest_game_result_files(n=15):
 
 
 class Tournament:
-
     def __init__(self):
         self.results = {}
+        self.buffer = []
+        self.last_write_time = time.time()
 
         # Load previously played games from the last 15 files
-        latest_files = find_latest_game_result_files(15)
+        latest_files = find_latest_game_result_files(30)
 
         print(f"Latest 15 files: {latest_files}")
 
@@ -160,6 +121,10 @@ class Tournament:
             move = engine_white.get_move(
                 board) if board.turn == chess.WHITE else engine_black.get_move(board)
             board.push(move)
+
+        self.buffer.append(f"{matchup_name}: {board.result()}\n")
+        self.maybe_write_buffer_to_file()
+
         return board.result()
 
     def play_tournament(self, engines):
@@ -176,31 +141,39 @@ class Tournament:
                             white, black) + (f" Game {k + 1}" if k > 0 else '')
                         result = self.play_game(white, black, matchup_name)
 
-                        # Append result to the game_results.txt
-                        filename = f"game_results_{timestamp}.txt"
-                        with open(filename, "a") as f:
-                            f.write(f"{matchup_name}: {result}\n")
-
                         self.results[matchup_name] = result
                         self._log_current_ranking()
+
+        self.write_buffer_to_file()
 
     def _get_matchup_name(self, white, black):
         """Generate a matchup name for two engines."""
         return f"{white.name} vs {black.name}"
 
+    def write_buffer_to_file(self):
+        """Write the buffered results to the file."""
+        filename = f"game_results_{timestamp}.txt"
+        with open(filename, "a") as f:
+            for line in self.buffer:
+                f.write(line)
+        self.buffer.clear()
+        self.last_write_time = time.time()
+
+    def maybe_write_buffer_to_file(self):
+        """Check if it's time to write the buffer to the file."""
+        if time.time() - self.last_write_time >= 1:
+            self.write_buffer_to_file()
+
     def _log_current_ranking(self):
         """Log the current ranking based on the results."""
+
+        # Ensure we write buffered results before logging current ranking
+        self.maybe_write_buffer_to_file()
+
         points = self._calculate_points()
         games_played = self._calculate_games_played()
         sorted_engines = sorted(points, key=lambda x: (
             points[x] / games_played[x], points[x]), reverse=True)
-        # print("\nCurrent Ranking:")
-        # for engine in sorted_engines:
-        #     print(
-        #         f"{engine}: {points[engine]} from {games_played[engine]} games ({points[engine] / games_played[engine]:.2f} ppg)")
-        # print("\n")
-
-        # Update the current ranking file
         filename = f"current_rankings_{timestamp}.txt"
         with open(filename, "w") as f:
             for engine in sorted_engines:
@@ -248,14 +221,10 @@ class Tournament:
 
 
 if __name__ == "__main__":
-
-    # Initialize tournament and engines
     tournament = Tournament()
     engine_sf = Engine_sf(name=stockfish_name, skill=stockfish_skill,
                           depth=stockfish_depth)
     engines = [Engine(name) for name in engine_names] + [engine_sf]
 
-    # Play Engines against each other
     tournament.play_tournament(engines)
-
     engine_sf.quit()

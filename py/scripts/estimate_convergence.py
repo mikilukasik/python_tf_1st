@@ -26,7 +26,7 @@ if __name__ == "__main__":
     model_meta = load_model_meta(model_folder)
 
     # filename = f'./training_stats_{datetime.now().strftime("%Y%m%d_%H%M%S")}.pdf'
-    filename = f'./training_stats.pdf'
+    filename = f'./training_stats.html'
     print('filename', filename)
 
     plot_model_meta(model_meta, filename, True if len(

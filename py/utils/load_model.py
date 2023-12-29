@@ -19,25 +19,37 @@ def load_model(model_source: str, quiet: bool = False) -> Union[tf.keras.Model, 
     """
     try:
         model_source = os.path.abspath(model_source)
-        from_json = os.path.exists(os.path.join(model_source, "model.json"))
-        if from_json:
-            with open(os.path.join(model_source, "model.json"), "r") as f:
-                model_json = f.read()
+        model_path = os.path.join(model_source, "complete_model.h5")
 
-            model = model_from_json(model_json)
-            try:
-                model.load_weights(os.path.join(model_source, "weights.h5"))
-                if not quiet:
-                    print_large('Weights loaded.', model_source)
-            except Exception as e:
-                if not quiet:
-                    print(f"Error loading weights: {str(e)}")
+        if os.path.exists(model_path):
+            # Load the complete model (including optimizer state)
+            model = tf.keras.models.load_model(model_path)
             if not quiet:
-                print_large('JSON model loaded.', model_source)
+                print_large('Complete model loaded.', model_source)
         else:
-            model = tf.keras.models.load_model(model_source)
-            if not quiet:
-                print_large('Keras model loaded.', model_source)
+            # Fallback to loading model JSON and weights
+            from_json = os.path.exists(
+                os.path.join(model_source, "model.json"))
+            if from_json:
+                with open(os.path.join(model_source, "model.json"), "r") as f:
+                    model_json = f.read()
+
+                model = model_from_json(model_json)
+                try:
+                    model.load_weights(os.path.join(
+                        model_source, "weights.h5"))
+                    if not quiet:
+                        print_large('Weights loaded.', model_source)
+                except Exception as e:
+                    if not quiet:
+                        print(f"Error loading weights: {str(e)}")
+                if not quiet:
+                    print_large('JSON model loaded.', model_source)
+            else:
+                if not quiet:
+                    print(f"Model file not found in {model_source}")
+                return None
+
         return model
     except Exception as e:
         if not quiet:

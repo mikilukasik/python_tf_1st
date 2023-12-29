@@ -11,7 +11,7 @@ with tf.device('/cpu:0'):
     BATCH_SIZE = 512
     SHUFFLE_BUFFER_SIZE = 100
 
-    req = Request("http://localhost:3500/datasetReader")
+    req = Request("http://localhost:3550/datasetReader")
     req.add_header("Accept-Encoding", "gzip, deflate")
     datasetReaderId = json.loads(urlopen(req).read())["id"]
     print("datasetReaderId", datasetReaderId)
@@ -28,7 +28,7 @@ with tf.device('/cpu:0'):
         for y in range(30):
 
             datasetCsv = pd.read_csv(
-                "http://localhost:3500/datasetReader/" + datasetReaderId + "/dataset?format=csv", header=None)
+                "http://localhost:3550/datasetReader/" + datasetReaderId + "/dataset?format=csv", header=None)
             print("loaded dataset.", y)
 
             dataset_features = datasetCsv.copy()

@@ -15,7 +15,8 @@ class NumpyJSONEncoder(json.JSONEncoder):
 
 def save_model(model, folder, metadata={}):
     """
-    Saves a Keras model to disk, including the model architecture, a summary of the model, a PNG visualization of the model with informative labels, and metadata.
+    Saves a Keras model to disk, including the model architecture, its weights, the state of the optimizer,
+    a summary of the model, a PNG visualization of the model with informative labels, and metadata.
 
     Parameters:
     - model: A Keras model object to be saved.
@@ -29,12 +30,8 @@ def save_model(model, folder, metadata={}):
     # Create directory for the model files
     os.makedirs(folder, exist_ok=True)
 
-    # Save the model architecture as a JSON file
-    with open(os.path.join(folder, 'model.json'), 'w') as f:
-        f.write(model.to_json())
-
-    # Save the model weights as an HDF5 file
-    model.save_weights(os.path.join(folder, 'weights.h5'))
+    # Save the complete model (architecture, weights, and optimizer state)
+    model.save(os.path.join(folder, 'complete_model.h5'))
 
     # Save a summary of the model
     with open(os.path.join(folder, 'summary.txt'), 'w') as f:
@@ -45,7 +42,6 @@ def save_model(model, folder, metadata={}):
         folder, 'model.png'), show_shapes=True)
 
     img = Image.open(os.path.join(folder, 'model.png'))
-
     draw = ImageDraw.Draw(img)
 
     # Add informative labels to the PNG visualization
