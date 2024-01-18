@@ -80,51 +80,38 @@ class TrainingManager:
                     len(self.model_meta['training_stats']['epochs']))
 
     def get_next_lr(self, lr):
-        if self.fixed_lr is not None:
-            print('fixed_lr', self.fixed_lr)
-            if self.lr_multiplier is not None:
-                print('lr_multiplier', self.lr_multiplier)
-                result = self.fixed_lr * self.lr_multiplier
-                print('next_lr', result)
-                print('')
-                return result
-
+        print('fixed_lr', self.fixed_lr)
+        if self.lr_multiplier is not None:
+            print('lr_multiplier', self.lr_multiplier)
+            result = self.fixed_lr * self.lr_multiplier
+            print('next_lr', result)
             print('')
-            return self.fixed_lr
+            return result
 
-        if len(self.model_meta['training_stats']['epochs']) == 0:
-            return 0.0001
-
-        next_lr = 0.002000458 + (-0.000001246426 - 0.002000458) / (1 + math.pow(
-            self.model_meta['training_stats']['epochs'][-1]['l'] / 3.323395, 10.29872))
-        random_multiplier = get_random_multiplier(1.25)
-        result = next_lr * self.lr_multiplier * random_multiplier
-
-        print('next_lr from formula', next_lr)
-        print('lr_multiplier', self.lr_multiplier)
-        print('random_multiplier', random_multiplier)
-        print('next_lr', result)
         print('')
-
-        return result
+        return self.fixed_lr
 
     def get_optimizer(self):
         optimizer = tf.keras.optimizers.legacy.Adam(self.get_next_lr(None))
         return optimizer
-    
+
     def add_eval_result(self, loss, acc):
         if self.model_meta['training_stats']['epochs']:
-          last_epoch = self.model_meta['training_stats']['epochs'][-1]
-          last_epoch['el'] = loss
-          last_epoch['ea'] = acc
-       
+            last_epoch = self.model_meta['training_stats']['epochs'][-1]
+            last_epoch['el'] = loss
+            last_epoch['ea'] = acc
 
-    def add_to_stats(self, loss, lr, time, sample_size, batch_size, gpu):
+    def add_to_stats(self, loss, lr, time, sample_size, batch_size, gpu, set_lr_multiplier_to=None):
         self.epochs_since_lr_multiplier_adjusted += 1
 
         self.model_meta['training_stats']['epochs'].append(
             {'l': loss, 't': time,
              's': sample_size, 'b': batch_size, 'lr': lr, 'g': gpu})
+
+        if set_lr_multiplier_to is not None:
+            print_large('setting lr multiplier to', set_lr_multiplier_to)
+            self.lr_multiplier = set_lr_multiplier_to
+            return
 
         if len(self.model_meta['training_stats']['epochs']) >= self.loss_monitor_sample_size and self.lr_multiplier is not None:
             last_loss = [

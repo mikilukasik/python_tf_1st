@@ -2,7 +2,8 @@ from .print_large import print_large
 from .save_model import save_model
 from .load_model import load_model, load_model_meta
 from .helpers.training_manager_v3 import TrainingManager
-from .helpers.dataset_provider import DatasetProvider
+from .helpers.dataset_provider2 import DatasetProvider
+# from .helpers.dataset_provider import DatasetProvider
 from utils.plot_model_meta import plot_model_meta
 
 from collections import deque
@@ -17,13 +18,16 @@ import time
 import logging
 from keras.callbacks import LearningRateScheduler
 import sys
-from flask import Flask, request
-from threading import Thread
+from flask import Flask, request, send_file, after_this_request
+from threading import Thread, Lock
+import zipfile
 
 
 logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
+
+model_lock = Lock()  # Lock for thread-safe model access
 
 model_meta = {}
 iterations_with_no_improvement = 0
@@ -34,6 +38,9 @@ next_lr = 0.0001
 training_manager = None
 
 save_requested = False
+set_lr_multiplier_to = None
+
+latest_model_source = None
 
 
 @app.route('/save', methods=['GET', 'POST'])
@@ -41,7 +48,53 @@ def save_endpoint():
     global save_requested
     save_requested = True
     print('save requested')
+
+    lr_multiplier_in_query = request.args.get('lr')
+    if lr_multiplier_in_query:
+        # validate it to be between 100 and 0.0001
+        if float(lr_multiplier_in_query) < 0.0001 or float(lr_multiplier_in_query) > 100:
+            return "lr_multiplier should be between 100 and 0.0001"
+
+        global set_lr_multiplier_to
+        set_lr_multiplier_to = float(lr_multiplier_in_query)
+        print('set_lr_multiplier_to', set_lr_multiplier_to)
+
     return "Save method called"
+
+
+def zipdir(path, ziph):
+    # Function to zip the contents of a directory
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            ziph.write(os.path.join(root, file), os.path.relpath(
+                os.path.join(root, file), os.path.join(path, '..')))
+
+
+@app.route('/download', methods=['GET'])
+def download_model():
+    global latest_model_source
+    if latest_model_source is None:
+        return "No model has been saved yet"
+
+    print('Downloading model from', latest_model_source)
+
+    # Create a temporary directory
+    temp_dir = os.path.join(os.getcwd(), 'temp_model_zip')
+    os.makedirs(temp_dir, exist_ok=True)
+
+    # Zip the model files
+    zipf = zipfile.ZipFile(os.path.join(temp_dir, 'model.zip'), 'w')
+    zipdir(latest_model_source, zipf)
+    zipf.close()
+
+    @after_this_request
+    def cleanup(response):
+        # Cleanup: Delete the temporary directory after sending the file
+        shutil.rmtree(temp_dir, ignore_errors=True)
+        return response
+
+    # Send the zipped model files
+    return send_file(os.path.join(temp_dir, 'model.zip'), as_attachment=True)
 
 
 @app.route('/stats', methods=['GET'])
@@ -52,20 +105,23 @@ def get_stats_html():
 
 
 def modify_dropout_rates(model, new_rate):
-    for layer in model.layers:
-        if isinstance(layer, Dropout):
-            layer.rate = new_rate
-    # Rebuild model (only necessary in some Keras versions)
-    return Model(inputs=model.inputs, outputs=model.outputs)
+    with model_lock:
+        for layer in model.layers:
+            if isinstance(layer, Dropout):
+                layer.rate = new_rate
+        # Rebuild model (only necessary in some Keras versions)
+        return Model(inputs=model.inputs, outputs=model.outputs)
 
 
 def save_model_and_delete_last(model, val, model_dest, is_temp=False, isCurrentBest=False):
-    global lastSavedAvg, currentBest, save_requested
+    global lastSavedAvg, currentBest, save_requested, latest_model_source
 
     foldername = os.path.join(model_dest, str(
         val) + ('_temp' if is_temp else '') + ('_best' if isCurrentBest else ''))
-    save_model(model, foldername, model_meta)
+    with model_lock:
+        save_model(model, foldername, model_meta)
     # training_manager.save_stats(foldername, True)
+    latest_model_source = foldername
     save_requested = False
 
     if lastSavedAvg < 9999 and not is_temp and not isCurrentBest:
@@ -148,17 +204,19 @@ def train_model(model_source, model_dest, initial_batch_size=256, initial_lr=0.0
 
 
 def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=0.0003, gpu=True, force_lr=False, lr_multiplier=None, ys_format='default', xs_format='default', fixed_lr=None, dataset_reader_version='16', filter='default', evaluateOnly=False, make_trainable=False, evaluate=True, fresh_reader=False, dropout_rate=None):
-    global model_meta, batch_size, next_lr, training_manager
+    global model_meta, batch_size, next_lr, training_manager, set_lr_multiplier_to
 
     batch_size = initial_batch_size
 
     # Load the Keras model and its metadata
-    model = load_model(model_source)
-    model_meta = load_model_meta(model_source)
+    with model_lock:
+        model = load_model(model_source)
+        model_meta = load_model_meta(model_source)
 
     if make_trainable:
-        for layer in model.layers:
-            layer.trainable = True
+        with model_lock:
+            for layer in model.layers:
+                layer.trainable = True
 
     if dropout_rate is not None:
         model = modify_dropout_rates(model, dropout_rate)
@@ -207,17 +265,18 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
         loss = custom_loss
 
     # print('loss','loss')
-
-    model.compile(optimizer=optimizer, loss=loss,
-                  metrics=['accuracy'])
-    #   metrics=[tf.keras.losses.MeanAbsoluteError()])
+    with model_lock:
+        model.compile(optimizer=optimizer, loss=loss,
+                      metrics=['accuracy'])
+        #   metrics=[tf.keras.losses.MeanAbsoluteError()])
 
     def evaluate_model(datasetTensor):
-        print('Evaluating model')
-        [eval_acc, eval_loss] = model.evaluate(datasetTensor)
+        with model_lock:
+            print('Evaluating model')
+            [eval_acc, eval_loss] = model.evaluate(datasetTensor)
 
-        print({eval_acc, eval_loss})
-        return [eval_acc, eval_loss]
+            print({eval_acc, eval_loss})
+            return [eval_acc, eval_loss]
 
     if evaluateOnly:
         print('Evaluating only')
@@ -227,6 +286,7 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
         sys.exit()
 
     else:
+        val = 9999
         lr_scheduler_callback = LearningRateScheduler(
             training_manager.get_next_lr)
 
@@ -248,15 +308,18 @@ def train_model_v4(model_source, model_dest, initial_batch_size=256, initial_lr=
             training_manager.print_stats()
 
             # Train the model on the dataset
+
             start_time = time.time()
-            val = model.fit(datasetTensor, epochs=1,
-                            callbacks=[lr_scheduler_callback]
-                            ).history["loss"][0]
+            with model_lock:
+                val = model.fit(datasetTensor, epochs=1,
+                                callbacks=[lr_scheduler_callback]
+                                ).history["loss"][0]
             logging.info(
                 f"Trained model on dataset in {time.time() - start_time:.2f} seconds")
 
             training_manager.add_to_stats(loss=val, lr=model.optimizer.lr.numpy(), time=time.time(
-            ) - start_time, sample_size=50000, batch_size=batch_size, gpu=gpu)
+            ) - start_time, sample_size=50000, batch_size=batch_size, gpu=gpu, set_lr_multiplier_to=set_lr_multiplier_to)
+            set_lr_multiplier_to = None
 
             # Save the model if necessary
             saveIfShould(model, val, model_dest=model_dest)

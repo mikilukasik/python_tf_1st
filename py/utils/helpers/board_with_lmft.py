@@ -31,10 +31,14 @@ def get_board_with_lmft():
 
     board.push = push_move_new
 
+    def push_san_move_new(move):
+        parsed_move = board.parse_san(move)
+        board.push(parsed_move)
+
+    board.push_san = push_san_move_new
+
     def print_board(*args, **kwargs):
         print(board.unicode(empty_square="."))
-        # print(board.lmf)
-        # print(board.lmt)
 
     board.print = print_board
 

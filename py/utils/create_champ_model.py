@@ -6,7 +6,43 @@ from keras.regularizers import l2
 import random
 
 
-def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512], kernel_sizes=[3], layers_per_conv_block=2, layers_per_dense_block=1, conv_activation='relu', dense_activation=ELU(), kernel_initializer='he_normal', out_kernel_initializer=None, input=None, attach_cnn_to_layer=None, flat_input=None, return_dense_index=None, layer_name_prefix='', returned_dense_name=None, out_units=1837, out_activation='softmax', dropout_rate=0.0, dropout_between_conv=False, l2_reg=None, batch_normalization=False, concat_to_flattened_conv=None, input_to_all_conv=False, add_skip_connections=False):
+# def bottleneck_block(input_tensor, filters, kernel_size=3, stride=1, conv_activation='relu', kernel_initializer='he_normal', l2_reg=None, batch_normalization=False):
+#     """Create a bottleneck block."""
+#     expansion_factor = 4
+#     reduced_filters = filters // expansion_factor
+
+#     # Contraction
+#     x = Conv2D(reduced_filters, (1, 1), strides=stride, kernel_initializer=kernel_initializer,
+#                kernel_regularizer=l2(l2_reg) if l2_reg else None)(input_tensor)
+#     if batch_normalization:
+#         x = BatchNormalization()(x)
+#     x = Activation(conv_activation)(x)
+
+#     # Processing
+#     x = Conv2D(reduced_filters, (kernel_size, kernel_size), padding='same',
+#                kernel_initializer=kernel_initializer, kernel_regularizer=l2(l2_reg) if l2_reg else None)(x)
+#     if batch_normalization:
+#         x = BatchNormalization()(x)
+#     x = Activation(conv_activation)(x)
+
+#     # Expansion
+#     x = Conv2D(filters, (1, 1), kernel_initializer=kernel_initializer,
+#                kernel_regularizer=l2(l2_reg) if l2_reg else None)(x)
+#     if batch_normalization:
+#         x = BatchNormalization()(x)
+
+#     # Shortcut connection
+#     shortcut = Conv2D(filters, (1, 1), strides=stride, kernel_initializer=kernel_initializer,
+#                       kernel_regularizer=l2(l2_reg) if l2_reg else None)(input_tensor)
+#     if batch_normalization:
+#         shortcut = BatchNormalization()(shortcut)
+
+#     # Add shortcut to output
+#     x = Add()([x, shortcut])
+#     return Activation(conv_activation)(x)
+
+
+def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512], kernel_sizes=[3], layers_per_conv_block=2, layers_per_dense_block=1, conv_activation='relu', dense_activation=ELU(), kernel_initializer='he_normal', out_kernel_initializer=None, input=None, attach_cnn_to_layer=None, flat_input=None, return_dense_index=None, layer_name_prefix='', returned_dense_name=None, out_units=1837, out_activation='softmax', dropout_rate=0.0, dropout_between_conv=False, l2_reg=None, batch_normalization=False, concat_to_flattened_conv=None, input_to_all_conv=False, add_skip_connections=False, use_bottleneck=False, last_conv_to_output=False):
 
     if input == None:
         input = Input(shape=(8, 8, 14))
@@ -22,21 +58,39 @@ def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512],
         x = attach_cnn_to_layer if attach_cnn_to_layer is not None else input
 
         for i, num_filters in enumerate(filter_nums):
+            bn_filters = max(num_filters // 4, 16)
 
-            first_conv = Conv2D(num_filters, (kernel_size, kernel_size), padding='same',
-                                kernel_initializer=kernel_initializer, kernel_regularizer=l2(
-                l2_reg) if l2_reg else None,  # 3. Add regularization to Conv2D
-                name=layer_name_prefix + 'Conv2D-conv0_in_res_block' + str(i) + '-' + str(random.randint(0, 999999)))(
-                    Concatenate(name=layer_name_prefix + 'Concat-input_to_res_block' + str(i) + '-' + \
-                                str(random.randint(0, 999999)))([x, input]) if (input_to_all_conv and i > 0) else x
-            )
+            if use_bottleneck and num_filters > 16:
+
+                bn_conv = Conv2D(bn_filters, (1, 1), padding='same',
+                                 kernel_initializer=kernel_initializer, kernel_regularizer=l2(
+                                     l2_reg) if l2_reg else None,
+                                 name=layer_name_prefix + 'Conv2D-bottleneck_in_res_block' + str(i) + '-' + str(random.randint(0, 999999)))(x)
+
+                first_conv = Conv2D(num_filters, (kernel_size, kernel_size), padding='same',
+                                    kernel_initializer=kernel_initializer, kernel_regularizer=l2(
+                    l2_reg) if l2_reg else None,
+                    name=layer_name_prefix + 'Conv2D-conv0_in_res_block' + str(i) + '-' + str(random.randint(0, 999999)))(
+                        Concatenate(name=layer_name_prefix + 'Concat-input_to_res_block' + str(i) + '-' +
+                                    str(random.randint(0, 999999)))([bn_conv, input]) if (input_to_all_conv and i > 0) else bn_conv
+                )
+            else:
+
+                first_conv = Conv2D(num_filters, (kernel_size, kernel_size), padding='same',
+                                    kernel_initializer=kernel_initializer, kernel_regularizer=l2(
+                    l2_reg) if l2_reg else None,  # 3. Add regularization to Conv2D
+                    name=layer_name_prefix + 'Conv2D-conv0_in_res_block' + str(i) + '-' + str(random.randint(0, 999999)))(
+                        Concatenate(name=layer_name_prefix + 'Concat-input_to_res_block' + str(i) + '-' + \
+                                    str(random.randint(0, 999999)))([x, input]) if (input_to_all_conv and i > 0) else x
+                )
 
             if batch_normalization:
                 first_conv = BatchNormalization(name=layer_name_prefix +
                                                 'BatchNormalization-' + str(random.randint(0, 999999)))(first_conv)
 
             first_conv = Activation(conv_activation, name=layer_name_prefix +
-                                    'Activation-' + str(random.randint(0, 999999)))(first_conv)
+                                    'Activation-' + conv_activation + '-' +
+                                    str(random.randint(0, 999999)))(first_conv)
 
             layers_in_this_block = [
                 (Conv2D(first_conv.shape[-1], (1, 1),
@@ -55,7 +109,8 @@ def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512],
                                                          'BatchNormalization-' + str(random.randint(0, 999999)))(next_conv_layer)
 
                 next_conv_layer = Activation(conv_activation, name=layer_name_prefix +
-                                             'Activation-' + str(random.randint(0, 999999)))(next_conv_layer)
+                                             'Activation-' + conv_activation + '-' +
+                                             str(random.randint(0, 999999)))(next_conv_layer)
 
                 layers_in_this_block.append(next_conv_layer)
 
@@ -89,6 +144,8 @@ def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512],
         x = Concatenate(name=layer_name_prefix + 'Concat-' +
                         str(random.randint(0, 999999)))([concat_to_flattened_conv, x])
 
+    flattened_last_conv = x
+
     for i, num_units in enumerate(dense_units):
         x = flat_input if x is None else Concatenate(name=layer_name_prefix + 'Concat-' +
                                                      str(random.randint(0, 999999)))([flat_input, x])
@@ -97,13 +154,15 @@ def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512],
             layers_in_this_block = [Dense(num_units, activation=dense_activation,
                                           kernel_initializer=kernel_initializer, kernel_regularizer=l2(
                                               l2_reg) if l2_reg else None,
-                                          name=layer_name_prefix + 'Dense-' + str(random.randint(0, 999999)))(x)]
+                                          name=layer_name_prefix + 'Dense-' + dense_activation + '-' +
+                                          str(random.randint(0, 999999)))(x)]
             for j in range(layers_per_dense_block - 1):
                 next_dense_layer = Dense(num_units, activation=dense_activation,
                                          kernel_initializer=kernel_initializer, kernel_regularizer=l2(
                                              l2_reg) if l2_reg else None,
                                          name=returned_dense_name if returned_dense_name is not None and return_dense_index is not None and i == return_dense_index
-                                         else layer_name_prefix + 'Dense-' + str(random.randint(0, 999999)))(layers_in_this_block[-1])
+                                         else layer_name_prefix + 'Dense-' + dense_activation + '-' +
+                                         str(random.randint(0, 999999)))(layers_in_this_block[-1])
                 layers_in_this_block.append(next_dense_layer)
 
             x = Add(name=returned_dense_name if returned_dense_name is not None and return_dense_index is not None and i == return_dense_index
@@ -113,7 +172,8 @@ def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512],
             x = Dense(num_units, activation=dense_activation,
                       kernel_initializer=kernel_initializer, kernel_regularizer=l2(
                           l2_reg) if l2_reg else None,
-                      name=returned_dense_name if returned_dense_name is not None and return_dense_index is not None and i == return_dense_index else layer_name_prefix + 'Dense-' + str(random.randint(0, 999999)))(x)
+                      name=returned_dense_name if returned_dense_name is not None and return_dense_index is not None and i == return_dense_index else layer_name_prefix + 'Dense-' + dense_activation + '-' +
+                      str(random.randint(0, 999999)))(x)
 
         if return_dense_index is not None and return_dense_index == i:
             return x
@@ -124,6 +184,11 @@ def create_champ_model(dense_units=[1024, 512], filter_nums=[64, 128, 256, 512],
 
     x = flat_input if x is None else Concatenate(name=layer_name_prefix + 'concat-' +
                                                  str(random.randint(0, 999999)))([flat_input, x])
+
+    if last_conv_to_output:
+        x = Concatenate(name=layer_name_prefix + 'concat-' +
+                                                 str(random.randint(0, 999999)))([flattened_last_conv, x])
+
     output = Dense(out_units, activation=out_activation, kernel_initializer=out_kernel_initializer if out_kernel_initializer is not None else kernel_initializer,
                    name=layer_name_prefix + 'Dense-output-' +
                    str(random.randint(0, 999999)))(x)

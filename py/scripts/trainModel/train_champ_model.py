@@ -340,26 +340,50 @@ evaluate = False
 # gpu = True
 
 
-model_source = '../models/new_age/btlnck_resnet_v1/_blank'
-# model_source = '../models/new_age/btlnck_resnet_v1/p1234_v1/1.786265799999237'
-model_dest = '../models/new_age/btlnck_resnet_v1/p1234_v1'
-dropout_rate = 0.3
-# filter = 'groups(0);obj(result:1)(minElo:2400)'
-filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
-lr_multiplier = 1
-make_trainable = False
-gpu = True
-evaluate = True
-
-
-# # model_source = '../models/new/c16to512AndBack/expanded_v4/_orig'
-# model_source = '../models/new/c16to512AndBack/expanded_v4/V1_allButOpenings/1.786265799999237'
-# model_dest = '../models/new/c16to512AndBack/expanded_v4/V1_allButOpenings'
-# dropout_rate = 0.03
+# # model_source = '../models/new_age/v2/_blank'
+# model_source = '../models/new_age/v2/p1234_v1/2.069496916770935'
+# model_dest = '../models/new_age/v2/p1234_v1'
+# dropout_rate = 0.1
 # # filter = 'groups(0);obj(result:1)(minElo:2400)'
 # filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
 # lr_multiplier = 0.3
 # make_trainable = False
+# gpu = True
+# # evaluate = True
+
+
+# # model_source = '../models/new_age/v7/_blank'
+# model_source = '../models/new_age/v7/V1_allButOpenings/1.7795528173446655_best'
+# model_dest = '../models/new_age/v7/V1_allButOpenings'
+# # dropout_rate = 0.15
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 0.15
+# make_trainable = True
+# gpu = True
+# evaluate = True
+
+
+# # model_source = '../models/new_age/v8/_blank'
+# model_source = '../models/new_age/v8/V1_allButOpenings/2.443315267562866_best'
+# model_dest = '../models/new_age/v8/V1_allButOpenings'
+# # dropout_rate = 0.15
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 0.5
+# make_trainable = True
+# gpu = True
+# evaluate = True
+
+
+# # model_source = '../models/new/c16to512AndBack/expanded_v4/_orig'
+# model_source = '../models/new/c16to512AndBack/expanded_v4/V1_allButOpenings/1.7237210659980773_temp'
+# model_dest = '../models/new/c16to512AndBack/expanded_v4/V1_allButOpenings'
+# dropout_rate = 0.15
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 0.03
+# make_trainable = True
 # gpu = True
 # evaluate = True
 
@@ -393,6 +417,39 @@ evaluate = True
 # make_trainable = False
 # gpu = True
 
+
+# # model_source = '../models/new_age2/20_320ab/_blank'
+# model_source = '../models/new_age2/20_320ab/V1_openings/1.8732330808639528'
+# model_dest = '../models/new_age2/20_320ab/V1_openings'
+# # dropout_rate = 0.1
+# # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(0);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2600)'
+# lr_multiplier = 0.8
+# make_trainable = True
+# gpu = True
+# # evaluate = True
+
+
+# # model_source = '../models/new_age2/20_320ab/_blank'
+# model_source = '../models/new_age2/20_320ab/hf_all/2.6297344118356705'
+# model_dest = '../models/new_age2/20_320ab/hf_all'
+# # # dropout_rate = 0.2
+# # # filter = 'groups(0);obj(result:1)(minElo:2400)'
+# # filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+# lr_multiplier = 2
+# make_trainable = True
+# gpu = True
+
+
+# model_source = '../models/new/c16to512AndBack/_blank'
+model_source = '../models/hf/c16to512AndBack/all/1.779046893119812_temp'
+model_dest = '../models/hf/c16to512AndBack/all'
+# dropout_rate = 0.2
+# filter = 'groups(0);obj(result:1)(minElo:2400)'
+# filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
+lr_multiplier = 0.2
+make_trainable = True
+gpu = True
 
 initial_batch_size = 256
 fixed_lr = 0.0001

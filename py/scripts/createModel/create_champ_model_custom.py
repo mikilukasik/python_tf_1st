@@ -20,23 +20,27 @@ from utils.save_model import save_model
 # model_name = '../models/plain_c20x2x6_d1212_bnorm_l2-4/_blank'
 
 
-model = create_champ_model(filter_nums=[16, 32, 64, 128, 256, 128, 64, 32],
+model = create_champ_model(filter_nums=[20, 40, 80, 160, 320,  160, 80, 40, 20],
                            layers_per_conv_block=2,
                            # [512, 1024],  # [512, 1024],
-                           dense_units=[512, 1024, 512],
+                           dense_units=[],
                            layers_per_dense_block=1,
 
                            #  dropout_rate=0.15,
 
                            kernel_sizes=[3],
-                           #  dropout_between_conv=False,
+                           #  dropout_between_conv=True,
                            batch_normalization=True,
                            #  l2_reg=0.00001,
                            input_to_all_conv=True,
-                           add_skip_connections=True
+                           add_skip_connections=True,
+                           #  conv_activation='elu',
+                           #  dense_activation='relu',
+                           #  use_bottleneck=True
+                           #  last_conv_to_output=True,
                            )
-# model_name = '../models/new/S_c16x2x5_bnorm_skip/_blank'
-model_name = '../models/new/c16-256-32_d5-10-5/_blank'
+
+model_name = '../models/new_age2/20_320ab/_blank'
 
 model.summary()
 save_model(model, model_name)

@@ -1,7 +1,7 @@
 import time
 from datasets import load_dataset
 
-lines_to_get = 1000
+lines_to_get = 25000
 
 # Start timer
 start_time = time.time()
@@ -35,7 +35,8 @@ loop_start_time = time.time()
 # Repeat for each print statement
 for _ in range(lines_to_get):
     start_time = time.time()
-    print(next(iterable))
-    print("Time for this operation:", time.time() - start_time)
+    a = next(iterable)
+    # print(next(iterable))
+    # print("Time for this operation:", time.time() - start_time)
 
 print("Total time for ", lines_to_get, " lines:", time.time() - loop_start_time)
