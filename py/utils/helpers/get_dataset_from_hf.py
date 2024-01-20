@@ -104,7 +104,6 @@ class ChessDataset:
         print("board states cache length:", len(board_states_deque))
         return csv
 
-
 # # Example usage
 # chess_dataset = ChessDataset()
 # for line in chess_dataset.get_dataset(25000):

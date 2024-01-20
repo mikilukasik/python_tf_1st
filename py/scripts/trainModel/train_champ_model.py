@@ -442,12 +442,12 @@ evaluate = False
 
 
 # model_source = '../models/new/c16to512AndBack/_blank'
-model_source = '../models/hf/c16to512AndBack/all/1.779046893119812_temp'
+model_source = '../models/hf/c16to512AndBack/all/1.6808820962905884_best'
 model_dest = '../models/hf/c16to512AndBack/all'
 # dropout_rate = 0.2
 # filter = 'groups(0);obj(result:1)(minElo:2400)'
 # filter = 'groups(1234);obj(result:1,willHit:1)(minElo:2300,result:1)(minElo:2400)'
-lr_multiplier = 0.2
+lr_multiplier = 0.07
 make_trainable = True
 gpu = True
 
