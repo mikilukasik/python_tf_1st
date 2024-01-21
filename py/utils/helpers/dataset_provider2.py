@@ -6,11 +6,11 @@ from keras.utils import to_categorical
 import logging
 import requests
 from . import prefetch
-# from .get_dataset_from_hf import ChessDataset
+from .get_dataset_from_hf import ChessDataset
 from ..print_large import print_large
 import io
 import sys
-# chess_dataset = ChessDataset()
+chess_dataset = ChessDataset()
 
 
 class DatasetProvider:
@@ -47,12 +47,14 @@ class DatasetProvider:
             try:
                 start_time = time.monotonic()
                 print('calling API')
-                dataset_csv = pd.read_csv(
-                    "http://localhost:3910/dataset", header=None, na_values=[''])
-                dataset_csv.fillna(value=0, inplace=True)
+                # dataset_csv = pd.read_csv(
+                #     "http://localhost:3910/dataset", header=None, na_values=[''])
+                # dataset_csv.fillna(value=0, inplace=True)
 
-                # dataset_csv = pd.read_csv(io.StringIO(
-                #     chess_dataset.get_dataset_as_csv(100000)), header=None)
+                dataset_csv = pd.read_csv(io.StringIO(
+                    chess_dataset.get_dataset_as_csv(100000)), header=None)
+
+                dataset_csv.fillna(value=0, inplace=True)
 
                 # print(dataset_csv)
                 # sys.exit(0)

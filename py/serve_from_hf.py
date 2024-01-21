@@ -1,30 +1,42 @@
-# flask endpoint to serve dataset from huggingface
 import flask
+from flask_executor import Executor
 from threading import Thread
 from utils.helpers.get_dataset_from_hf import ChessDataset
-
-chess_dataset = ChessDataset()
-
+import gzip
+import io
 
 app = flask.Flask(__name__)
+executor = Executor(app)
+chess_dataset = ChessDataset(executor)
 
 
 @app.route('/dataset', methods=['GET'])
 def get_dataset():
-    # query might have limit, default it to 100000
-    limit = flask.request.args.get('limit')
-    if limit:
-        limit = int(limit)
-    else:
-        limit = 100000
+    limit = flask.request.args.get('limit', 100000)
+    limit = int(limit)
 
-    return chess_dataset.get_dataset_as_csv(limit)
+    print("limit:", limit)
+
+    csv_data = chess_dataset.get_dataset_as_csv(limit)
+
+    # Compress the CSV data
+    compressed_data = io.BytesIO()
+    with gzip.GzipFile(fileobj=compressed_data, mode='wb') as gz:
+        gz.write(csv_data.encode('utf-8'))
+
+    compressed_data.seek(0)
+
+    # Return the compressed data with appropriate headers
+    response = flask.make_response(compressed_data.getvalue())
+    # response.headers['Content-Disposition'] = 'attachment; filename=dataset.csv.gz'
+    response.headers['Content-Encoding'] = 'gzip'
+    # response.headers['Content-Type'] = 'application/octet-stream'
+    return response
 
 
 def run_app():
     app.run(port=3910, debug=True, use_reloader=False, host='0.0.0.0')
 
 
-# Start Flask app in a separate thread
 flask_thread = Thread(target=run_app)
 flask_thread.start()
