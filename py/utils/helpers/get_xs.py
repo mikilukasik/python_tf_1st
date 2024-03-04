@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 import chess
 import json
-
+import sys
 # Specify the path to your JSON file
 file_path = "./utils/helpers/movesToOneHotMapV2.json"
 
@@ -121,6 +121,22 @@ piece_map = {
     'P': 6, 'B': 7, 'N': 8, 'R': 9, 'Q': 10, 'K': 11
 }
 
+pieces2ArrayMap = {
+    'p': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'b': [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'n': [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    'r': [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    'q': [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    'k': [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    'P': [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+    'B': [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+    'N': [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+    'R': [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+    'Q': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    'K': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    '1': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+}
+
 
 def get_xs(board):
     xsAsArray = []
@@ -188,6 +204,29 @@ def get_xs_without_zeros(board):
 
     xsAsArray.extend([[*arr[i], 1/(lmf[i]), 1/(lmt[i])]
                      for i in range(64)])
+
+    return xsAsArray
+
+
+def get_xs_new(board):
+    xsAsArray = []
+
+    origLmt = board.lmt
+    origLmf = board.lmf
+
+    board_state, is_white_next = extract_board_and_turn(board)
+
+    if is_white_next:
+        board = board_state
+        lmf = origLmf
+        lmt = origLmt
+    else:
+        board = mirrorBoard(board_state)
+        lmf = mirrorFlatArray(origLmf)
+        lmt = mirrorFlatArray(origLmt)
+
+    for i in range(64):
+        xsAsArray.extend([*pieces2ArrayMap[board[i]], 1/(lmf[i]), 1/(lmt[i])])
 
     return xsAsArray
 

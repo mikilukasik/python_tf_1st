@@ -44,72 +44,52 @@ class DatasetProvider:
     def get_dataset(self, url, max_retries=50, retry_interval=5):
         retries = 0
         while retries < max_retries:
-            try:
-                start_time = time.monotonic()
-                print('calling API')
-                # dataset_csv = pd.read_csv(
-                #     "http://localhost:3910/dataset", header=None, na_values=[''])
-                # dataset_csv.fillna(value=0, inplace=True)
+            # try:
+            start_time = time.monotonic()
+            print('getting data...')
 
-                dataset_csv = pd.read_csv(io.StringIO(
-                    chess_dataset.get_dataset_as_csv(100000)), header=None)
+            # dataset_csv = pd.read_csv(io.StringIO(
+            #     chess_dataset.get_dataset_as_csv(100000)), header=None)
 
-                dataset_csv.fillna(value=0, inplace=True)
+            # dataset_csv.fillna(value=0, inplace=True)
 
-                # print(dataset_csv)
-                # sys.exit(0)
+            # dataset_features = np.array(
+            #     dataset_csv.drop(columns=[896]))
+            # dataset_labels = to_categorical(
+            #     dataset_csv[896], num_classes=1837)
 
-                if self.ys_format == '1966':
-                    # TODO: xs_format needs doing here
+            # datasetTensor = tf.data.Dataset.from_tensor_slices(
+            #     (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 14]), dataset_labels))
 
-                    dataset_features = np.array(
-                        dataset_csv.drop(columns=[896, 897, 898, 899]))
+            # Get dataset
+            dataset = chess_dataset.get_dataset_as_csv(
+                100000)
 
-                    class_labels_one_hot = to_categorical(
-                        dataset_csv[896], num_classes=1837)
+            # Extracting features (xs) and labels (ys)
+            features = [item['xs'] for item in dataset]
+            labels = [item['ys'] for item in dataset]
 
-                    from_labels_one_hot = to_categorical(
-                        dataset_csv[897], num_classes=64)
-                    to_labels_one_hot = to_categorical(
-                        dataset_csv[898], num_classes=64)
+            # Converting features and labels into numpy arrays
+            features_array = np.array(features)
+            labels_array = np.array(labels)
 
-                    dataset_labels = np.concatenate(
-                        [class_labels_one_hot, from_labels_one_hot, to_labels_one_hot, dataset_csv[899].values.reshape(-1, 1)], axis=1)
+            # One-hot encode the labels
+            labels_onehot = to_categorical(labels_array, num_classes=1837)
 
-                elif self.ys_format == 'is1stProgGroup' or self.ys_format == 'winner' or self.ys_format == 'chkmtOrStallEnding' or self.ys_format == 'nextBalance' or self.ys_format == 'bal8' or self.ys_format.startswith('nextBal'):
-                    dataset_features = np.array(
-                        dataset_csv.drop(columns=[896]))
-                    dataset_labels = dataset_csv[896]
-                elif self.ys_format == 'progressGroup5':
-                    dataset_features = np.array(
-                        dataset_csv.drop(columns=[896]))
-                    dataset_labels = to_categorical(
-                        dataset_csv[896], num_classes=5)
-                else:
-                    if self.xs_format == '39':
-                        dataset_features = np.array(
-                            dataset_csv.drop(columns=[2496]))
-                        dataset_labels = to_categorical(
-                            dataset_csv[2496], num_classes=1837)
-                    else:
-                        # print('pedig itt van', dataset_csv[896])
-                        dataset_features = np.array(
-                            dataset_csv.drop(columns=[896]))
-                        dataset_labels = to_categorical(
-                            dataset_csv[896], num_classes=1837)
+            # Creating a TensorFlow dataset
+            datasetTensor = tf.data.Dataset.from_tensor_slices(
+                (tf.reshape(tf.constant(features_array), [-1, 8, 8, 14]), labels_onehot))
 
-                datasetTensor = tf.data.Dataset.from_tensor_slices(
-                    (tf.reshape(tf.constant(dataset_features), [-1, 8, 8, 39 if self.xs_format == '39' else 14]), dataset_labels))
-                datasetTensor = datasetTensor.shuffle(
-                    100).batch(self.batch_size)
-                end_time = time.monotonic()
-                logging.info(
-                    f"http GET {end_time - start_time:.3f}s")
-                return datasetTensor
-            except Exception as e:
-                logging.warning(
-                    f"Error while getting data: {e}. Retrying in {retry_interval} seconds...")
-                retries += 1
-                time.sleep(retry_interval)
+            datasetTensor = datasetTensor.shuffle(
+                100).batch(self.batch_size)
+            end_time = time.monotonic()
+            logging.info(
+                f"http GET {end_time - start_time:.3f}s")
+            return datasetTensor
+            # except Exception as e:
+            #     logging.warning(
+            #         f"Error while getting data: {e}. Retrying in {retry_interval} seconds...")
+            #     retries += 1
+            #     time.sleep(retry_interval)
         logging.error(f"Failed to get data after {max_retries} retries.")
         return None

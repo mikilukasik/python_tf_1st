@@ -1,7 +1,7 @@
 import time
 from datasets import load_dataset
 from .board_with_lmft import get_board_with_lmft
-from .get_xs import get_xs_without_zeros, get_ys_index
+from .get_xs import get_xs_without_zeros, get_ys_index, get_xs_new
 from ..read_parquet_folder import read_parquet_folder
 from collections import deque
 import threading
@@ -57,13 +57,13 @@ def game_to_csvish(line_from_hf):
                     print("randomized cache")
                     cache_randomized = True
 
-        xs = get_xs_without_zeros(board)
+        xs = get_xs_new(board)
         ys_index = get_ys_index(board, move)
 
-        xs_as_string = ','.join(str(x) for inner in xs for x in inner)
-        ys_index_as_string = str(ys_index)
+        # xs_as_string = ','.join(str(x) for inner in xs for x in inner)
+        # ys_index_as_string = str(ys_index)
 
-        lines.append(xs_as_string + ',' + ys_index_as_string)
+        lines.append({'xs': xs, 'ys': ys_index})
 
         board.push_san(move)
 
@@ -147,9 +147,12 @@ class ChessDataset:
     def __init__(self):
         # Load dataset and create iterable upon initialization
         started = time.monotonic()
-        # self.dataset = load_dataset(
-        #     "laion/strategic_game_chess", 'en', streaming=True)["train"]
-        self.iterable = read_parquet_folder(SOURCE_FOLDER)
+        self.dataset = load_dataset(
+            "laion/strategic_game_chess", 'en', streaming=True)["train"]
+        self.iterable = iter(self.dataset)
+
+        # self.iterable = read_parquet_folder(SOURCE_FOLDER)
+
         self.counter = 0
         print("Time to load dataset:", time.monotonic() - started, "s")
 
@@ -188,10 +191,10 @@ class ChessDataset:
 
                     print("Processed", self.counter, "games yo")
         # Trim to the requested number of lines
-        csv = '\n'.join(lines[:lines_to_get])
+        # csv = '\n'.join(lines[:lines_to_get])
         print("Time to get", len(lines), "lines:",
               time.monotonic() - started, "s")
         print("skipped:", skipped)
         print("skip ratio:", skipped / (skipped + len(lines)))
         print("board states cache length:", len(board_states_deque))
-        return csv
+        return lines
