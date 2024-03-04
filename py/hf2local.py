@@ -4,8 +4,6 @@ from threading import Thread
 from utils.helpers.get_dataset_from_hf import ChessDataset
 
 chess_dataset = ChessDataset()
-
-
 app = flask.Flask(__name__)
 
 

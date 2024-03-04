@@ -1,13 +1,13 @@
 import flask
-from flask_executor import Executor
+# from flask_executor import Executor
 from threading import Thread
-from utils.helpers.get_dataset_from_hf import ChessDataset
+from utils.helpers.get_dataset_from_hf_st import ChessDataset
 import gzip
 import io
 
 app = flask.Flask(__name__)
-executor = Executor(app)
-chess_dataset = ChessDataset(executor)
+# executor = Executor(app)
+chess_dataset = ChessDataset()
 
 
 @app.route('/dataset', methods=['GET'])

@@ -23,9 +23,9 @@ cache_randomized = False
 skipped = 0
 
 
-def game_to_csvish(line_from_hf):
+def game_to_csv(line_from_hf):
     global skipped, cache_randomized, board_states_set, board_states_deque
-    lines = []
+    lines = []  # List of lines as strings for the csv. comma separated xs values and then a single y index
 
     board = get_board_with_lmft()
     for move in line_from_hf['Moves']:
@@ -70,72 +70,12 @@ def game_to_csvish(line_from_hf):
     return lines
 
 
-def fen_to_4bit_encoding(fen):
-    piece_encoding = {
-        'p': 0b0001, 'n': 0b0010, 'b': 0b0011, 'r': 0b0100, 'q': 0b0101, 'k': 0b0110,
-        'P': 0b0111, 'N': 0b1000, 'B': 0b1001, 'R': 0b1010, 'Q': 0b1011, 'K': 0b1100,
-        '1': 0b0000  # Representing an empty square
-    }
-    board_state = fen.split()[0]  # Extract the piece placement part of the FEN
-    encoded_state = []
-
-    for rank in board_state.split('/'):
-        for char in rank:
-            if char.isdigit():  # Repeat empty square encoding
-                encoded_state.extend([piece_encoding['1']] * int(char))
-            else:
-                encoded_state.append(piece_encoding[char])
-
-    # Convert the list of 4-bit values to a binary string or byte array
-    # Assuming you want a byte array representation
-    byte_array = bytearray()
-    for i in range(0, len(encoded_state), 2):
-        byte = (encoded_state[i] << 4) | encoded_state[i + 1]
-        byte_array.append(byte)
-
-    return byte_array
-
-
-# # Example usage
-# fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
-# encoded_state = fen_to_4bit_encoding(fen)
-
-
-def game_to_moves(line_from_hf):
-    global skipped, cache_randomized, board_states_set, board_states_deque
-    lines = []  # List of lines as strings for the csv. comma separated xs values and then a single y index
-
-    board = get_board_with_lmft()
-    moves = line_from_hf['Moves']
-    total_moves = len(moves)
-
-    # Using enumerate to get move index
-    for move_index, move in enumerate(moves):
-        split_fen = board.fen().split(' ')
-        board_state = split_fen[0]
-        darks_turn = split_fen[1] == 'b'
-
-        state = fen_to_4bit_encoding(board_state)
-        lmf = board.lmf
-        lmt = board.lmt
-        ys = get_ys_index(board, move)
-
-        if darks_turn:
-            state, lmf, lmt, ys = flip(state, lmf, lmt, ys)
-
-        lines.append((state, lmf, lmt,
-                     ys, move_index, total_moves))
-
-        board.push_san(move)
-
-    return lines
-
-
 def process_chunk(chunk):
+    global board_states_set, board_states_deque
     lines = []
     for line_from_hf in chunk:
         try:
-            lines += game_to_csvish(line_from_hf)
+            lines += game_to_csv(line_from_hf)
         except StopIteration:
             continue  # Ignore StopIteration and continue with the next line
     return lines
@@ -160,38 +100,62 @@ class ChessDataset:
         started = time.monotonic()
         lines = []
 
-        with ChessDataset._lock:
+        # with ChessDataset._lock:
+        #     while len(lines) < lines_to_get:
+        #         with ThreadPoolExecutor(max_workers=num_threads) as executor:
+        #             # Fetch batches of games for processing (30 games per thread)
+        #             game_batches = []
+        #             for _ in range(num_threads):
+        #                 batch = [next(self.iterable, None) for _ in range(30)]
+        #                 batch = [game for game in batch if game is not None]
+        #                 self.counter += len(batch)
+        #                 if batch:
+        #                     game_batches.append(batch)
+
+        #             if not game_batches:
+        #                 print("Reached end of dataset, restarting iterable")
+        #                 # Reset the dataset iterator
+        #                 self.iterable = iter(self.dataset)
+        #                 continue
+
+        #             # Process each batch in a separate thread
+        #             futures = [executor.submit(process_chunk, batch)
+        #                        for batch in game_batches]
+        #             for future in as_completed(futures):
+        #                 chunk_lines = future.result()
+        #                 lines += chunk_lines
+
+        #                 if len(lines) >= lines_to_get:
+        #                     break  # Stop if enough lines are generated
+
+        #             print("Processed", self.counter, "games")
+        # # Trim to the requested number of lines
+        # csv = '\n'.join(lines[:lines_to_get])
+        # print("Time to get", len(lines), "lines:",
+        #       time.monotonic() - started, "s")
+        # print("skipped:", skipped)
+        # print("skip ratio:", skipped / (skipped + len(lines)))
+        # print("board states cache length:", len(board_states_deque))
+        # return csv
+
+        with ChessDataset._lock:  # Acquire the lock
             while len(lines) < lines_to_get:
-                with ThreadPoolExecutor(max_workers=num_threads) as executor:
-                    # Fetch batches of games for processing (30 games per thread)
-                    game_batches = []
-                    for _ in range(num_threads):
-                        batch = [next(self.iterable, None) for _ in range(30)]
-                        batch = [game for game in batch if game is not None]
-                        self.counter += len(batch)
-                        if batch:
-                            game_batches.append(batch)
+                try:
+                    lines += game_to_csv(next(self.iterable))
+                except StopIteration:
+                    print("Reached end of dataset, restarting iterable")
+                    self.iterable = iter(self.dataset)
 
-                    if not game_batches:
-                        # Break if no more games are available
-                        break
-
-                    # Process each batch in a separate thread
-                    futures = [executor.submit(process_chunk, batch)
-                               for batch in game_batches]
-                    for future in as_completed(futures):
-                        chunk_lines = future.result()
-                        lines += chunk_lines
-
-                        if len(lines) >= lines_to_get:
-                            break  # Stop if enough lines are generated
-
-                    print("Processed", self.counter, "games yo")
-        # Trim to the requested number of lines
-        csv = '\n'.join(lines[:lines_to_get])
+        csv = '\n'.join(lines)
         print("Time to get", len(lines), "lines:",
               time.monotonic() - started, "s")
         print("skipped:", skipped)
         print("skip ratio:", skipped / (skipped + len(lines)))
+
         print("board states cache length:", len(board_states_deque))
         return csv
+
+# # Example usage
+# chess_dataset = ChessDataset()
+# for line in chess_dataset.get_dataset(25000):
+#     print(line)

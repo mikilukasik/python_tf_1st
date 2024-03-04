@@ -6,3 +6,5 @@ lambda/my-deployment-package.zip
 lambda/champ/model.json
 lambda/champ/weights.h5
 py/path_to_root_folder
+
+__try_this
